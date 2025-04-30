@@ -1,5 +1,3 @@
-OLD
-
 # vite-plaster-calculator
 
 The Plaster Calculator allows you enter the dimensions of a solid shape, and then calculates the volume of that shape as well as the approximate amount of plaster and water required using common plaster mixing formulas.
