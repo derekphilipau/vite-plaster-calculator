@@ -1,5 +1,7 @@
 import Calculator from "@/components/Calculator";
 import LocaleSwitcher from "@/components/LocaleSwitcher";
+import Notes from "@/components/Notes";
+import Footer from "@/components/Footer";
 
 export default function App() {
   return (
@@ -10,6 +12,10 @@ export default function App() {
       </h1>
 
       <Calculator />
+
+      <Notes />
+
+      <Footer />
     </main>
   );
 }
