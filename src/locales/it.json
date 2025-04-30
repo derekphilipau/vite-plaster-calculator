@@ -14,6 +14,15 @@
     "TUBE": "Tubo",
     "SPHERE": "Sfera"
   },
+  "ResultsDisplay": {
+    "keith": "Keith Simpson",
+    "usg": "USG",
+    "andrew": "Andrew Martin",
+    "bivins": "Bivins / Campana",
+    "derek": "Derek Au (esp)",
+    "water": "Acqua",
+    "plaster": "Gesso"
+  },
   "Notes": {
     "title": "Note",
     "intro": "Utilizzando il volume di un solido, il Calcolatore di Gesso permette di stimare quanto gesso e acqua sono necessari.",

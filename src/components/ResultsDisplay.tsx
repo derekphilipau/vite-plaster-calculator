@@ -9,6 +9,7 @@ import {
   cm3ToIn3,
   in3ToFt3,
 } from "@/utils/plaster";
+import { useTranslation } from "react-i18next";
 
 interface Props {
   volume: number;
@@ -22,6 +23,7 @@ export default function ResultsDisplay({
   consistency,
   precision = 2,
 }: Props) {
+  const { t } = useTranslation();
   if (!volume) return null;
 
   const volIn3 = units === "in" ? volume : cm3ToIn3(volume);
@@ -51,38 +53,40 @@ export default function ResultsDisplay({
     });
 
   return (
-    <section className="grid gap-6 w-full max-w-xl">
-      <Card title="Keith Simpson">
-        <Row label="Water">{fmt(keithWaterG, 0)} g</Row>
-        <Row label="Plaster">{fmt(keithPlasterG, 0)} g</Row>
+    <section className="grid gap-6 w-full">
+      <Card title={t("ResultsDisplay.keith")}>
+        <Row label={t("ResultsDisplay.water")}>{fmt(keithWaterG, 0)} g</Row>
+        <Row label={t("ResultsDisplay.plaster")}>{fmt(keithPlasterG, 0)} g</Row>
       </Card>
 
-      <Card title="USG">
-        <Row label="Water">
+      <Card title={t("ResultsDisplay.usg")}>
+        <Row label={t("ResultsDisplay.water")}>
           {fmt(usgWaterLb)} lb ({fmt(poundsToGrams(usgWaterLb))} g)
         </Row>
-        <Row label="Plaster">
+        <Row label={t("ResultsDisplay.plaster")}>
           {fmt(usgPlasterLb)} lb ({fmt(poundsToGrams(usgPlasterLb))} g)
         </Row>
       </Card>
 
-      <Card title="Andrew Martin">
-        <Row label="Water">
+      <Card title={t("ResultsDisplay.andrew")}>
+        <Row label={t("ResultsDisplay.water")}>
           {fmt(andrewWaterQt)} qt ({fmt(quartsToGrams(andrewWaterQt))} g)
         </Row>
-        <Row label="Plaster">
+        <Row label={t("ResultsDisplay.plaster")}>
           {fmt(andrewPlasterLb)} lb ({fmt(poundsToGrams(andrewPlasterLb))} g)
         </Row>
       </Card>
 
-      <Card title="Bivins / Campana">
-        <Row label="Water">{fmt(campanaWaterG, 0)} g</Row>
-        <Row label="Plaster">{fmt(campanaPlasterG, 0)} g</Row>
+      <Card title={t("ResultsDisplay.bivins")}>
+        <Row label={t("ResultsDisplay.water")}>{fmt(campanaWaterG, 0)} g</Row>
+        <Row label={t("ResultsDisplay.plaster")}>
+          {fmt(campanaPlasterG, 0)} g
+        </Row>
       </Card>
 
-      <Card title="Derek Au (exp)">
-        <Row label="Water">{fmt(derekWaterG, 0)} g</Row>
-        <Row label="Plaster">{fmt(derekPlasterG, 0)} g</Row>
+      <Card title={t("ResultsDisplay.derek")}>
+        <Row label={t("ResultsDisplay.water")}>{fmt(derekWaterG, 0)} g</Row>
+        <Row label={t("ResultsDisplay.plaster")}>{fmt(derekPlasterG, 0)} g</Row>
       </Card>
     </section>
   );

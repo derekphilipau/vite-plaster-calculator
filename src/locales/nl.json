@@ -14,6 +14,15 @@
     "TUBE": "Buis",
     "SPHERE": "Bol"
   },
+  "ResultsDisplay": {
+    "keith": "Keith Simpson",
+    "usg": "USG",
+    "andrew": "Andrew Martin",
+    "bivins": "Bivins / Campana",
+    "derek": "Derek Au (exp)",
+    "water": "Water",
+    "plaster": "Gips"
+  },
   "Notes": {
     "title": "Opmerkingen",
     "intro": "Met behulp van het volume van een object kan de Gipsberekening een schatting maken van hoeveel gips en water er nodig is.",
