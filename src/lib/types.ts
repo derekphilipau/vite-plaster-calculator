@@ -1,4 +1,5 @@
-export type Shape = "cube" | "sphere" | "cylinder" | "cone" | "tube";
+import { Shapes } from "./shapes";
+export type Shape = keyof typeof Shapes;
 
 export interface Dimensions {
   length?: number;

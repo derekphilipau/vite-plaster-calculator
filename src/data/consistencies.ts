@@ -110,7 +110,7 @@ export const CONSISTENCIES = [
     consistency: "70",
   },
   {
-    id: "gp-k-58",
+    id: "gp-k-59",
     value: 68,
     label: "GP K-59 Pottery Plaster",
     consistency: "68-70",

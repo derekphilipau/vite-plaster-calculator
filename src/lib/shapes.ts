@@ -7,5 +7,3 @@ export enum Shapes {
   TUBE = "TUBE",
   SPHERE = "SPHERE",
 }
-
-export type Shape = keyof typeof Shapes;
