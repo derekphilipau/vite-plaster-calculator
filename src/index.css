@@ -4,6 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @config "../tailwind.config.js";
+@plugin "@tailwindcss/typography";
 
 @tailwind base;
 @tailwind components;

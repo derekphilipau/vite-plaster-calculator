@@ -13,5 +13,12 @@
     "CYLINDER": "Cilindro",
     "TUBE": "Tubo",
     "SPHERE": "Esfera"
+  },
+  "Notes": {
+    "title": "Notas",
+    "intro": "Utilizando el volumen de un sólido, la Calculadora de Yeso le permite estimar cuánto yeso y agua se necesita.",
+    "consistency": "<em>La consistencia del yeso</em> es la proporción de agua a yeso expresada como partes de agua por cada 100 partes de yeso. Una consistencia de 70 significa que necesitará 70 partes de agua por cada 100 partes de yeso. La consistencia afecta la dureza del yeso. Las consistencias más altas tienen más agua y son más blandas, las consistencias más bajas tienen menos agua y son más duras.",
+    "disclaimer": "Cada marca de yeso tiene un uso y consistencia recomendados. Los yesos comunes para cerámica para moldes de colada y prensado, placas y mesas de amasado tienen consistencias medias de 67-70. (Esto incluye el Yeso para Cerámica GP K60 y USG #1 Pottery.)",
+    "links": "Enlaces"
   }
 }

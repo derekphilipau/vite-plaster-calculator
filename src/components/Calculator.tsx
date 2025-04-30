@@ -3,6 +3,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import ResultsDisplay from "./ResultsDisplay";
+import Notes from "./Notes";
 import { VolumeCalculator } from "./VolumeCalculator";
 import ConsistencyCombobox from "@/components/ConsistencyCombobox";
 import { useState, useEffect } from "react";
@@ -20,7 +21,7 @@ export default function Calculator() {
     localeDefault
   );
   const [consistency, setConsistency] = useState<number>(70);
-  const [shapeVolume, setShapeVolume] = useState<number | null>(null);
+  const [shapeVolume, setShapeVolume] = useState<number>(0);
   const [manualVolume, setManualVolume] = useState<string>("");
 
   // when the user changes language at runtime, update the unit radio
@@ -56,25 +57,31 @@ export default function Calculator() {
         }}
       />
 
-      <div>
-        <div className="flex items-center gap-4 w-full">
-          <Label htmlFor="vol" className="text-sm font-medium leading-none">
-            {t("Calculator.volume")}
-          </Label>
-          <Input
-            id="vol"
-            type="number"
-            className="w-32"
-            value={manualVolume}
-            onChange={(e) => setManualVolume(e.target.value)}
-            aria-label={`Volume in ${selectedUnits}³`}
-          />
-          <span className="text-sm">
-            {selectedUnits}
-            <sup>3</sup>
-          </span>
+      <div className="flex flex-col items-center space-y-2 w-full">
+        <div>
+          <div className="flex items-center gap-4 w-full">
+            <Label htmlFor="vol" className="text-sm font-medium leading-none">
+              {t("Calculator.volume")}
+            </Label>
+            <Input
+              id="vol"
+              type="number"
+              className="w-32"
+              value={manualVolume}
+              onChange={(e) => setManualVolume(e.target.value)}
+              aria-label={`Volume in ${selectedUnits}³`}
+            />
+            <span className="text-sm">
+              {selectedUnits}
+              <sup>3</sup>
+            </span>
+          </div>
         </div>
-        {echo && <small className="text-muted-foreground -mt-2">{echo}</small>}
+        {echo && (
+          <div>
+            <small className="text-muted-foreground -mt-2">{echo}</small>
+          </div>
+        )}
       </div>
 
       <div className="">
@@ -121,6 +128,8 @@ export default function Calculator() {
         units={selectedUnits}
         consistency={consistency}
       />
+
+      <Notes volume={volume} units={selectedUnits} consistency={consistency} />
     </div>
   );
 }

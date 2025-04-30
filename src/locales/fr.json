@@ -13,5 +13,12 @@
     "CYLINDER": "Cylindre",
     "TUBE": "Tube",
     "SPHERE": "Sphère"
+  },
+  "Notes": {
+    "title": "Notes",
+    "intro": "En utilisant le volume d'un solide, la Calculatrice de Plâtre vous permet d'estimer la quantité de plâtre et d'eau nécessaire.",
+    "consistency": "<em>La consistance du plâtre</em> est le rapport eau-plâtre exprimé en parties d'eau pour 100 parties de plâtre. Une consistance de 70 signifie que vous aurez besoin de 70 parties d'eau pour 100 parties de plâtre. La consistance affecte la dureté du plâtre. Les consistances plus élevées contiennent plus d'eau et sont plus souples, les consistances plus basses contiennent moins d'eau et sont plus dures.",
+    "disclaimer": "Chaque marque de plâtre a une utilisation et une consistance recommandées. Les plâtres de poterie courants pour les moules de coulage et de pressage, les plaques et les tables de malaxage ont des consistances moyennes de 67-70. (Cela inclut le Plâtre de Poterie GP K60 et USG #1 Pottery.)",
+    "links": "Liens"
   }
 }

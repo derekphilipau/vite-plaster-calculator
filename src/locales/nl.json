@@ -13,5 +13,12 @@
     "CYLINDER": "Cilinder",
     "TUBE": "Buis",
     "SPHERE": "Bol"
+  },
+  "Notes": {
+    "title": "Opmerkingen",
+    "intro": "Met behulp van het volume van een object kan de Gipsberekening een schatting maken van hoeveel gips en water er nodig is.",
+    "consistency": "<em>Gipsconsistentie</em> is de verhouding water-gips uitgedrukt in delen water per 100 delen gips. Een consistentie van 70 betekent dat je 70 delen water nodig hebt voor 100 delen gips. Consistentie beïnvloedt de hardheid van het gips. Hogere consistenties hebben meer water en zijn zachter, lagere consistenties hebben minder water en zijn harder.",
+    "disclaimer": "Elk merk gips heeft een aanbevolen gebruik en consistentie. Gangbare pottenbakkersgips voor slip- en persvormen, platen en kneedtafels hebben gemiddelde consistenties van 67-70. (Dit omvat GP K60 Pottery Plaster en USG #1 Pottery.)",
+    "links": "Links"
   }
 }

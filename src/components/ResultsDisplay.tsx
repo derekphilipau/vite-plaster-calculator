@@ -2,8 +2,8 @@
 import {
   poundsToGrams,
   quartsToGrams,
-  keithWater,
-  derekPlasterPerCm3,
+  keithWaterGrams,
+  derekPlasterGrams,
   usgRatio,
   in3ToCm3,
   cm3ToIn3,
@@ -11,7 +11,7 @@ import {
 } from "@/utils/plaster";
 
 interface Props {
-  volume: number | null;
+  volume: number;
   units: "in" | "cm";
   consistency: number;
   precision?: number;
@@ -28,7 +28,7 @@ export default function ResultsDisplay({
   const volCm3 = units === "cm" ? volume : in3ToCm3(volume);
   const volFt3 = in3ToFt3(volIn3);
 
-  const keithWaterG = keithWater(volIn3);
+  const keithWaterG = keithWaterGrams(volIn3);
   const keithPlasterG = keithWaterG * (100 / consistency);
 
   const usgPlasterLb = usgRatio(consistency) * volFt3;
@@ -41,7 +41,7 @@ export default function ResultsDisplay({
   const campanaPlasterG = campanaWaterG * (100 / consistency);
 
   // Derek Au (tested at 70 consistency)
-  const derekPlasterG = volCm3 * derekPlasterPerCm3;
+  const derekPlasterG = derekPlasterGrams(volCm3);
   const derekWaterG = (derekPlasterG * consistency) / 100;
 
   const fmt = (n: number, p = precision) =>

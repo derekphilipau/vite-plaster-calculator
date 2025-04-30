@@ -13,5 +13,12 @@
     "CYLINDER": "Cilindro",
     "TUBE": "Tubo",
     "SPHERE": "Sfera"
+  },
+  "Notes": {
+    "title": "Note",
+    "intro": "Utilizzando il volume di un solido, il Calcolatore di Gesso permette di stimare quanto gesso e acqua sono necessari.",
+    "consistency": "<em>La consistenza del gesso</em> è il rapporto acqua-gesso espresso come parti di acqua per 100 parti di gesso. Una consistenza di 70 significa che avrete bisogno di 70 parti di acqua per 100 parti di gesso. La consistenza influisce sulla durezza del gesso. Consistenze più elevate hanno più acqua e sono più morbide, consistenze più basse hanno meno acqua e sono più dure.",
+    "disclaimer": "Ogni marca di gesso ha un uso e una consistenza raccomandati. I gessi comuni per ceramica per stampi a colata e pressione, batterie e tavoli per impastare hanno consistenze medie di 67-70. (Questo include GP K60 Pottery Plaster e USG #1 Pottery.)",
+    "links": "Collegamenti"
   }
 }
