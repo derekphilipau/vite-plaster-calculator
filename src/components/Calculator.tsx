@@ -86,8 +86,8 @@ export default function Calculator() {
 
       <div className="">
         <RadioGroup
-          defaultValue={selectedUnits}
-          onValueChange={(value) => setSelectedUnits(value)}
+          value={selectedUnits}
+          onValueChange={(value) => setSelectedUnits(value as "in" | "cm")}
           className="flex gap-4"
         >
           <div className="flex items-center space-x-2">

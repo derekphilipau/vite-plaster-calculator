@@ -269,15 +269,14 @@ export default function Notes({
 
       <div>
         <h2>{t("Notes.links")}</h2>
+        <h3>USG</h3>
         <p>
-          USG:
           <a href="https://plaster.com/product-comparison-chart/">
             Plaster Chart
           </a>
-          ,<a href="https://plaster.com/videos/">Videos</a>
+          , <a href="https://plaster.com/videos/">Videos</a>
         </p>
         <p>
-          USG Links:
           <a href="https://www.usg.com/content/usgcom/en/products/industrial/tool-prototype-casting/hydroperm-metal-casting-plaster.html">
             Hydroperm® Metal Casting Plaster
           </a>
@@ -334,14 +333,14 @@ export default function Notes({
             USG Hydro-Stone® Super X
           </a>
         </p>
+        <h3>Georgia Pacific Plasters</h3>
         <p>
-          Georgia Pacific Plasters:
           <a href="http://gpindustrialplasters.com/pottery-plaster/">
             Plaster Chart
           </a>
         </p>
+        <h3>Saint-Gobain Formula Plasters</h3>
         <p>
-          Saint-Gobain Formula Plasters:
           <a href="https://www.saintgobainformula.com/product/crystacal-r">
             Crystacal R
           </a>

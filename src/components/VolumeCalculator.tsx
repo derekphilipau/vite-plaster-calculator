@@ -80,8 +80,8 @@ export function VolumeCalculator({
   };
 
   return (
-    <div className="flex flex-col gap-6 items-center w-full">
-      <div className="flex flex-wrap justify-center gap-3 w-full">
+    <div className="flex flex-col gap-2 items-center w-full">
+      <div className="flex flex-wrap justify-center gap-2 w-full">
         {Object.entries(Shapes).map(([key, shape]) => {
           const ShapeComponent = SHAPE_COMPONENTS[shape];
           return (
@@ -89,14 +89,14 @@ export function VolumeCalculator({
               key={shape}
               onClick={() => setSelectedShape(shape)}
               type="button"
-              className="size-18 md:size-24 p-1 bg-transparent border-none outline-none cursor-pointer"
+              className="size-16 md:size-20 p-1 bg-transparent border-none outline-none cursor-pointer"
             >
               <ShapeComponent
                 className={cn(
                   "w-full h-full transition-colors",
                   selectedShape === shape
-                    ? "text-primary"
-                    : "text-muted-foreground hover:text-primary"
+                    ? "text-highlight"
+                    : "hover:text-highlight"
                 )}
               />
             </button>
@@ -104,15 +104,15 @@ export function VolumeCalculator({
         })}
       </div>
 
-      <div>
-        <h3 className="text-xl">{t(`VolumeCalculator.${selectedShape}`)}</h3>
-      </div>
-
       <div className="w-full flex items-center justify-center">
         {(() => {
           const ShapeComponent = SHAPE_COMPONENTS[selectedShape];
-          return <ShapeComponent className="w-36" />;
+          return <ShapeComponent className="h-32" />;
         })()}
+      </div>
+
+      <div>
+        <h3 className="text-xl">{t(`VolumeCalculator.${selectedShape}`)}</h3>
       </div>
 
       {renderShapeInputs()}
