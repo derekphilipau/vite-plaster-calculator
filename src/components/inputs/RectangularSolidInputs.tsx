@@ -1,0 +1,160 @@
+import { useState } from "react";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+
+function calculateRectangularVolume(
+  length: number,
+  width: number,
+  height: number
+): number {
+  return length * width * height;
+}
+
+interface RectangularSolidInputProps {
+  selectedUnits: string;
+  onVolumeChange: (volume: number | null) => void;
+  precision?: number;
+}
+
+export function RectangularSolidInputs({
+  selectedUnits,
+  onVolumeChange,
+  precision = 2,
+}: RectangularSolidInputProps) {
+  const [dimensions, setDimensions] = useState<{
+    length: string;
+    width: string;
+    height: string;
+  }>({ length: "", width: "", height: "" });
+  const [volume, setVolume] = useState<number | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  function handleDimensionChange(
+    dimension: "length" | "width" | "height",
+    value: string
+  ) {
+    const newDimensions = { ...dimensions, [dimension]: value };
+    setDimensions(newDimensions);
+    setError(null);
+
+    const length = Number(newDimensions.length);
+    const width = Number(newDimensions.width);
+    const height = Number(newDimensions.height);
+
+    if (
+      !newDimensions.length ||
+      !newDimensions.width ||
+      !newDimensions.height
+    ) {
+      onVolumeChange(null);
+      setVolume(null);
+      return;
+    }
+
+    if (length <= 0 || width <= 0 || height <= 0) {
+      setError("Dimensions must be greater than 0");
+      onVolumeChange(null);
+      setVolume(null);
+      return;
+    }
+
+    const calculatedVolume = calculateRectangularVolume(length, width, height);
+    setVolume(calculatedVolume);
+    onVolumeChange(calculatedVolume);
+  }
+
+  return (
+    <form
+      className="flex flex-col space-y-2"
+      onSubmit={(e) => e.preventDefault()}
+    >
+      <div className="flex items-center gap-4 w-full">
+        <Label
+          htmlFor="length"
+          className="grow min-w-20 text-sm font-medium leading-none"
+        >
+          Length (l)
+        </Label>
+        <Input
+          className="max-w-24"
+          id="length"
+          type="number"
+          value={dimensions.length}
+          onChange={(e) => handleDimensionChange("length", e.target.value)}
+          min="0"
+          step="any"
+          aria-label={`Length in ${selectedUnits}`}
+        />
+        <span className="min-w-12 text-sm text-muted-foreground">
+          {selectedUnits}
+        </span>
+      </div>
+
+      <div className="flex items-center gap-4 w-full">
+        <Label
+          htmlFor="width"
+          className="grow min-w-20 text-sm font-medium leading-none"
+        >
+          Width (w)
+        </Label>
+        <Input
+          className="max-w-24"
+          id="width"
+          type="number"
+          value={dimensions.width ?? ""}
+          onChange={(e) => handleDimensionChange("width", e.target.value)}
+          min="0"
+          step="any"
+          aria-label={`Width in ${selectedUnits}`}
+        />
+        <span className="min-w-12 text-sm text-muted-foreground">
+          {selectedUnits}
+        </span>
+      </div>
+
+      <div className="flex items-center gap-4 w-full">
+        <Label
+          htmlFor="height"
+          className="grow min-w-20 text-sm font-medium leading-none"
+        >
+          Height (h)
+        </Label>
+        <Input
+          className="max-w-24"
+          id="height"
+          type="number"
+          value={dimensions.height ?? ""}
+          onChange={(e) => handleDimensionChange("height", e.target.value)}
+          min="0"
+          step="any"
+          aria-label={`Height in ${selectedUnits}`}
+        />
+        <span className="min-w-12 text-sm text-muted-foreground">
+          {selectedUnits}
+        </span>
+      </div>
+
+      {error && (
+        <p className="text-sm text-destructive" role="alert">
+          {error}
+        </p>
+      )}
+
+      {!error && volume !== null && volume > 0 && (
+        <p
+          className="py-4"
+          role="status"
+          aria-live="polite"
+          aria-label={`Volume equals length times width times height. With values: ${dimensions.length} times ${dimensions.width} times ${dimensions.height}, which equals ${volume.toFixed(precision)}`}
+        >
+          Volume ={" "}
+          <span aria-hidden="true">
+            l × w × h = {dimensions.length} × {dimensions.width} ×{" "}
+            {dimensions.height}
+          </span>{" "}
+          = <strong>{volume.toFixed(precision)}</strong>
+        </p>
+      )}
+    </form>
+  );
+}
