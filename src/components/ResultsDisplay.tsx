@@ -3,6 +3,7 @@ import {
   poundsToGrams,
   quartsToGrams,
   keithWater,
+  derekPlasterPerCm3,
   usgRatio,
   in3ToCm3,
   cm3ToIn3,
@@ -39,6 +40,10 @@ export default function ResultsDisplay({
   const campanaWaterG = volCm3 * 0.6;
   const campanaPlasterG = campanaWaterG * (100 / consistency);
 
+  // Derek Au (tested at 70 consistency)
+  const derekPlasterG = volCm3 * derekPlasterPerCm3;
+  const derekWaterG = (derekPlasterG * consistency) / 100;
+
   const fmt = (n: number, p = precision) =>
     n.toLocaleString(undefined, {
       minimumFractionDigits: p,
@@ -73,6 +78,11 @@ export default function ResultsDisplay({
       <Card title="Bivins / Campana">
         <Row label="Water">{fmt(campanaWaterG, 0)} g</Row>
         <Row label="Plaster">{fmt(campanaPlasterG, 0)} g</Row>
+      </Card>
+
+      <Card title="Derek Au (exp)">
+        <Row label="Water">{fmt(derekWaterG, 0)} g</Row>
+        <Row label="Plaster">{fmt(derekPlasterG, 0)} g</Row>
       </Card>
     </section>
   );
