@@ -5,17 +5,28 @@ import { Input } from "@/components/ui/input";
 import ResultsDisplay from "./ResultsDisplay";
 import { VolumeCalculator } from "./VolumeCalculator";
 import ConsistencyCombobox from "@/components/ConsistencyCombobox";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { in3ToCm3, cm3ToIn3, in3ToFt3 } from "@/utils/plaster";
 
 export default function Calculator() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
-  const [selectedUnits, setSelectedUnits] = useState<"in" | "cm">("in");
+  const [precision] = useState(2);
+
+  // pick default by locale: English = inches, everywhere else = centimetres
+  const localeDefault: "in" | "cm" = /^en\b/i.test(i18n.language) ? "in" : "cm";
+  const [selectedUnits, setSelectedUnits] = useState<"in" | "cm">(
+    localeDefault
+  );
   const [consistency, setConsistency] = useState<number>(70);
   const [shapeVolume, setShapeVolume] = useState<number | null>(null);
   const [manualVolume, setManualVolume] = useState<string>("");
+
+  // when the user changes language at runtime, update the unit radio
+  useEffect(() => {
+    setSelectedUnits(/^en\b/i.test(i18n.language) ? "in" : "cm");
+  }, [i18n.language]);
 
   const volume =
     manualVolume.trim() !== "" ? Number(manualVolume) : shapeVolume;
@@ -73,12 +84,12 @@ export default function Calculator() {
           className="flex gap-4"
         >
           <div className="flex items-center space-x-2">
-            <RadioGroupItem value="in" id="unitsIn" />
-            <Label htmlFor="unitsIn">{t("Calculator.in")}</Label>
-          </div>
-          <div className="flex items-center space-x-2">
             <RadioGroupItem value="cm" id="unitsCm" />
             <Label htmlFor="unitsCm">{t("Calculator.cm")}</Label>
+          </div>
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value="in" id="unitsIn" />
+            <Label htmlFor="unitsIn">{t("Calculator.in")}</Label>
           </div>
         </RadioGroup>
       </div>

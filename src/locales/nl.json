@@ -1,0 +1,17 @@
+{
+  "Calculator": {
+    "in": "Inches",
+    "cm": "Centimeters",
+    "volume": "Berekend volume",
+    "manualConsistency": "Consistentie"
+  },
+  "VolumeCalculator": {
+    "CUBE": "Kubus",
+    "RECTANGULAR_SOLID": "Rechthoekig blok",
+    "CONE": "Kegel",
+    "CONICAL_FRUSTUM": "Afgeknotte kegel",
+    "CYLINDER": "Cilinder",
+    "TUBE": "Buis",
+    "SPHERE": "Bol"
+  }
+}

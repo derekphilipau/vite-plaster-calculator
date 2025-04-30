@@ -1,0 +1,17 @@
+{
+  "Calculator": {
+    "in": "Pollici",
+    "cm": "Centimetri",
+    "volume": "Volume calcolato",
+    "manualConsistency": "Consistenza"
+  },
+  "VolumeCalculator": {
+    "CUBE": "Cubo",
+    "RECTANGULAR_SOLID": "Solido rettangolare",
+    "CONE": "Cono",
+    "CONICAL_FRUSTUM": "Tronco di cono",
+    "CYLINDER": "Cilindro",
+    "TUBE": "Tubo",
+    "SPHERE": "Sfera"
+  }
+}

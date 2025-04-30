@@ -1,0 +1,17 @@
+{
+  "Calculator": {
+    "in": "英寸",
+    "cm": "厘米",
+    "volume": "计算体积",
+    "manualConsistency": "稠度"
+  },
+  "VolumeCalculator": {
+    "CUBE": "立方体",
+    "RECTANGULAR_SOLID": "长方体",
+    "CONE": "圆锥体",
+    "CONICAL_FRUSTUM": "圆台",
+    "CYLINDER": "圆柱体",
+    "TUBE": "管道",
+    "SPHERE": "球体"
+  }
+}
