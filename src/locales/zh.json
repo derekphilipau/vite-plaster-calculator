@@ -14,6 +14,7 @@
     "CYLINDER": "圆柱体",
     "TUBE": "圆管 (管形体)",
     "SPHERE": "球体",
+    "volume": "体积",
     "sideLength": "边长",
     "length": "长度",
     "width": "宽度",

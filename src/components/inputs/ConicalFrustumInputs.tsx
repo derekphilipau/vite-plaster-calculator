@@ -55,7 +55,10 @@ export function ConicalFrustumInputs({
   }
 
   return (
-    <form className="flex flex-col gap-2" onSubmit={(e) => e.preventDefault()}>
+    <form
+      className="flex flex-col items-center gap-2"
+      onSubmit={(e) => e.preventDefault()}
+    >
       <div className="flex items-center gap-4 w-full">
         <Label
           htmlFor="radius1"
@@ -130,20 +133,20 @@ export function ConicalFrustumInputs({
       )}
 
       {!error && volume !== null && volume > 0 && (
-        <p
-          className="py-4"
+        <div
+          className="text-sm text-muted-foreground"
           role="status"
           aria-live="polite"
           aria-label={`Volume equals one-third pi times height times the sum of radius 1 squared plus radius 1 times radius 2 plus radius 2 squared. With values: one-third pi times ${dimensions.height} times (${dimensions.radius1} squared plus ${dimensions.radius1} times ${dimensions.radius2} plus ${dimensions.radius2} squared), which equals ${formatNumber(volume)}`}
         >
-          Volume ={" "}
+          {t("VolumeCalculator.volume")} ={" "}
           <span aria-hidden="true">
             ⅓πh(r₁² + r₁r₂ + r₂²) = ⅓π×{dimensions.height}×({dimensions.radius1}
             ² + {dimensions.radius1}×{dimensions.radius2} + {dimensions.radius2}
             ²)
           </span>{" "}
           = <strong>{formatNumber(volume)}</strong>
-        </p>
+        </div>
       )}
     </form>
   );

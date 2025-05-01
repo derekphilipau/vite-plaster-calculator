@@ -56,7 +56,7 @@ export function RectangularSolidInputs({
 
   return (
     <form
-      className="flex flex-col space-y-2"
+      className="flex flex-col items-center gap-2"
       onSubmit={(e) => e.preventDefault()}
     >
       <div className="flex items-center gap-4 w-full">
@@ -133,19 +133,19 @@ export function RectangularSolidInputs({
       )}
 
       {!error && volume !== null && volume > 0 && (
-        <p
-          className="py-4"
+        <div
+          className="text-sm text-muted-foreground"
           role="status"
           aria-live="polite"
           aria-label={`Volume equals length times width times height. With values: ${dimensions.length} times ${dimensions.width} times ${dimensions.height}, which equals ${formatNumber(volume)}`}
         >
-          Volume ={" "}
+          {t("VolumeCalculator.volume")} ={" "}
           <span aria-hidden="true">
             l × w × h = {dimensions.length} × {dimensions.width} ×{" "}
             {dimensions.height}
           </span>{" "}
           = <strong>{formatNumber(volume)}</strong>
-        </p>
+        </div>
       )}
     </form>
   );

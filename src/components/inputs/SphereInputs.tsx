@@ -49,7 +49,7 @@ export function SphereInputs({
 
   return (
     <form
-      className="flex flex-col space-y-2"
+      className="flex flex-col items-center gap-2"
       onSubmit={(e) => e.preventDefault()}
     >
       <div className="flex items-center gap-4 w-full">
@@ -82,16 +82,16 @@ export function SphereInputs({
       )}
 
       {!error && volume !== null && volume > 0 && (
-        <p
-          className="py-4"
+        <div
+          className="text-sm text-muted-foreground"
           role="status"
           aria-live="polite"
           aria-label={`Volume equals four thirds pi times radius cubed. With value: four thirds pi times ${dimensions.radius} cubed, which equals ${formatNumber(volume)}`}
         >
-          Volume ={" "}
+          {t("VolumeCalculator.volume")} ={" "}
           <span aria-hidden="true">⁴⁄₃πr³ = ⁴⁄₃π×{dimensions.radius}³</span> ={" "}
           <strong>{formatNumber(volume)}</strong>
-        </p>
+        </div>
       )}
     </form>
   );

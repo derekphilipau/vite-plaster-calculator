@@ -45,7 +45,10 @@ export function CubeInputs({ selectedUnits, onVolumeChange }: CubeInputProps) {
   }
 
   return (
-    <form className="flex flex-col gap-2" onSubmit={(e) => e.preventDefault()}>
+    <form
+      className="flex flex-col items-center gap-2"
+      onSubmit={(e) => e.preventDefault()}
+    >
       <div className="flex items-center gap-4 w-full">
         <Label
           htmlFor="sideLength"
@@ -76,15 +79,16 @@ export function CubeInputs({ selectedUnits, onVolumeChange }: CubeInputProps) {
       )}
 
       {!error && volume !== null && volume > 0 && (
-        <p
-          className="py-4"
+        <div
+          className="text-sm text-muted-foreground"
           role="status"
           aria-live="polite"
           aria-label={`Volume equals the side length cubed. With value: ${dimensions.sideLength} cubed, which equals ${formatNumber(volume)}`}
         >
-          Volume = <span aria-hidden="true">a³ = {dimensions.sideLength}³</span>{" "}
-          = <strong>{formatNumber(volume)}</strong>
-        </p>
+          {t("VolumeCalculator.volume")} ={" "}
+          <span aria-hidden="true">a³ = {dimensions.sideLength}³</span> ={" "}
+          <strong>{formatNumber(volume)}</strong>
+        </div>
       )}
     </form>
   );

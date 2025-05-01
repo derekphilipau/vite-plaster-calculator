@@ -14,6 +14,7 @@
     "CYLINDER": "Cylindre",
     "TUBE": "Tube",
     "SPHERE": "Sphère",
+    "volume": "Volume",
     "sideLength": "Longueur du Côté",
     "length": "Longueur",
     "width": "Largeur",

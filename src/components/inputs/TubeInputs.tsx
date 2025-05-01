@@ -65,7 +65,7 @@ export function TubeInputs({ selectedUnits, onVolumeChange }: TubeInputProps) {
 
   return (
     <form
-      className="flex flex-col space-y-2"
+      className="flex flex-col items-center gap-2"
       onSubmit={(e) => e.preventDefault()}
     >
       <div className="flex items-center gap-4 w-full">
@@ -146,19 +146,19 @@ export function TubeInputs({ selectedUnits, onVolumeChange }: TubeInputProps) {
       )}
 
       {!error && volume !== null && volume > 0 && (
-        <p
-          className="py-4"
+        <div
+          className="text-sm text-muted-foreground"
           role="status"
           aria-live="polite"
           aria-label={`Volume equals pi times height times the difference of outer radius squared minus inner radius squared. With values: pi times ${dimensions.height} times ((${dimensions.outerDiameter}/2) squared minus (${dimensions.innerDiameter}/2) squared), which equals ${formatNumber(volume)}`}
         >
-          Volume ={" "}
+          {t("VolumeCalculator.volume")} ={" "}
           <span aria-hidden="true">
             πh((D₁/2)² – (D₂/2)²) = π×{dimensions.height}×((
             {dimensions.outerDiameter}/2)² – ({dimensions.innerDiameter}/2)²)
           </span>{" "}
           = <strong>{formatNumber(volume)}</strong>
-        </p>
+        </div>
       )}
     </form>
   );

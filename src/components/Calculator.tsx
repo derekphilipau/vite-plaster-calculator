@@ -59,7 +59,7 @@ export default function Calculator() {
   })();
 
   return (
-    <div className="flex flex-col space-y-6 items-center">
+    <div className="flex flex-col gap-y-4 items-center">
       <VolumeCalculator
         selectedUnits={selectedUnits}
         onVolumeChange={(v) => {
@@ -68,7 +68,7 @@ export default function Calculator() {
         }}
       />
 
-      <div className="flex flex-col items-center space-y-2 w-full">
+      <div className="flex flex-col items-center gap-y-2 w-full">
         <div>
           <div className="flex items-center gap-4 w-full">
             <Label htmlFor="vol" className="text-sm font-medium leading-none">

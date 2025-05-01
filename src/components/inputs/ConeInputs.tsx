@@ -51,7 +51,7 @@ export function ConeInputs({ selectedUnits, onVolumeChange }: ConeInputProps) {
 
   return (
     <form
-      className="flex flex-col space-y-2"
+      className="flex flex-col items-center gap-2"
       onSubmit={(e) => e.preventDefault()}
     >
       <div className="flex items-center gap-4 w-full">
@@ -105,18 +105,18 @@ export function ConeInputs({ selectedUnits, onVolumeChange }: ConeInputProps) {
       )}
 
       {!error && volume !== null && volume > 0 && (
-        <p
-          className="py-4"
+        <div
+          className="text-sm text-muted-foreground"
           role="status"
           aria-live="polite"
           aria-label={`Volume equals one third pi times radius squared times height. With values: one third pi times ${dimensions.radius} squared times ${dimensions.height}, which equals ${formatNumber(volume)}`}
         >
-          Volume ={" "}
+          {t("VolumeCalculator.volume")} ={" "}
           <span aria-hidden="true">
             ⅓πr²h = ⅓π×{dimensions.radius}²×{dimensions.height}
           </span>{" "}
           = <strong>{formatNumber(volume)}</strong>
-        </p>
+        </div>
       )}
     </form>
   );
