@@ -12,7 +12,17 @@
     "CONICAL_FRUSTUM": "Tronco di cono",
     "CYLINDER": "Cilindro",
     "TUBE": "Tubo",
-    "SPHERE": "Sfera"
+    "SPHERE": "Sfera",
+    "sideLength": "Lunghezza del Lato",
+    "length": "Lunghezza",
+    "width": "Larghezza",
+    "height": "Altezza",
+    "diameter": "Diametro",
+    "radius": "Raggio",
+    "radius1": "Raggio 1",
+    "radius2": "Raggio 2",
+    "outerDiameter": "Diametro Esterno",
+    "innerDiameter": "Diametro Interno"
   },
   "ResultsDisplay": {
     "keith": "Keith Simpson",

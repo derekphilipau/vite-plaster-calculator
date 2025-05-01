@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
@@ -21,6 +22,7 @@ export function RectangularSolidInputs({
   onVolumeChange,
   precision = 2,
 }: RectangularSolidInputProps) {
+  const { t } = useTranslation();
   const [dimensions, setDimensions] = useState<{
     length: string;
     width: string;
@@ -73,7 +75,7 @@ export function RectangularSolidInputs({
           htmlFor="length"
           className="grow min-w-20 text-sm font-medium leading-none"
         >
-          Length (l)
+          {t("VolumeCalculator.length")} (l)
         </Label>
         <Input
           className="max-w-24"
@@ -95,7 +97,7 @@ export function RectangularSolidInputs({
           htmlFor="width"
           className="grow min-w-20 text-sm font-medium leading-none"
         >
-          Width (w)
+          {t("VolumeCalculator.width")} (w)
         </Label>
         <Input
           className="max-w-24"
@@ -117,7 +119,7 @@ export function RectangularSolidInputs({
           htmlFor="height"
           className="grow min-w-20 text-sm font-medium leading-none"
         >
-          Height (h)
+          {t("VolumeCalculator.height")} (h)
         </Label>
         <Input
           className="max-w-24"

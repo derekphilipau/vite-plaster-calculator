@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
@@ -26,6 +27,7 @@ export function ConicalFrustumInputs({
   onVolumeChange,
   precision = 2,
 }: ConicalFrustumInputProps) {
+  const { t } = useTranslation();
   const [dimensions, setDimensions] = useState<{
     radius1: string;
     radius2: string;
@@ -75,7 +77,7 @@ export function ConicalFrustumInputs({
           htmlFor="radius1"
           className="grow min-w-20 text-sm font-medium leading-none"
         >
-          Radius 1 (r₁)
+          {t("VolumeCalculator.radius1")} (r₁)
         </Label>
         <Input
           className="max-w-24"
@@ -97,7 +99,7 @@ export function ConicalFrustumInputs({
           htmlFor="radius2"
           className="grow min-w-20 text-sm font-medium leading-none"
         >
-          Radius 2 (r₂)
+          {t("VolumeCalculator.radius2")} (r₂)
         </Label>
         <Input
           className="max-w-24"
@@ -119,7 +121,7 @@ export function ConicalFrustumInputs({
           htmlFor="height"
           className="grow min-w-20 text-sm font-medium leading-none"
         >
-          Height (h)
+          {t("VolumeCalculator.height")} (h)
         </Label>
         <Input
           className="max-w-24"

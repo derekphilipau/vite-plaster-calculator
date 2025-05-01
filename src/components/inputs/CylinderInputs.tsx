@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { useTranslation } from "react-i18next";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
@@ -18,6 +18,7 @@ export function CylinderInputs({
   onVolumeChange,
   precision = 2,
 }: CylinderInputProps) {
+  const { t } = useTranslation();
   const [dimensions, setDimensions] = useState<{
     radius: string;
     height: string;
@@ -61,7 +62,7 @@ export function CylinderInputs({
           htmlFor="radius"
           className="grow min-w-20 text-sm font-medium leading-none"
         >
-          Radius (r)
+          {t("VolumeCalculator.radius")} (r)
         </Label>
         <Input
           className="max-w-24"
@@ -83,7 +84,7 @@ export function CylinderInputs({
           htmlFor="height"
           className="grow min-w-20 text-sm font-medium leading-none"
         >
-          Height (h)
+          {t("VolumeCalculator.height")} (h)
         </Label>
         <Input
           className="max-w-24"

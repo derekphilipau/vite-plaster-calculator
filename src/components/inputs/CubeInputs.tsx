@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { useTranslation } from "react-i18next";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
@@ -18,6 +18,7 @@ export function CubeInputs({
   onVolumeChange,
   precision = 2,
 }: CubeInputProps) {
+  const { t } = useTranslation();
   const [dimensions, setDimensions] = useState<{ sideLength: string }>({
     sideLength: "",
   });
@@ -54,7 +55,7 @@ export function CubeInputs({
           htmlFor="sideLength"
           className="grow min-w-20 text-sm font-medium leading-none"
         >
-          Side Length (a)
+          {t("VolumeCalculator.sideLength")} (a)
         </Label>
         <Input
           className="max-w-24"

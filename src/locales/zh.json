@@ -12,7 +12,17 @@
     "CONICAL_FRUSTUM": "圆台",
     "CYLINDER": "圆柱体",
     "TUBE": "管道",
-    "SPHERE": "球体"
+    "SPHERE": "球体",
+    "sideLength": "边长",
+    "length": "长度",
+    "width": "宽度",
+    "height": "高度",
+    "diameter": "直径",
+    "radius": "半径",
+    "radius1": "半径1",
+    "radius2": "半径2",
+    "outerDiameter": "外径",
+    "innerDiameter": "内径"
   },
   "ResultsDisplay": {
     "keith": "Keith Simpson",

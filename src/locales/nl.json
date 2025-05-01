@@ -12,7 +12,17 @@
     "CONICAL_FRUSTUM": "Afgeknotte kegel",
     "CYLINDER": "Cilinder",
     "TUBE": "Buis",
-    "SPHERE": "Bol"
+    "SPHERE": "Bol",
+    "sideLength": "Zijlengte",
+    "length": "Lengte",
+    "width": "Breedte",
+    "height": "Hoogte",
+    "diameter": "Diameter",
+    "radius": "Radius",
+    "radius1": "Radius 1",
+    "radius2": "Radius 2",
+    "outerDiameter": "Buitendiameter",
+    "innerDiameter": "Binnendiameter"
   },
   "ResultsDisplay": {
     "keith": "Keith Simpson",

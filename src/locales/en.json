@@ -12,7 +12,17 @@
     "CONICAL_FRUSTUM": "Conical Frustum",
     "CYLINDER": "Cylinder",
     "TUBE": "Tube",
-    "SPHERE": "Sphere"
+    "SPHERE": "Sphere",
+    "sideLength": "Side Length",
+    "length": "Length",
+    "width": "Width",
+    "height": "Height",
+    "diameter": "Diameter",
+    "radius": "Radius",
+    "radius1": "Radius 1",
+    "radius2": "Radius 2",
+    "outerDiameter": "Outer Diameter",
+    "innerDiameter": "Inner Diameter"
   },
   "ResultsDisplay": {
     "keith": "Keith Simpson",

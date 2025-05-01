@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
@@ -25,6 +26,7 @@ export function TubeInputs({
   onVolumeChange,
   precision = 2,
 }: TubeInputProps) {
+  const { t } = useTranslation();
   const [dimensions, setDimensions] = useState<{
     outerDiameter: string;
     innerDiameter: string;
@@ -85,7 +87,7 @@ export function TubeInputs({
           htmlFor="outerDiameter"
           className="grow min-w-20 text-sm font-medium leading-none"
         >
-          Outer Diameter (D₁)
+          {t("VolumeCalculator.outerDiameter")} (d₁)
         </Label>
         <Input
           className="max-w-24"
@@ -109,7 +111,7 @@ export function TubeInputs({
           htmlFor="innerDiameter"
           className="grow min-w-20 text-sm font-medium leading-none"
         >
-          Inner Diameter (D₂)
+          {t("VolumeCalculator.innerDiameter")} (d₂)
         </Label>
         <Input
           className="max-w-24"
@@ -133,7 +135,7 @@ export function TubeInputs({
           htmlFor="height"
           className="grow min-w-20 text-sm font-medium leading-none"
         >
-          Height (h)
+          {t("VolumeCalculator.height")} (h)
         </Label>
         <Input
           className="max-w-24"

@@ -12,7 +12,17 @@
     "CONICAL_FRUSTUM": "Kegelstumpf",
     "CYLINDER": "Zylinder",
     "TUBE": "Röhre",
-    "SPHERE": "Kugel"
+    "SPHERE": "Kugel",
+    "sideLength": "Seitenlänge",
+    "length": "Länge",
+    "width": "Breite",
+    "height": "Höhe",
+    "diameter": "Durchmesser",
+    "radius": "Radius",
+    "radius1": "Radius 1",
+    "radius2": "Radius 2",
+    "outerDiameter": "Außendurchmesser",
+    "innerDiameter": "Innendurchmesser"
   },
   "ResultsDisplay": {
     "keith": "Keith Simpson",
