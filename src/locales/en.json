@@ -3,7 +3,8 @@
     "in": "Inches",
     "cm": "Centimeters",
     "volume": "Calculated Volume",
-    "manualConsistency": "Consistency"
+    "manualConsistency": "Consistency",
+    "consistencyError": "Consistency must be greater than 0"
   },
   "VolumeCalculator": {
     "CUBE": "Cube",

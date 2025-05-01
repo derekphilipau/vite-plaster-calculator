@@ -9,11 +9,10 @@ import ConsistencyCombobox from "@/components/ConsistencyCombobox";
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { in3ToCm3, cm3ToIn3, in3ToFt3 } from "@/utils/plaster";
+import { formatNumber } from "@/lib/utils";
 
 export default function Calculator() {
   const { t, i18n } = useTranslation();
-
-  const [precision] = useState(2);
 
   // pick default by locale: English = inches, everywhere else = centimetres
   const localeDefault: "in" | "cm" = /^en\b/i.test(i18n.language) ? "in" : "cm";
@@ -54,14 +53,9 @@ export default function Calculator() {
     const in3 = selectedUnits === "in" ? volume : cm3ToIn3(volume);
     const cm3 = selectedUnits === "cm" ? volume : in3ToCm3(volume);
     const ft3 = in3ToFt3(in3);
-    const fmt = (n: number, p = 2) =>
-      n.toLocaleString(undefined, {
-        minimumFractionDigits: p,
-        maximumFractionDigits: p,
-      });
     return selectedUnits === "in"
-      ? `${fmt(cm3)} cm³, ${fmt(ft3, 5)} ft³`
-      : `${fmt(in3)} in³, ${fmt(ft3, 5)} ft³`;
+      ? `${formatNumber(cm3)} cm³, ${formatNumber(ft3, 5)} ft³`
+      : `${formatNumber(in3)} in³, ${formatNumber(ft3, 5)} ft³`;
   })();
 
   return (
@@ -70,7 +64,7 @@ export default function Calculator() {
         selectedUnits={selectedUnits}
         onVolumeChange={(v) => {
           setShapeVolume(v);
-          setManualVolume(v !== null ? v.toFixed(2) : "");
+          setManualVolume(v !== null ? formatNumber(v) : "");
         }}
       />
 

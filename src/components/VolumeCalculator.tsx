@@ -58,7 +58,6 @@ export function VolumeCalculator({
     const commonProps = {
       selectedUnits,
       onVolumeChange: handleVolumeChange,
-      precision: 2,
     };
 
     switch (selectedShape) {

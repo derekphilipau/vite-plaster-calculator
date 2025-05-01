@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { formatNumber } from "@/lib/utils";
 
 function calculateRectangularVolume(
   length: number,
@@ -14,13 +15,11 @@ function calculateRectangularVolume(
 interface RectangularSolidInputProps {
   selectedUnits: string;
   onVolumeChange: (volume: number | null) => void;
-  precision?: number;
 }
 
 export function RectangularSolidInputs({
   selectedUnits,
   onVolumeChange,
-  precision = 2,
 }: RectangularSolidInputProps) {
   const { t } = useTranslation();
   const [dimensions, setDimensions] = useState<{
@@ -147,14 +146,14 @@ export function RectangularSolidInputs({
           className="py-4"
           role="status"
           aria-live="polite"
-          aria-label={`Volume equals length times width times height. With values: ${dimensions.length} times ${dimensions.width} times ${dimensions.height}, which equals ${volume.toFixed(precision)}`}
+          aria-label={`Volume equals length times width times height. With values: ${dimensions.length} times ${dimensions.width} times ${dimensions.height}, which equals ${formatNumber(volume)}`}
         >
           Volume ={" "}
           <span aria-hidden="true">
             l × w × h = {dimensions.length} × {dimensions.width} ×{" "}
             {dimensions.height}
           </span>{" "}
-          = <strong>{volume.toFixed(precision)}</strong>
+          = <strong>{formatNumber(volume)}</strong>
         </p>
       )}
     </form>

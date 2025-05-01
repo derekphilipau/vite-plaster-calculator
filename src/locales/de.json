@@ -3,7 +3,8 @@
     "in": "Zoll",
     "cm": "Zentimeter",
     "volume": "Berechnetes Volumen",
-    "manualConsistency": "Konsistenz"
+    "manualConsistency": "Konsistenz",
+    "consistencyError": "Konsistenz muss größer als 0 sein"
   },
   "VolumeCalculator": {
     "CUBE": "Würfel",

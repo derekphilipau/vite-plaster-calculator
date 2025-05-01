@@ -3,7 +3,8 @@
     "in": "Inches",
     "cm": "Centimeters",
     "volume": "Berekend volume",
-    "manualConsistency": "Consistentie"
+    "manualConsistency": "Consistentie",
+    "consistencyError": "Consistentie moet groter zijn dan 0"
   },
   "VolumeCalculator": {
     "CUBE": "Kubus",

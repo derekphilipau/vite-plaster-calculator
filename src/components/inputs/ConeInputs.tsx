@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { formatNumber } from "@/lib/utils";
 
 function calculateConeVolume(radius: number, height: number): number {
   return (1 / 3) * Math.PI * Math.pow(radius, 2) * height;
@@ -10,14 +11,9 @@ function calculateConeVolume(radius: number, height: number): number {
 interface ConeInputProps {
   selectedUnits: string;
   onVolumeChange: (volume: number | null) => void;
-  precision?: number;
 }
 
-export function ConeInputs({
-  selectedUnits,
-  onVolumeChange,
-  precision = 2,
-}: ConeInputProps) {
+export function ConeInputs({ selectedUnits, onVolumeChange }: ConeInputProps) {
   const { t } = useTranslation();
   const [dimensions, setDimensions] = useState<{
     radius: string;
@@ -114,13 +110,13 @@ export function ConeInputs({
           className="py-4"
           role="status"
           aria-live="polite"
-          aria-label={`Volume equals one third pi times radius squared times height. With values: one third pi times ${dimensions.radius} squared times ${dimensions.height}, which equals ${volume.toFixed(precision)}`}
+          aria-label={`Volume equals one third pi times radius squared times height. With values: one third pi times ${dimensions.radius} squared times ${dimensions.height}, which equals ${formatNumber(volume)}`}
         >
           Volume ={" "}
           <span aria-hidden="true">
             ⅓πr²h = ⅓π×{dimensions.radius}²×{dimensions.height}
           </span>{" "}
-          = <strong>{volume.toFixed(precision)}</strong>
+          = <strong>{formatNumber(volume)}</strong>
         </p>
       )}
     </form>

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { formatNumber } from "@/lib/utils";
 
 function calculateTubeVolume(
   outerDiameter: number,
@@ -18,14 +19,9 @@ function calculateTubeVolume(
 interface TubeInputProps {
   selectedUnits: string;
   onVolumeChange: (volume: number | null) => void;
-  precision?: number;
 }
 
-export function TubeInputs({
-  selectedUnits,
-  onVolumeChange,
-  precision = 2,
-}: TubeInputProps) {
+export function TubeInputs({ selectedUnits, onVolumeChange }: TubeInputProps) {
   const { t } = useTranslation();
   const [dimensions, setDimensions] = useState<{
     outerDiameter: string;
@@ -166,14 +162,14 @@ export function TubeInputs({
           className="py-4"
           role="status"
           aria-live="polite"
-          aria-label={`Volume equals pi times height times the difference of outer radius squared minus inner radius squared. With values: pi times ${dimensions.height} times ((${dimensions.outerDiameter}/2) squared minus (${dimensions.innerDiameter}/2) squared), which equals ${volume.toFixed(precision)}`}
+          aria-label={`Volume equals pi times height times the difference of outer radius squared minus inner radius squared. With values: pi times ${dimensions.height} times ((${dimensions.outerDiameter}/2) squared minus (${dimensions.innerDiameter}/2) squared), which equals ${formatNumber(volume)}`}
         >
           Volume ={" "}
           <span aria-hidden="true">
             πh((D₁/2)² – (D₂/2)²) = π×{dimensions.height}×((
             {dimensions.outerDiameter}/2)² – ({dimensions.innerDiameter}/2)²)
           </span>{" "}
-          = <strong>{volume.toFixed(precision)}</strong>
+          = <strong>{formatNumber(volume)}</strong>
         </p>
       )}
     </form>

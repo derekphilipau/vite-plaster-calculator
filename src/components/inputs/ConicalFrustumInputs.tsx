@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { formatNumber } from "@/lib/utils";
 
 function calculateFrustumVolume(
   radius1: number,
@@ -19,13 +20,11 @@ function calculateFrustumVolume(
 interface ConicalFrustumInputProps {
   selectedUnits: string;
   onVolumeChange: (volume: number | null) => void;
-  precision?: number;
 }
 
 export function ConicalFrustumInputs({
   selectedUnits,
   onVolumeChange,
-  precision = 2,
 }: ConicalFrustumInputProps) {
   const { t } = useTranslation();
   const [dimensions, setDimensions] = useState<{
@@ -149,7 +148,7 @@ export function ConicalFrustumInputs({
           className="py-4"
           role="status"
           aria-live="polite"
-          aria-label={`Volume equals one-third pi times height times the sum of radius 1 squared plus radius 1 times radius 2 plus radius 2 squared. With values: one-third pi times ${dimensions.height} times (${dimensions.radius1} squared plus ${dimensions.radius1} times ${dimensions.radius2} plus ${dimensions.radius2} squared), which equals ${volume.toFixed(precision)}`}
+          aria-label={`Volume equals one-third pi times height times the sum of radius 1 squared plus radius 1 times radius 2 plus radius 2 squared. With values: one-third pi times ${dimensions.height} times (${dimensions.radius1} squared plus ${dimensions.radius1} times ${dimensions.radius2} plus ${dimensions.radius2} squared), which equals ${formatNumber(volume)}`}
         >
           Volume ={" "}
           <span aria-hidden="true">
@@ -157,7 +156,7 @@ export function ConicalFrustumInputs({
             ² + {dimensions.radius1}×{dimensions.radius2} + {dimensions.radius2}
             ²)
           </span>{" "}
-          = <strong>{volume.toFixed(precision)}</strong>
+          = <strong>{formatNumber(volume)}</strong>
         </p>
       )}
     </form>

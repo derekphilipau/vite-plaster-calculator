@@ -16,20 +16,18 @@ import {
   derekWaterGrams,
   poundsToGrams,
 } from "@/utils/plaster";
-import { a } from "vitest/dist/chunks/suite.d.FvehnV49.js";
+import { formatNumber } from "@/lib/utils";
 
 interface NotesProps {
   volume: number;
   units: "in" | "cm";
   consistency: number;
-  precision?: number;
 }
 
 export default function Notes({
   volume,
   units,
   consistency: selectedConsistency,
-  precision = 2,
 }: NotesProps) {
   const { t } = useTranslation();
 
@@ -84,12 +82,6 @@ export default function Notes({
     selectedConsistency
   );
 
-  const fmt = (n: number, p = precision) =>
-    n.toLocaleString(undefined, {
-      minimumFractionDigits: p,
-      maximumFractionDigits: p,
-    });
-
   return (
     <section className="prose">
       <div>
@@ -109,13 +101,13 @@ export default function Notes({
         </p>
         {volume > 0 && (
           <p>
-            {fmt(volumeCubicInches)} in<sup>3</sup> × 11 ={" "}
-            <strong>{fmt(keithSimpsonGramsOfWater, 0)}</strong> g{" "}
+            {formatNumber(volumeCubicInches)} in<sup>3</sup> × 11 ={" "}
+            <strong>{formatNumber(keithSimpsonGramsOfWater, 0)}</strong> g{" "}
             {t("Notes.water")}
             <br />
-            {fmt(keithSimpsonGramsOfWater, 0)} g {t("Notes.water")} × (100 /{" "}
-            {selectedConsistency}) ={" "}
-            <strong>{fmt(keithSimpsonGramsOfPlaster, 0)}</strong> g{" "}
+            {formatNumber(keithSimpsonGramsOfWater, 0)} g {t("Notes.water")} ×
+            (100 / {selectedConsistency}) ={" "}
+            <strong>{formatNumber(keithSimpsonGramsOfPlaster, 0)}</strong> g{" "}
             {t("Notes.plaster")}
           </p>
         )}
@@ -168,16 +160,17 @@ export default function Notes({
             </strong>
             ) + 164.25 ={" "}
             <strong>
-              <em>{Number(usgRatio).toFixed(2)}</em>
+              <em>{formatNumber(usgRatio)}</em>
             </strong>
             <br />
-            {Number(usgRatio).toFixed(2)} × {Number(volumeCubicFeet).toFixed(5)}{" "}
-            ft<sup>3</sup> = <strong>{fmt(usgPoundsOfPlaster)}</strong> lbs.
-            plaster
+            {formatNumber(usgRatio)} × {formatNumber(volumeCubicFeet, 5)} ft
+            <sup>3</sup> = <strong>{formatNumber(usgPoundsOfPlaster)}</strong>{" "}
+            lbs. plaster
             <br />
-            <strong>{fmt(usgPoundsOfPlaster)}</strong>{" "}
+            <strong>{formatNumber(usgPoundsOfPlaster)}</strong>{" "}
             {t("Notes.poundsOfPlaster")} × ({selectedConsistency} / 100) ={" "}
-            <strong>{fmt(usgPoundsOfWater)}</strong> {t("Notes.poundsOfWater")}
+            <strong>{formatNumber(usgPoundsOfWater)}</strong>{" "}
+            {t("Notes.poundsOfWater")}
           </p>
         )}
 
@@ -187,14 +180,14 @@ export default function Notes({
         </p>
         {volume > 0 && (
           <p>
-            {fmt(volumeCubicInches)} in<sup>3</sup> / 80 ={" "}
-            <strong>{fmt(andrewMartinQuartsOfWater)}</strong>{" "}
+            {formatNumber(volumeCubicInches)} in<sup>3</sup> / 80 ={" "}
+            <strong>{formatNumber(andrewMartinQuartsOfWater)}</strong>{" "}
             {t("Notes.quartsOfWater")}
             <br />
-            {fmt(andrewMartinQuartsOfWater)} {t("Notes.quartsOfWater")} × 3 ={" "}
-            <strong>{fmt(andrewMartinPoundsOfPlaster)}</strong>{" "}
+            {formatNumber(andrewMartinQuartsOfWater)} {t("Notes.quartsOfWater")}{" "}
+            × 3 = <strong>{formatNumber(andrewMartinPoundsOfPlaster)}</strong>{" "}
             {t("Notes.poundsOfPlaster")} (
-            {fmt(poundsToGrams(andrewMartinPoundsOfPlaster))}g)
+            {formatNumber(poundsToGrams(andrewMartinPoundsOfPlaster))}g)
           </p>
         )}
 
@@ -211,16 +204,20 @@ export default function Notes({
         </p>
         {volume > 0 && (
           <p>
-            {fmt(volumeCubicCentimeters)} cm<sup>3</sup> × 0.6 ={" "}
-            <strong>{fmt(campanaGramsOfWater)}</strong> g {t("Notes.water")}
+            {formatNumber(volumeCubicCentimeters)} cm<sup>3</sup> × 0.6 ={" "}
+            <strong>{formatNumber(campanaGramsOfWater)}</strong> g{" "}
+            {t("Notes.water")}
             <br />
-            {fmt(campanaGramsOfWater)} g {t("Notes.water")} × (100 /{" "}
+            {formatNumber(campanaGramsOfWater)} g {t("Notes.water")} × (100 /{" "}
             {selectedConsistency}) ={" "}
-            <strong>{fmt(campanaGramsOfPlaster)}</strong> g {t("Notes.plaster")}
+            <strong>{formatNumber(campanaGramsOfPlaster)}</strong> g{" "}
+            {t("Notes.plaster")}
           </p>
         )}
 
-        <h3>Derek Au:</h3>
+        <h3>
+          <a href="https://derekau.net">Derek Au:</a>
+        </h3>
         <p>
           <em>{t("Notes.derekDisclaimer")}</em>
         </p>
@@ -236,12 +233,12 @@ export default function Notes({
         {volume > 0 && (
           <p>
             <em>{t("Notes.volumeInCm3")}</em> × 15000 / 15860 ={" "}
-            <strong>{fmt(derekGramsOfPlaster)}</strong>{" "}
+            <strong>{formatNumber(derekGramsOfPlaster)}</strong>{" "}
             <em>{t("Notes.gramsOfPlaster")}</em>
             <br />
-            {fmt(derekGramsOfPlaster)} {t("Notes.gramsOfPlaster")} ×{" "}
+            {formatNumber(derekGramsOfPlaster)} {t("Notes.gramsOfPlaster")} ×{" "}
             {selectedConsistency} / 100 ={" "}
-            <strong>{fmt(derekGramsOfWater)}</strong>{" "}
+            <strong>{formatNumber(derekGramsOfWater)}</strong>{" "}
             <em>{t("Notes.gramsOfWater")}</em>
           </p>
         )}

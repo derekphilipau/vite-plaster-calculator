@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { formatNumber } from "@/lib/utils";
 
 function calculateSphereVolume(radius: number): number {
   return (4 / 3) * Math.PI * Math.pow(radius, 3);
@@ -10,13 +11,11 @@ function calculateSphereVolume(radius: number): number {
 interface SphereInputProps {
   selectedUnits: string;
   onVolumeChange: (volume: number | null) => void;
-  precision?: number;
 }
 
 export function SphereInputs({
   selectedUnits,
   onVolumeChange,
-  precision = 2,
 }: SphereInputProps) {
   const { t } = useTranslation();
   const [dimensions, setDimensions] = useState<{ radius: string }>({
@@ -86,11 +85,11 @@ export function SphereInputs({
           className="py-4"
           role="status"
           aria-live="polite"
-          aria-label={`Volume equals four thirds pi times radius cubed. With value: four thirds pi times ${dimensions.radius} cubed, which equals ${volume.toFixed(precision)}`}
+          aria-label={`Volume equals four thirds pi times radius cubed. With value: four thirds pi times ${dimensions.radius} cubed, which equals ${formatNumber(volume)}`}
         >
           Volume ={" "}
           <span aria-hidden="true">⁴⁄₃πr³ = ⁴⁄₃π×{dimensions.radius}³</span> ={" "}
-          <strong>{volume.toFixed(precision)}</strong>
+          <strong>{formatNumber(volume)}</strong>
         </p>
       )}
     </form>

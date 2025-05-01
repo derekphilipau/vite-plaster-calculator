@@ -10,19 +10,14 @@ import {
   in3ToFt3,
 } from "@/utils/plaster";
 import { useTranslation } from "react-i18next";
+import { formatNumber } from "@/lib/utils";
 
 interface Props {
   volume: number;
   units: "in" | "cm";
   consistency: number;
-  precision?: number;
 }
-export default function ResultsDisplay({
-  volume,
-  units,
-  consistency,
-  precision = 2,
-}: Props) {
+export default function ResultsDisplay({ volume, units, consistency }: Props) {
   const { t } = useTranslation();
   if (!volume) return null;
 
@@ -46,47 +41,55 @@ export default function ResultsDisplay({
   const derekPlasterG = derekPlasterGrams(volCm3);
   const derekWaterG = (derekPlasterG * consistency) / 100;
 
-  const fmt = (n: number, p = precision) =>
-    n.toLocaleString(undefined, {
-      minimumFractionDigits: p,
-      maximumFractionDigits: p,
-    });
-
   return (
     <section className="grid gap-6 w-full">
       <Card title={t("ResultsDisplay.keith")}>
-        <Row label={t("ResultsDisplay.water")}>{fmt(keithWaterG, 0)} g</Row>
-        <Row label={t("ResultsDisplay.plaster")}>{fmt(keithPlasterG, 0)} g</Row>
+        <Row label={t("ResultsDisplay.water")}>
+          {formatNumber(keithWaterG, 0)} g
+        </Row>
+        <Row label={t("ResultsDisplay.plaster")}>
+          {formatNumber(keithPlasterG, 0)} g
+        </Row>
       </Card>
 
       <Card title={t("ResultsDisplay.usg")}>
         <Row label={t("ResultsDisplay.water")}>
-          {fmt(usgWaterLb)} lb ({fmt(poundsToGrams(usgWaterLb))} g)
+          {formatNumber(usgWaterLb)} lb (
+          {formatNumber(poundsToGrams(usgWaterLb))} g)
         </Row>
         <Row label={t("ResultsDisplay.plaster")}>
-          {fmt(usgPlasterLb)} lb ({fmt(poundsToGrams(usgPlasterLb))} g)
+          {formatNumber(usgPlasterLb)} lb (
+          {formatNumber(poundsToGrams(usgPlasterLb))} g)
         </Row>
       </Card>
 
       <Card title={t("ResultsDisplay.andrew")}>
         <Row label={t("ResultsDisplay.water")}>
-          {fmt(andrewWaterQt)} qt ({fmt(quartsToGrams(andrewWaterQt))} g)
+          {formatNumber(andrewWaterQt)} qt (
+          {formatNumber(quartsToGrams(andrewWaterQt))} g)
         </Row>
         <Row label={t("ResultsDisplay.plaster")}>
-          {fmt(andrewPlasterLb)} lb ({fmt(poundsToGrams(andrewPlasterLb))} g)
+          {formatNumber(andrewPlasterLb)} lb (
+          {formatNumber(poundsToGrams(andrewPlasterLb))} g)
         </Row>
       </Card>
 
       <Card title={t("ResultsDisplay.bivins")}>
-        <Row label={t("ResultsDisplay.water")}>{fmt(campanaWaterG, 0)} g</Row>
+        <Row label={t("ResultsDisplay.water")}>
+          {formatNumber(campanaWaterG, 0)} g
+        </Row>
         <Row label={t("ResultsDisplay.plaster")}>
-          {fmt(campanaPlasterG, 0)} g
+          {formatNumber(campanaPlasterG, 0)} g
         </Row>
       </Card>
 
       <Card title={t("ResultsDisplay.derek")}>
-        <Row label={t("ResultsDisplay.water")}>{fmt(derekWaterG, 0)} g</Row>
-        <Row label={t("ResultsDisplay.plaster")}>{fmt(derekPlasterG, 0)} g</Row>
+        <Row label={t("ResultsDisplay.water")}>
+          {formatNumber(derekWaterG, 0)} g
+        </Row>
+        <Row label={t("ResultsDisplay.plaster")}>
+          {formatNumber(derekPlasterG, 0)} g
+        </Row>
       </Card>
     </section>
   );

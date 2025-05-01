@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { formatNumber } from "@/lib/utils";
 
 function calculateCubeVolume(sideLength: number): number {
   return Math.pow(sideLength, 3);
@@ -10,14 +11,9 @@ function calculateCubeVolume(sideLength: number): number {
 interface CubeInputProps {
   selectedUnits: string;
   onVolumeChange: (volume: number | null) => void;
-  precision?: number;
 }
 
-export function CubeInputs({
-  selectedUnits,
-  onVolumeChange,
-  precision = 2,
-}: CubeInputProps) {
+export function CubeInputs({ selectedUnits, onVolumeChange }: CubeInputProps) {
   const { t } = useTranslation();
   const [dimensions, setDimensions] = useState<{ sideLength: string }>({
     sideLength: "",
@@ -83,10 +79,10 @@ export function CubeInputs({
           className="py-4"
           role="status"
           aria-live="polite"
-          aria-label={`Volume equals the side length cubed. With value: ${dimensions.sideLength} cubed, which equals ${volume.toFixed(precision)}`}
+          aria-label={`Volume equals the side length cubed. With value: ${dimensions.sideLength} cubed, which equals ${formatNumber(volume)}`}
         >
           Volume = <span aria-hidden="true">a³ = {dimensions.sideLength}³</span>{" "}
-          = <strong>{volume.toFixed(precision)}</strong>
+          = <strong>{formatNumber(volume)}</strong>
         </p>
       )}
     </form>

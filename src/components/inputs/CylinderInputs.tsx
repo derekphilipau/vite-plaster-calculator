@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { formatNumber } from "@/lib/utils";
 
 function calculateCylinderVolume(radius: number, height: number): number {
   return Math.PI * Math.pow(radius, 2) * height;
@@ -10,13 +11,11 @@ function calculateCylinderVolume(radius: number, height: number): number {
 interface CylinderInputProps {
   selectedUnits: string;
   onVolumeChange: (volume: number | null) => void;
-  precision?: number;
 }
 
 export function CylinderInputs({
   selectedUnits,
   onVolumeChange,
-  precision = 2,
 }: CylinderInputProps) {
   const { t } = useTranslation();
   const [dimensions, setDimensions] = useState<{
@@ -112,13 +111,13 @@ export function CylinderInputs({
           className="py-4"
           role="status"
           aria-live="polite"
-          aria-label={`Volume equals pi times radius squared times height. With values: pi times ${dimensions.radius} squared times ${dimensions.height}, which equals ${volume.toFixed(precision)}`}
+          aria-label={`Volume equals pi times radius squared times height. With values: pi times ${dimensions.radius} squared times ${dimensions.height}, which equals ${formatNumber(volume)}`}
         >
           Volume ={" "}
           <span aria-hidden="true">
             πr²h = π×{dimensions.radius}²×{dimensions.height}
           </span>{" "}
-          = <strong>{volume.toFixed(precision)}</strong>
+          = <strong>{formatNumber(volume)}</strong>
         </p>
       )}
     </form>
