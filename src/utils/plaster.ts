@@ -13,11 +13,15 @@ export const keithPlasterGrams = (
 ): number => waterGrams * (100 / consistency);
 
 // USG
-export const usgRatio = (consistency: number): number =>
-  -0.00004 * Math.pow(consistency, 3) +
-  0.0154 * Math.pow(consistency, 2) -
-  2.23 * consistency +
-  164.25;
+export const usgRatio = (consistency: number): number => {
+  const raw =
+    -0.00004 * Math.pow(consistency, 3) +
+    0.0154 * Math.pow(consistency, 2) -
+    2.23 * consistency +
+    164.25;
+  return Math.max(0, raw); // clamp at 0
+};
+
 export const usgPlasterPounds = (ratio: number, ft3: number): number =>
   ratio * ft3;
 export const usgWaterPounds = (
