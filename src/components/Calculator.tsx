@@ -9,7 +9,7 @@ import ConsistencyCombobox from "@/components/ConsistencyCombobox";
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { in3ToCm3, cm3ToIn3, in3ToFt3 } from "@/utils/plaster";
-import { formatNumber } from "@/lib/utils";
+import { formatNumber, parseNumber } from "@/lib/utils";
 
 export default function Calculator() {
   const { t, i18n } = useTranslation();
@@ -30,7 +30,7 @@ export default function Calculator() {
   }, [i18n.language]);
 
   const volume =
-    manualVolume.trim() !== "" ? Number(manualVolume) : shapeVolume;
+    manualVolume.trim() !== "" ? parseNumber(manualVolume) : shapeVolume;
 
   const handleConsistencyChange = (value: number) => {
     setConsistency(value);
@@ -64,7 +64,7 @@ export default function Calculator() {
         selectedUnits={selectedUnits}
         onVolumeChange={(v) => {
           setShapeVolume(v);
-          setManualVolume(v !== null ? formatNumber(v) : "");
+          setManualVolume(v !== null ? v.toString() : "");
         }}
       />
 

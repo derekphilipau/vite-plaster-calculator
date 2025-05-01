@@ -11,3 +11,11 @@ export function formatNumber(n: number, precision = 2) {
     maximumFractionDigits: precision,
   });
 }
+
+/**
+ * Parse a user-entered/echoed number safely.
+ * Strips common thousands-separators so Number() never returns NaN.
+ */
+export function parseNumber(raw: string): number {
+  return Number(raw.replace(/,/g, "").replace(/\s+/g, ""));
+}
