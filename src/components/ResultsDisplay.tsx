@@ -55,22 +55,22 @@ export default function ResultsDisplay({ volume, units, consistency }: Props) {
       <Card title={t("ResultsDisplay.usg")}>
         <Row label={t("ResultsDisplay.water")}>
           {formatNumber(usgWaterLb)} lb (
-          {formatNumber(poundsToGrams(usgWaterLb))} g)
+          {formatNumber(poundsToGrams(usgWaterLb), 0)} g)
         </Row>
         <Row label={t("ResultsDisplay.plaster")}>
           {formatNumber(usgPlasterLb)} lb (
-          {formatNumber(poundsToGrams(usgPlasterLb))} g)
+          {formatNumber(poundsToGrams(usgPlasterLb), 0)} g)
         </Row>
       </Card>
 
       <Card title={t("ResultsDisplay.andrew")}>
         <Row label={t("ResultsDisplay.water")}>
           {formatNumber(andrewWaterQt)} qt (
-          {formatNumber(quartsToGrams(andrewWaterQt))} g)
+          {formatNumber(quartsToGrams(andrewWaterQt), 0)} g)
         </Row>
         <Row label={t("ResultsDisplay.plaster")}>
           {formatNumber(andrewPlasterLb)} lb (
-          {formatNumber(poundsToGrams(andrewPlasterLb))} g)
+          {formatNumber(poundsToGrams(andrewPlasterLb), 0)} g)
         </Row>
       </Card>
 
@@ -103,8 +103,8 @@ function Card({
   children: React.ReactNode;
 }) {
   return (
-    <div className="border shadow-xs p-4 rounded-xl">
-      <h3 className="font-semibold text-primary mb-2">{title}</h3>
+    <div className="border p-4 rounded-md flex flex-col gap-2 items-center">
+      <h3 className="font-semibold text-highlight mb-2">{title}</h3>
       {children}
     </div>
   );
@@ -117,9 +117,9 @@ function Row({
   children: React.ReactNode;
 }) {
   return (
-    <p className="flex justify-between text-sm">
+    <p className="flex justify-between text-base gap-2">
       <span>{label}</span>
-      <span className="font-medium">{children}</span>
+      <span className="font-bold">{children}</span>
     </p>
   );
 }
