@@ -64,7 +64,7 @@ export default function ConsistencyCombobox({
           {selected ? (
             <>
               {selected.label}
-              <span className="text-muted-foreground ml-1">
+              <span className="ml-auto text-xs text-muted-foreground">
                 ({selected.consistency})
               </span>
             </>

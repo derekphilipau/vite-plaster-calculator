@@ -30,16 +30,16 @@ export function SphereInputs({
     setError(null);
 
     if (!value) {
-      onVolumeChange(null);
-      setVolume(null);
+      onVolumeChange(0);
+      setVolume(0);
       return;
     }
 
     const radius = Number(value);
     if (radius <= 0) {
       setError("Radius must be greater than 0");
-      onVolumeChange(null);
-      setVolume(null);
+      onVolumeChange(0);
+      setVolume(0);
       return;
     }
 

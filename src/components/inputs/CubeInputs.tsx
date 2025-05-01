@@ -30,16 +30,16 @@ export function CubeInputs({
     setError(null);
 
     if (!value) {
-      onVolumeChange(null);
-      setVolume(null);
+      onVolumeChange(0);
+      setVolume(0);
       return;
     }
 
     const sideLength = Number(value);
     if (sideLength <= 0) {
       setError("Side length must be greater than 0");
-      onVolumeChange(null);
-      setVolume(null);
+      onVolumeChange(0);
+      setVolume(0);
       return;
     }
 

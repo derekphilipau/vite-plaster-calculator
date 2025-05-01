@@ -53,15 +53,15 @@ export function ConicalFrustumInputs({
       !newDimensions.radius2 ||
       !newDimensions.height
     ) {
-      onVolumeChange(null);
-      setVolume(null);
+      onVolumeChange(0);
+      setVolume(0);
       return;
     }
 
     if (radius1 <= 0 || radius2 <= 0 || height <= 0) {
       setError("Dimensions must be greater than 0");
-      onVolumeChange(null);
-      setVolume(null);
+      onVolumeChange(0);
+      setVolume(0);
       return;
     }
 

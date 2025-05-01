@@ -52,19 +52,22 @@ export function TubeInputs({
       !newDimensions.innerDiameter ||
       !newDimensions.height
     ) {
-      onVolumeChange(null);
+      onVolumeChange(0);
+      setVolume(0);
       return;
     }
 
     if (outerDiameter <= 0 || innerDiameter <= 0 || height <= 0) {
       setError("Dimensions must be greater than 0");
-      onVolumeChange(null);
+      onVolumeChange(0);
+      setVolume(0);
       return;
     }
 
     if (innerDiameter >= outerDiameter) {
       setError("Inner diameter must be smaller than outer diameter");
-      onVolumeChange(null);
+      onVolumeChange(0);
+      setVolume(0);
       return;
     }
 

@@ -23,6 +23,7 @@ export default function Calculator() {
   const [consistency, setConsistency] = useState<number>(70);
   const [shapeVolume, setShapeVolume] = useState<number>(0);
   const [manualVolume, setManualVolume] = useState<string>("");
+  const [consistencyError, setConsistencyError] = useState<string | null>(null);
 
   // when the user changes language at runtime, update the unit radio
   useEffect(() => {
@@ -31,6 +32,22 @@ export default function Calculator() {
 
   const volume =
     manualVolume.trim() !== "" ? Number(manualVolume) : shapeVolume;
+
+  const handleConsistencyChange = (value: number) => {
+    setConsistency(value);
+    validateConsistency(value);
+  };
+
+  const validateConsistency = (value: number) => {
+    if (value <= 0) {
+      setConsistencyError(
+        t("Calculator.consistencyError") ||
+          "Consistency must be greater than zero"
+      );
+    } else {
+      setConsistencyError(null);
+    }
+  };
 
   const echo = (() => {
     if (!volume || Number.isNaN(volume)) return null;
@@ -101,7 +118,10 @@ export default function Calculator() {
         </RadioGroup>
       </div>
 
-      <ConsistencyCombobox value={consistency} onChange={setConsistency} />
+      <ConsistencyCombobox
+        value={consistency}
+        onChange={handleConsistencyChange}
+      />
 
       <div>
         <div className="flex items-center gap-4 w-full">
@@ -115,12 +135,18 @@ export default function Calculator() {
             id="consistencyManual"
             type="number"
             className="w-24"
-            min={1}
+            min="1"
             step="any"
             value={consistency.toString()}
-            onChange={(e) => setConsistency(Number(e.target.value))}
+            onChange={(e) => handleConsistencyChange(Number(e.target.value))}
+            aria-invalid={!!consistencyError}
           />
         </div>
+        {consistencyError && (
+          <p className="text-sm text-destructive mt-1" role="alert">
+            {consistencyError}
+          </p>
+        )}
       </div>
 
       <ResultsDisplay
