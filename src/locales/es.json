@@ -26,8 +26,29 @@
   "Notes": {
     "title": "Notas",
     "intro": "Utilizando el volumen de un sólido, la Calculadora de Yeso le permite estimar cuánto yeso y agua se necesita.",
-    "consistency": "<em>La consistencia del yeso</em> es la proporción de agua a yeso expresada como partes de agua por cada 100 partes de yeso. Una consistencia de 70 significa que necesitará 70 partes de agua por cada 100 partes de yeso. La consistencia afecta la dureza del yeso. Las consistencias más altas tienen más agua y son más blandas, las consistencias más bajas tienen menos agua y son más duras.",
+    "consistencyNotes": "<em>La consistencia del yeso</em> es la proporción de agua a yeso expresada como partes de agua por cada 100 partes de yeso. Una consistencia de 70 significa que necesitará 70 partes de agua por cada 100 partes de yeso. La consistencia afecta la dureza del yeso. Las consistencias más altas tienen más agua y son más blandas, las consistencias más bajas tienen menos agua y son más duras.",
     "disclaimer": "Cada marca de yeso tiene un uso y consistencia recomendados. Los yesos comunes para cerámica para moldes de colada y prensado, placas y mesas de amasado tienen consistencias medias de 67-70. (Esto incluye el Yeso para Cerámica GP K60 y USG #1 Pottery.)",
-    "links": "Enlaces"
+    "links": "Enlaces",
+    "water": "agua",
+    "plaster": "yeso",
+    "ratio": "proporción",
+    "consistency": "consistencia",
+    "cubicFeet": "pies cúbicos",
+    "poundsOfPlaster": "libras de yeso",
+    "poundsOfWater": "libras de agua",
+    "quartsOfWater": "cuartos de galón de agua",
+    "volumeInCm3": "volumen en centímetros cúbicos",
+    "gramsOfPlaster": "gramos de yeso",
+    "gramsOfWater": "gramos de agua",
+    "keithFormula": "<em>volumen en pulgadas cúbicas</em> × 11 = <em>gramos de agua</em><br /><em>gramos de agua</em> × (100 / consistencia) = <em>gramos de yeso para cerámica</em>",
+    "keithDisclaimer": "El agua debe estar a temperatura ambiente<br />Tamizar el yeso con los dedos en el agua<br />Dejar reposar el yeso durante 3 minutos<br />Mezclar durante 3 minutos",
+    "usgDownload": "Descargue la calculadora Excel de USG.",
+    "usgExplain": "La calculadora USG primero calcula una proporción basada en la consistencia y luego las cantidades de yeso y agua:",
+    "andrewFormula": "<em>volumen en pulgadas cúbicas</em> / 80 = <em>cuartos de galón de agua</em><br /><em>cuartos de galón de agua</em> × 3 = <em>libras de yeso</em>",
+    "andrewNotes": "<em>Notas de Keith Simpson:</em> Técnica simplificada por Andrew Martin de <a href=\"https://books.google.com/books/about/The_Essential_Guide_to_Mold_Making_Slip.html?id=X-rtBGDCBb0C\">\"The Essential Guide to Mold Making & Slip Casting\"</a>. Esta técnica crea un yeso ligeramente más espeso ya que Andrew ha redondeado a la baja la cantidad de agua requerida para simplificar el cálculo y permitir que el agua se mida por volumen.",
+    "campanaFormula": "<em>volumen en centímetros cúbicos</em> × 0,6 = <em>gramos de agua</em><br /><em>gramos de agua</em> × (100 / consistencia) = <em>gramos de yeso</em>",
+    "derekDisclaimer": "Experimental. ¡Necesita más datos!",
+    "derekExplanation": "Este método se basa en lotes de prueba con cantidades conocidas de yeso y agua y mediciones precisas del volumen de yeso resultante. Actualmente solo se ha realizado una prueba con Pottery Plaster #1 a una consistencia de 70.",
+    "derekNotes": "Notas: Con un lote de 15 kg de Pottery Plaster #1 fresco y 10,5 kg de agua (consistencia 70), el yeso se tamizó en el agua y luego se dejó reposar durante 1 minuto, después se mezcló con un taladro y un accesorio mezclador Jiffy durante 5 minutos, se mezcló a mano hasta que el yeso comenzó a fraguar, luego se vertió suavemente sobre una superficie plana y nivelada bordeada por guías formando un espacio rectangular de 45,7 cm × 82,63 cm, la losa de yeso resultante midió 45,7 cm × 82,63 cm × 4,2 cm, o <em>15860 cm<sup>3</sup></em>"
   }
 }

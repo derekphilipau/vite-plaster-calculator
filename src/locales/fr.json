@@ -26,8 +26,29 @@
   "Notes": {
     "title": "Notes",
     "intro": "En utilisant le volume d'un solide, la Calculatrice de Plâtre vous permet d'estimer la quantité de plâtre et d'eau nécessaire.",
-    "consistency": "<em>La consistance du plâtre</em> est le rapport eau-plâtre exprimé en parties d'eau pour 100 parties de plâtre. Une consistance de 70 signifie que vous aurez besoin de 70 parties d'eau pour 100 parties de plâtre. La consistance affecte la dureté du plâtre. Les consistances plus élevées contiennent plus d'eau et sont plus souples, les consistances plus basses contiennent moins d'eau et sont plus dures.",
+    "consistencyNotes": "<em>La consistance du plâtre</em> est le rapport eau-plâtre exprimé en parties d'eau pour 100 parties de plâtre. Une consistance de 70 signifie que vous aurez besoin de 70 parties d'eau pour 100 parties de plâtre. La consistance affecte la dureté du plâtre. Les consistances plus élevées contiennent plus d'eau et sont plus souples, les consistances plus basses contiennent moins d'eau et sont plus dures.",
     "disclaimer": "Chaque marque de plâtre a une utilisation et une consistance recommandées. Les plâtres de poterie courants pour les moules de coulage et de pressage, les plaques et les tables de malaxage ont des consistances moyennes de 67-70. (Cela inclut le Plâtre de Poterie GP K60 et USG #1 Pottery.)",
-    "links": "Liens"
+    "links": "Liens",
+    "water": "eau",
+    "plaster": "plâtre",
+    "ratio": "ratio",
+    "consistency": "consistance",
+    "cubicFeet": "pieds cubes",
+    "poundsOfPlaster": "livres de plâtre",
+    "poundsOfWater": "livres d'eau",
+    "quartsOfWater": "quarts d'eau",
+    "volumeInCm3": "volume en centimètres cubes",
+    "gramsOfPlaster": "grammes de plâtre",
+    "gramsOfWater": "grammes d'eau",
+    "keithFormula": "<em>volume en pouces cubes</em> × 11 = <em>grammes d'eau</em><br /><em>grammes d'eau</em> × (100 / consistance) = <em>grammes de plâtre de poterie</em>",
+    "keithDisclaimer": "L'eau doit être à température ambiante<br />Tamiser le plâtre à travers les doigts dans l'eau<br />Laisser reposer le plâtre pendant 3 minutes<br />Mélanger pendant 3 minutes",
+    "usgDownload": "Téléchargez la calculatrice Excel USG.",
+    "usgExplain": "La calculatrice USG calcule d'abord un ratio basé sur la consistance, puis les quantités de plâtre et d'eau :",
+    "andrewFormula": "<em>volume en pouces cubes</em> / 80 = <em>quarts d'eau</em><br /><em>quarts d'eau</em> × 3 = <em>livres de plâtre</em>",
+    "andrewNotes": "<em>Notes de Keith Simpson :</em> Technique simplifiée par Andrew Martin de <a href=\"https://books.google.com/books/about/The_Essential_Guide_to_Mold_Making_Slip.html?id=X-rtBGDCBb0C\">\"The Essential Guide to Mold Making & Slip Casting\"</a>. Cette technique crée un plâtre légèrement plus épais car Andrew a arrondi à la baisse la quantité d'eau requise pour simplifier le calcul et permettre de mesurer l'eau en volume.",
+    "campanaFormula": "<em>volume en centimètres cubes</em> × 0,6 = <em>grammes d'eau</em><br /><em>grammes d'eau</em> × (100 / consistance) = <em>grammes de plâtre</em>",
+    "derekDisclaimer": "Expérimental. Nécessite plus de données !",
+    "derekExplanation": "Cette méthode est basée sur des lots d'essai avec des quantités connues de plâtre et d'eau et des mesures précises du volume de plâtre résultant. Actuellement, un seul test a été effectué avec du Pottery Plaster #1 à une consistance de 70.",
+    "derekNotes": "Notes : Avec un lot de 15 kg de Pottery Plaster #1 frais et 10,5 kg d'eau (consistance 70), le plâtre a été tamisé dans l'eau puis trempé pendant 1 minute, puis mélangé avec une perceuse et un accessoire mélangeur Jiffy pendant 5 minutes, mélangé à la main jusqu'à ce que le plâtre commence à prendre, puis versé délicatement sur une surface plane et nivelée bordée de codilles formant un espace rectangulaire de 45,7 cm × 82,63 cm, la dalle de plâtre résultante mesurait 45,7 cm × 82,63 cm × 4,2 cm, soit <em>15860 cm<sup>3</sup></em>"
   }
 }

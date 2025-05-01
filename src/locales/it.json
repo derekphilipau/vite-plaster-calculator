@@ -26,8 +26,29 @@
   "Notes": {
     "title": "Note",
     "intro": "Utilizzando il volume di un solido, il Calcolatore di Gesso permette di stimare quanto gesso e acqua sono necessari.",
-    "consistency": "<em>La consistenza del gesso</em> è il rapporto acqua-gesso espresso come parti di acqua per 100 parti di gesso. Una consistenza di 70 significa che avrete bisogno di 70 parti di acqua per 100 parti di gesso. La consistenza influisce sulla durezza del gesso. Consistenze più elevate hanno più acqua e sono più morbide, consistenze più basse hanno meno acqua e sono più dure.",
+    "consistencyNotes": "<em>La consistenza del gesso</em> è il rapporto acqua-gesso espresso come parti di acqua per 100 parti di gesso. Una consistenza di 70 significa che avrete bisogno di 70 parti di acqua per 100 parti di gesso. La consistenza influisce sulla durezza del gesso. Consistenze più elevate hanno più acqua e sono più morbide, consistenze più basse hanno meno acqua e sono più dure.",
     "disclaimer": "Ogni marca di gesso ha un uso e una consistenza raccomandati. I gessi comuni per ceramica per stampi a colata e pressione, batterie e tavoli per impastare hanno consistenze medie di 67-70. (Questo include GP K60 Pottery Plaster e USG #1 Pottery.)",
-    "links": "Collegamenti"
+    "links": "Collegamenti",
+    "water": "acqua",
+    "plaster": "gesso",
+    "ratio": "rapporto",
+    "consistency": "consistenza",
+    "cubicFeet": "piedi cubi",
+    "poundsOfPlaster": "libbre di gesso",
+    "poundsOfWater": "libbre d'acqua",
+    "quartsOfWater": "quarti di acqua",
+    "volumeInCm3": "volume in centimetri cubi",
+    "gramsOfPlaster": "grammi di gesso",
+    "gramsOfWater": "grammi di acqua",
+    "keithFormula": "<em>volume in pollici cubi</em> × 11 = <em>grammi di acqua</em><br /><em>grammi di acqua</em> × (100 / consistenza) = <em>grammi di gesso per ceramica</em>",
+    "keithDisclaimer": "L'acqua dovrebbe essere a temperatura ambiente<br />Setacciare il gesso con le dita nell'acqua<br />Lasciare riposare il gesso per 3 minuti<br />Mescolare per 3 minuti",
+    "usgDownload": "Scarica il calcolatore Excel USG.",
+    "usgExplain": "Il calcolatore USG calcola prima un rapporto basato sulla consistenza e poi le quantità di gesso e acqua:",
+    "andrewFormula": "<em>volume in pollici cubi</em> / 80 = <em>quarti di acqua</em><br /><em>quarti di acqua</em> × 3 = <em>libbre di gesso</em>",
+    "andrewNotes": "<em>Note di Keith Simpson:</em> Tecnica semplificata di Andrew Martin da <a href=\"https://books.google.com/books/about/The_Essential_Guide_to_Mold_Making_Slip.html?id=X-rtBGDCBb0C\">\"The Essential Guide to Mold Making & Slip Casting\"</a>. Questa tecnica crea un gesso leggermente più denso poiché Andrew ha arrotondato per difetto la quantità d'acqua necessaria per semplificare il calcolo e consentire di misurare l'acqua in volume.",
+    "campanaFormula": "<em>volume in centimetri cubi</em> × 0,6 = <em>grammi di acqua</em><br /><em>grammi di acqua</em> × (100 / consistenza) = <em>grammi di gesso</em>",
+    "derekDisclaimer": "Sperimentale. Necessita di più dati!",
+    "derekExplanation": "Questo metodo si basa su lotti di prova con quantità note di gesso e acqua e misurazioni precise del volume di gesso risultante. Attualmente è stato effettuato un solo test con Pottery Plaster #1 a consistenza 70.",
+    "derekNotes": "Note: Con un lotto di 15 kg di Pottery Plaster #1 fresco e 10,5 kg di acqua (consistenza 70), il gesso è stato setacciato nell'acqua e poi lasciato in ammollo per 1 minuto, quindi mescolato con un trapano e un accessorio miscelatore Jiffy per 5 minuti, mescolato a mano fino a quando il gesso ha iniziato a indurirsi, poi versato delicatamente su una superficie piana e livellata, delimitata da guide che formavano uno spazio rettangolare di 45,7 cm × 82,63 cm, la lastra di gesso risultante misurava 45,7 cm × 82,63 cm × 4,2 cm, ovvero <em>15860 cm<sup>3</sup></em>"
   }
 }

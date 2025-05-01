@@ -26,8 +26,29 @@
   "Notes": {
     "title": "说明",
     "intro": "使用固体的体积，石膏计算器可以估算需要多少石膏和水。",
-    "consistency": "<em>石膏稠度</em>是指每100份石膏所需的水量比例。稠度为70意味着每100份石膏需要70份水。稠度影响石膏的硬度。稠度越高，水分越多，石膏越软；稠度越低，水分越少，石膏越硬。",
+    "consistencyNotes": "<em>石膏稠度</em>是指每100份石膏所需的水量比例。稠度为70意味着每100份石膏需要70份水。稠度影响石膏的硬度。稠度越高，水分越多，石膏越软；稠度越低，水分越少，石膏越硬。",
     "disclaimer": "每个品牌的石膏都有推荐的使用方法和稠度。用于制作浆料和压制模具、工作台和揉泥板的常见陶艺石膏的中等稠度为67-70。（这包括GP K60陶艺石膏和USG #1陶艺石膏。）",
-    "links": "链接"
+    "links": "链接",
+    "water": "水",
+    "plaster": "石膏",
+    "ratio": "比例",
+    "consistency": "稠度",
+    "cubicFeet": "立方英尺",
+    "poundsOfPlaster": "磅石膏",
+    "poundsOfWater": "磅水",
+    "quartsOfWater": "夸脱水",
+    "volumeInCm3": "立方厘米体积",
+    "gramsOfPlaster": "石膏克数",
+    "gramsOfWater": "水的克数",
+    "keithFormula": "<em>立方英寸体积</em> × 11 = <em>水的克数</em><br /><em>水的克数</em> × (100 / 稠度) = <em>陶艺石膏克数</em>",
+    "keithDisclaimer": "水应为室温<br />将石膏通过手指筛入水中<br />浸泡石膏3分钟<br />搅拌3分钟",
+    "usgDownload": "下载USG Excel计算器。",
+    "usgExplain": "USG计算器首先根据稠度计算比例，然后计算石膏和水的用量：",
+    "andrewFormula": "<em>立方英寸体积</em> / 80 = <em>夸脱水</em><br /><em>夸脱水</em> × 3 = <em>磅石膏</em>",
+    "andrewNotes": "<em>Keith Simpson笔记：</em>来自Andrew Martin的简化技术，出自<a href=\"https://books.google.com/books/about/The_Essential_Guide_to_Mold_Making_Slip.html?id=X-rtBGDCBb0C\">《模具制作与注浆成型基础指南》</a>。这种技术创造出略厚的石膏，因为Andrew将所需水量向下取整，使计算更简单，并允许通过体积测量水。",
+    "campanaFormula": "<em>立方厘米体积</em> × 0.6 = <em>水的克数</em><br /><em>水的克数</em> × (100 / 稠度) = <em>石膏克数</em>",
+    "derekDisclaimer": "实验性。需要更多数据！",
+    "derekExplanation": "此方法基于已知石膏和水量的测试批次以及对所得石膏体积的精确测量。目前仅使用70稠度的Pottery Plaster #1进行了一次测试。",
+    "derekNotes": "注意：使用15公斤新鲜的Pottery Plaster #1和10.5公斤水（70稠度），将石膏筛入水中并浸泡1分钟，然后用电钻和Jiffy混合器附件搅拌5分钟，手动搅拌直"
   }
 }

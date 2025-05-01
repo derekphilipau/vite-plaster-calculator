@@ -26,8 +26,29 @@
   "Notes": {
     "title": "Notes",
     "intro": "Using the volume of a solid, the Plaster Calculator allows you to estimate how much plaster and water is needed.",
-    "consistency": "<em>Plaster consistency</em> is the water-to-plaster ratio expressed as parts water per 100 parts plaster. A consistency of 70 means that you will need 70 parts of water for 100 parts of plaster. Consistency affects the hardness of the plaster. Higher consistencies have more water and are softer, lower consistencies have less water and are harder.",
+    "consistencyNotes": "<em>Plaster consistency</em> is the water-to-plaster ratio expressed as parts water per 100 parts plaster. A consistency of 70 means that you will need 70 parts of water for 100 parts of plaster. Consistency affects the hardness of the plaster. Higher consistencies have more water and are softer, lower consistencies have less water and are harder.",
     "disclaimer": "Each brand of plaster has a recommended usage and consistency.  Common pottery plasters for slip & press casting molds, bats and wedging tables have medium consistencies of 67-70.  (This includes GP K60 Pottery Plaster and USG #1 Pottery.)",
-    "links": "Links"
+    "links": "Links",
+    "water": "water",
+    "plaster": "plaster",
+    "ratio": "ratio",
+    "consistency": "consistency",
+    "cubicFeet": "cubic feet",
+    "poundsOfPlaster": "pounds of plaster",
+    "poundsOfWater": "pounds of water",
+    "quartsOfWater": "quarts of water",
+    "volumeInCm3": "volume in cubic centimeters",
+    "gramsOfPlaster": "grams of plaster",
+    "gramsOfWater": "grams of water",
+    "keithFormula": "<em>volume in cubic inches</em> × 11 = <em>grams of water</em><br /><em>grams of water</em> × (100 / consistency) = <em>grams of Pottery Plaster</em>",
+    "keithDisclaimer": "Water should be room temperature<br />Sift plaster through fingers into water<br />Slake plaster for 3 minutes<br />Mix for 3 minutes",
+    "usgDownload": "Download the USG Excel calculator.",
+    "usgExplain": "The USG calculator first calculates a ratio based on consistency and then the amounts of plaster and water:",
+    "andrewFormula": "<em>volume in cubic inches</em> / 80 = <em>quarts of water</em><br /><em>quarts of water</em> × 3 = <em>pounds of plaster</em>",
+    "andrewNotes": "<em>Keith Simpson's notes:</em> Simplified technique by Andrew Martin from <a href=\"https://books.google.com/books/about/The_Essential_Guide_to_Mold_Making_Slip.html?id=X-rtBGDCBb0C\">\"The Essential Guide to Mold Making & Slip Casting\"</a>. This technique creates a slightly thicker plaster as Andrew has rounded the required water down to make the calculation simpler and allow for the water to be measured by volume.",
+    "campanaFormula": "<em>volume in cubic centimeters</em> × 0.6 = <em>grams of water</em><br /><em>grams of water</em> × (100 / consistency) = <em>grams of plaster</em>",
+    "derekDisclaimer": "Experimental. Needs more data!",
+    "derekExplanation": "This method is based on test batches with known quantities of plaster and water and precise measurements of the resulting plaster volume. Currently only one test has been performed with Pottery Plaster #1 at 70 consistency.",
+    "derekNotes": "Notes: With a batch of 15kg fresh Pottery Plaster #1 and 10.5kg water (70 consistency), plaster was sifted into water and then soaked for 1 minute, then mixed with a drill and Jiffy mixer attachment for 5 minutes, hand-mixed until plaster just began to set, then gently poured onto a flat, level surface bordered by coddles forming a rectangular space of 45.7cm x 82.63cm, the resulting plaster slab measured 45.7cm x 82.63cm x 4.2cm, or <em>15860 cm<sup>3</sup></em>"
   }
 }

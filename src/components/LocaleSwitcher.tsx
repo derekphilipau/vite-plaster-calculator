@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Globe2 } from "lucide-react";
+import { Languages } from "lucide-react";
 
 import {
   Popover,
@@ -30,7 +30,7 @@ export default function LocaleSwitcher({ className }: { className?: string }) {
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
         <Button variant="ghost" size="icon" className={className}>
-          <Globe2 className="size-5" />
+          <Languages className="size-6" />
           <span className="sr-only">Change language</span>
         </Button>
       </PopoverTrigger>

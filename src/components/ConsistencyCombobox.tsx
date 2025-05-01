@@ -56,7 +56,10 @@ export default function ConsistencyCombobox({
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className={cn("justify-between w-[280px]", className)}
+          className={cn(
+            "justify-between min-w-[280px] max-w-[380px]",
+            className
+          )}
         >
           {selected ? (
             <>
@@ -72,7 +75,7 @@ export default function ConsistencyCombobox({
         </Button>
       </PopoverTrigger>
 
-      <PopoverContent className="w-[280px] p-0">
+      <PopoverContent className="w-full p-0">
         <Command>
           <CommandInput placeholder="Search plaster…" />
           <CommandList>
@@ -88,6 +91,7 @@ export default function ConsistencyCombobox({
                     onChange?.(opt.value); // still emit the numeric part
                     setOpen(false);
                   }}
+                  className="w-full"
                 >
                   <Check
                     className={cn(

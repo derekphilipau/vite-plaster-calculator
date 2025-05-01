@@ -26,8 +26,29 @@
   "Notes": {
     "title": "Opmerkingen",
     "intro": "Met behulp van het volume van een object kan de Gipsberekening een schatting maken van hoeveel gips en water er nodig is.",
-    "consistency": "<em>Gipsconsistentie</em> is de verhouding water-gips uitgedrukt in delen water per 100 delen gips. Een consistentie van 70 betekent dat je 70 delen water nodig hebt voor 100 delen gips. Consistentie beïnvloedt de hardheid van het gips. Hogere consistenties hebben meer water en zijn zachter, lagere consistenties hebben minder water en zijn harder.",
+    "consistencyNotes": "<em>Gipsconsistentie</em> is de verhouding water-gips uitgedrukt in delen water per 100 delen gips. Een consistentie van 70 betekent dat je 70 delen water nodig hebt voor 100 delen gips. Consistentie beïnvloedt de hardheid van het gips. Hogere consistenties hebben meer water en zijn zachter, lagere consistenties hebben minder water en zijn harder.",
     "disclaimer": "Elk merk gips heeft een aanbevolen gebruik en consistentie. Gangbare pottenbakkersgips voor slip- en persvormen, platen en kneedtafels hebben gemiddelde consistenties van 67-70. (Dit omvat GP K60 Pottery Plaster en USG #1 Pottery.)",
-    "links": "Links"
+    "links": "Links",
+    "water": "water",
+    "plaster": "gips",
+    "ratio": "verhouding",
+    "consistency": "consistentie",
+    "cubicFeet": "kubieke voet",
+    "poundsOfPlaster": "pond gips",
+    "poundsOfWater": "pond water",
+    "quartsOfWater": "quarts water",
+    "volumeInCm3": "volume in kubieke centimeters",
+    "gramsOfPlaster": "gram gips",
+    "gramsOfWater": "gram water",
+    "keithFormula": "<em>volume in kubieke inches</em> × 11 = <em>gram water</em><br /><em>gram water</em> × (100 / consistentie) = <em>gram pottenbakkersgips</em>",
+    "keithDisclaimer": "Water moet op kamertemperatuur zijn<br />Zeef gips door de vingers in het water<br />Laat gips 3 minuten weken<br />Meng 3 minuten",
+    "usgDownload": "Download de USG Excel-calculator.",
+    "usgExplain": "De USG-calculator berekent eerst een verhouding op basis van consistentie en vervolgens de hoeveelheden gips en water:",
+    "andrewFormula": "<em>volume in kubieke inches</em> / 80 = <em>quarts water</em><br /><em>quarts water</em> × 3 = <em>pond gips</em>",
+    "andrewNotes": "<em>Notities van Keith Simpson:</em> Vereenvoudigde techniek door Andrew Martin uit <a href=\"https://books.google.com/books/about/The_Essential_Guide_to_Mold_Making_Slip.html?id=X-rtBGDCBb0C\">\"The Essential Guide to Mold Making & Slip Casting\"</a>. Deze techniek creëert een iets dikkere gips omdat Andrew de benodigde hoeveelheid water naar beneden heeft afgerond om de berekening eenvoudiger te maken en het mogelijk te maken dat het water per volume wordt gemeten.",
+    "campanaFormula": "<em>volume in kubieke centimeters</em> × 0,6 = <em>gram water</em><br /><em>gram water</em> × (100 / consistentie) = <em>gram gips</em>",
+    "derekDisclaimer": "Experimenteel. Meer gegevens nodig!",
+    "derekExplanation": "Deze methode is gebaseerd op testbatches met bekende hoeveelheden gips en water en nauwkeurige metingen van het resulterende gipsvolume. Momenteel is er slechts één test uitgevoerd met Pottery Plaster #1 bij een consistentie van 70.",
+    "derekNotes": "Opmerkingen: Met een batch van 15 kg verse Pottery Plaster #1 en 10,5 kg water (consistentie 70), werd gips in het water gezeefd en daarna 1 minuut geweekt, vervolgens 5 minuten gemengd met een boormachine en Jiffy-mixeropzetstuk, met de hand gemengd tot de gips net begon te stollen, daarna voorzichtig gegoten op een vlak, waterpas oppervlak omgeven door mallen die een rechthoekige ruimte van 45,7 cm × 82,63 cm vormden, de resulterende gipsplaat mat 45,7 cm × 82,63 cm × 4,2 cm, of <em>15860 cm<sup>3</sup></em>"
   }
 }

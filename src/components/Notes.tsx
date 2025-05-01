@@ -16,6 +16,7 @@ import {
   derekWaterGrams,
   poundsToGrams,
 } from "@/utils/plaster";
+import { a } from "vitest/dist/chunks/suite.d.FvehnV49.js";
 
 interface NotesProps {
   volume: number;
@@ -31,6 +32,15 @@ export default function Notes({
   precision = 2,
 }: NotesProps) {
   const { t } = useTranslation();
+
+  const transComponents = {
+    strong: <strong />,
+    em: <em />,
+    br: <br />,
+    a: <a />,
+    sup: <sup />,
+    sub: <sub />,
+  };
 
   // Base Volume Conversions
   const volumeCubicInches =
@@ -87,10 +97,7 @@ export default function Notes({
 
         <p>{t("Notes.intro")}</p>
 
-        <Trans
-          i18nKey="Notes.consistency"
-          components={{ strong: <strong />, em: <em /> }}
-        />
+        <Trans i18nKey="Notes.consistencyNotes" components={transComponents} />
 
         <p>{t("Notes.disclaimer")}</p>
 
@@ -98,73 +105,64 @@ export default function Notes({
           <a href="https://www.simpsonstudio.us/about">Keith Simpson</a>
         </h3>
         <p>
-          <em>volume in cubic inches</em> &times; 11 = <em>grams of water</em>
-          <br />
-          <em>grams of water</em> &times; (100 / consistency) ={" "}
-          <em>grams of Pottery Plaster</em>
+          <Trans i18nKey="Notes.keithFormula" components={transComponents} />
         </p>
         {volume > 0 && (
           <p>
-            {fmt(volumeCubicInches)} in<sup>3</sup> &times; 11 ={" "}
-            <strong>{fmt(keithSimpsonGramsOfWater, 0)}</strong> g water
+            {fmt(volumeCubicInches)} in<sup>3</sup> × 11 ={" "}
+            <strong>{fmt(keithSimpsonGramsOfWater, 0)}</strong> g{" "}
+            {t("Notes.water")}
             <br />
-            {fmt(keithSimpsonGramsOfWater, 0)} g water &times; (100 /{" "}
+            {fmt(keithSimpsonGramsOfWater, 0)} g {t("Notes.water")} × (100 /{" "}
             {selectedConsistency}) ={" "}
-            <strong>{fmt(keithSimpsonGramsOfPlaster, 0)}</strong> g plaster
+            <strong>{fmt(keithSimpsonGramsOfPlaster, 0)}</strong> g{" "}
+            {t("Notes.plaster")}
           </p>
         )}
-        <p>
-          Water should be room temperature
-          <br />
-          Sift plaster through fingers into water
-          <br />
-          Slake plaster for 3 minutes
-          <br />
-          Mix for 3 minutes
-        </p>
+        <Trans i18nKey="Notes.keithDisclaimer" components={transComponents} />
 
         <h3>
           <a href="https://www.usg.com/">USG</a>
         </h3>
         <p>
           <a href="https://www.usg.com/content/dam/USG_Marketing_Communications/united_states/product_promotional_materials/finished_assets/gypsum-cement-plaster-volume-mix-guide.xlsx">
-            Download the USG Excel calculator.
+            {t("Notes.usgDownload")}
           </a>
           <br />
-          The USG calculator first calculates a ratio based on consistency and
-          then the amounts of plaster and water:
+          {t("Notes.usgExplain")}
           <br />
-          <em>ratio</em> = (-0.00004 &times;{" "}
+          <em>{t("Notes.ratio")}</em> = (-0.00004 ×{" "}
           <strong>
-            <em>consistency</em>
+            <em>{t("Notes.consistency")}</em>
           </strong>
-          <sup>3</sup>) + (0.0154 &times;{" "}
+          <sup>3</sup>) + (0.0154 ×{" "}
           <strong>
-            <em>consistency</em>
+            <em>{t("Notes.consistency")}</em>
           </strong>
-          <sup>2</sup>) - (2.23 &times;{" "}
+          <sup>2</sup>) - (2.23 ×{" "}
           <strong>
-            <em>consistency</em>
+            <em>{t("Notes.consistency")}</em>
           </strong>
           ) + 164.25
           <br />
-          <em>ratio</em> &times; <em>cubic feet</em> ={" "}
-          <em>pounds of plaster</em>
+          <em>{t("Notes.ratio")}</em> × <em>{t("Notes.cubicFeet")}</em> ={" "}
+          <em>{t("Notes.poundsOfPlaster")}</em>
           <br />
-          <em>pounds of plaster</em> &times; <em>consistency</em> / 100 ={" "}
-          <em>pounds of water</em>
+          <em>{t("Notes.poundsOfPlaster")}</em> ×{" "}
+          <em>{t("Notes.consistency")}</em> / 100 ={" "}
+          <em>{t("Notes.poundsOfWater")}</em>
         </p>
         {volume > 0 && (
           <p>
-            ratio = (-0.00004 &times;{" "}
+            {t("Notes.ratio")} = (-0.00004 ×{" "}
             <strong>
               <em>{selectedConsistency}</em>
             </strong>
-            <sup>3</sup>) + (0.0154 &times;{" "}
+            <sup>3</sup>) + (0.0154 ×{" "}
             <strong>
               <em>{selectedConsistency}</em>
             </strong>
-            <sup>2</sup>) - (2.23 &times;{" "}
+            <sup>2</sup>) - (2.23 ×{" "}
             <strong>
               <em>{selectedConsistency}</em>
             </strong>
@@ -173,41 +171,35 @@ export default function Notes({
               <em>{Number(usgRatio).toFixed(2)}</em>
             </strong>
             <br />
-            {Number(usgRatio).toFixed(2)} &times;{" "}
-            {Number(volumeCubicFeet).toFixed(5)} ft<sup>3</sup> ={" "}
-            <strong>{fmt(usgPoundsOfPlaster)}</strong> lbs. plaster
+            {Number(usgRatio).toFixed(2)} × {Number(volumeCubicFeet).toFixed(5)}{" "}
+            ft<sup>3</sup> = <strong>{fmt(usgPoundsOfPlaster)}</strong> lbs.
+            plaster
             <br />
-            <strong>{fmt(usgPoundsOfPlaster)}</strong> lbs. plaster &times; (
-            {selectedConsistency} / 100) ={" "}
-            <strong>{fmt(usgPoundsOfWater)}</strong> lbs. water
+            <strong>{fmt(usgPoundsOfPlaster)}</strong>{" "}
+            {t("Notes.poundsOfPlaster")} × ({selectedConsistency} / 100) ={" "}
+            <strong>{fmt(usgPoundsOfWater)}</strong> {t("Notes.poundsOfWater")}
           </p>
         )}
 
         <h3>Andrew Martin</h3>
         <p>
-          <em>volume in cubic inches</em> / 80 = <em>quarts of water</em>
-          <br />
-          <em>quarts of water</em> &times; 3 = <em>pounds of plaster</em>
+          <Trans i18nKey="Notes.andrewFormula" components={transComponents} />
         </p>
         {volume > 0 && (
           <p>
             {fmt(volumeCubicInches)} in<sup>3</sup> / 80 ={" "}
-            <strong>{fmt(andrewMartinQuartsOfWater)}</strong> qts. water
+            <strong>{fmt(andrewMartinQuartsOfWater)}</strong>{" "}
+            {t("Notes.quartsOfWater")}
             <br />
-            {fmt(andrewMartinQuartsOfWater)} qts. water &times; 3 ={" "}
-            <strong>{fmt(andrewMartinPoundsOfPlaster)}</strong> lbs. plaster (
+            {fmt(andrewMartinQuartsOfWater)} {t("Notes.quartsOfWater")} × 3 ={" "}
+            <strong>{fmt(andrewMartinPoundsOfPlaster)}</strong>{" "}
+            {t("Notes.poundsOfPlaster")} (
             {fmt(poundsToGrams(andrewMartinPoundsOfPlaster))}g)
           </p>
         )}
+
         <p>
-          <em>Keith Simpson's notes:</em> Simplified technique by Andrew Martin
-          from{" "}
-          <a href="https://books.google.com/books/about/The_Essential_Guide_to_Mold_Making_Slip.html?id=X-rtBGDCBb0C">
-            "The Essential Guide to Mold Making & Slip Casting"
-          </a>
-          . This technique creates a slightly thicker plaster as Andrew has
-          rounded the required water down to make the calculation simpler and
-          allow for the water to be measured by volume.
+          <Trans i18nKey="Notes.andrewNotes" components={transComponents} />
         </p>
 
         <h3>
@@ -215,54 +207,42 @@ export default function Notes({
           <a href="https://jeffcampana.com/">Jeff Campana</a>
         </h3>
         <p>
-          <em>volume in cubic centimeters</em> &times; 0.6 ={" "}
-          <em>grams of water</em>
-          <br />
-          <em>grams of water</em> &times; (100 / {selectedConsistency}) ={" "}
-          <em>grams of plaster</em>
+          <Trans i18nKey="Notes.campanaFormula" components={transComponents} />
         </p>
         {volume > 0 && (
           <p>
-            {fmt(volumeCubicCentimeters)} cm<sup>3</sup> &times; 0.6 ={" "}
-            <strong>{fmt(campanaGramsOfWater)}</strong> g water
+            {fmt(volumeCubicCentimeters)} cm<sup>3</sup> × 0.6 ={" "}
+            <strong>{fmt(campanaGramsOfWater)}</strong> g {t("Notes.water")}
             <br />
-            {fmt(campanaGramsOfWater)} g water &times; (100 /{" "}
+            {fmt(campanaGramsOfWater)} g {t("Notes.water")} × (100 /{" "}
             {selectedConsistency}) ={" "}
-            <strong>{fmt(campanaGramsOfPlaster)}</strong> g plaster
+            <strong>{fmt(campanaGramsOfPlaster)}</strong> g {t("Notes.plaster")}
           </p>
         )}
 
         <h3>Derek Au:</h3>
         <p>
-          <em>Experimental. Needs more data!</em>
+          <em>{t("Notes.derekDisclaimer")}</em>
         </p>
         <p>
-          This method is based on test batches with known quantities of plaster
-          and water and precise measurements of the resulting plaster volume.
-          Currently only one test has been performed with Pottery Plaster #1 at
-          70 consistency.
+          <Trans
+            i18nKey="Notes.derekExplanation"
+            components={transComponents}
+          />
         </p>
         <p>
-          Notes: With a batch of 15kg fresh Pottery Plaster #1 and 10.5kg water
-          (70 consistency), plaster was sifted into water and then soaked for 1
-          minute, then mixed with a drill and Jiffy mixer attachment for 5
-          minutes, hand-mixed until plaster just began to set, then gently
-          poured onto a flat, level surface bordered by coddles forming a
-          rectangular space of 45.7cm x 82.63cm, the resulting plaster slab
-          measured 45.7cm x 82.63cm x 4.2cm, or{" "}
-          <em>
-            15860 cm<sup>3</sup>
-          </em>
+          <Trans i18nKey="Notes.derekNotes" components={transComponents} />
         </p>
         {volume > 0 && (
           <p>
-            <em>volume in cubic centimeters</em> &times; 15000 / 15860 ={" "}
+            <em>{t("Notes.volumeInCm3")}</em> × 15000 / 15860 ={" "}
             <strong>{fmt(derekGramsOfPlaster)}</strong>{" "}
-            <em>grams of plaster</em>
+            <em>{t("Notes.gramsOfPlaster")}</em>
             <br />
-            {fmt(derekGramsOfPlaster)} g plaster &times; {selectedConsistency} /
-            100 = <strong>{fmt(derekGramsOfWater)}</strong>{" "}
-            <em>grams of water</em>
+            {fmt(derekGramsOfPlaster)} {t("Notes.gramsOfPlaster")} ×{" "}
+            {selectedConsistency} / 100 ={" "}
+            <strong>{fmt(derekGramsOfWater)}</strong>{" "}
+            <em>{t("Notes.gramsOfWater")}</em>
           </p>
         )}
       </div>
@@ -271,6 +251,10 @@ export default function Notes({
         <h2>{t("Notes.links")}</h2>
         <h3>USG</h3>
         <p>
+          <a href="https://www.usg.com/content/dam/USG_Marketing_Communications/united_states/product_promotional_materials/finished_assets/gypsum-cement-plaster-volume-mix-guide.xlsx">
+            Calculator
+          </a>
+          ,{" "}
           <a href="https://plaster.com/product-comparison-chart/">
             Plaster Chart
           </a>
