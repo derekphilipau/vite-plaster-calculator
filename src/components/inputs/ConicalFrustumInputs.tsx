@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { formatNumber } from "@/lib/utils";
-import { calculateFrustumVolume } from "@/utils/volume";
+import { frustumVolume } from "@/utils/volume";
 import { allPresent, positiveOnly } from "@/lib/validation";
 
 interface ConicalFrustumInputProps {
@@ -49,7 +49,7 @@ export function ConicalFrustumInputs({
     const radius1 = Number(newDimensions.radius1);
     const radius2 = Number(newDimensions.radius2);
     const height = Number(newDimensions.height);
-    const calculatedVolume = calculateFrustumVolume(radius1, radius2, height);
+    const calculatedVolume = frustumVolume(radius1, radius2, height);
     setVolume(calculatedVolume);
     onVolumeChange(calculatedVolume);
   }

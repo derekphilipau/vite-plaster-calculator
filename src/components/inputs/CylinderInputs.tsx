@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { formatNumber } from "@/lib/utils";
 import { allPresent, positiveOnly } from "@/lib/validation";
-import { calculateCylinderVolume } from "@/utils/volume";
+import { cylinderVolume } from "@/utils/volume";
 
 interface CylinderInputProps {
   selectedUnits: string;
@@ -47,7 +47,7 @@ export function CylinderInputs({
 
     const radius = Number(newDimensions.radius);
     const height = Number(newDimensions.height);
-    const calculatedVolume = calculateCylinderVolume(radius, height);
+    const calculatedVolume = cylinderVolume(radius, height);
     setVolume(calculatedVolume);
     onVolumeChange(calculatedVolume);
   }

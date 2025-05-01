@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { formatNumber } from "@/lib/utils";
-import { calculateSphereVolume } from "@/utils/volume";
+import { sphereVolume } from "@/utils/volume";
 import { allPresent, positiveOnly } from "@/lib/validation";
 
 interface SphereInputProps {
@@ -42,7 +42,7 @@ export function SphereInputs({
     }
 
     const radius = Number(newDimensions.radius);
-    const calculatedVolume = calculateSphereVolume(radius);
+    const calculatedVolume = sphereVolume(radius);
     setVolume(calculatedVolume);
     onVolumeChange(calculatedVolume);
   }

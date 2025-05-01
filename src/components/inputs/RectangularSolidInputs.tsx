@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { formatNumber } from "@/lib/utils";
-import { calculateRectangularSolidVolume } from "@/utils/volume";
+import { rectangularSolidVolume } from "@/utils/volume";
 import { allPresent, positiveOnly } from "@/lib/validation";
 
 interface RectangularSolidInputProps {
@@ -49,11 +49,7 @@ export function RectangularSolidInputs({
     const length = Number(newDimensions.length);
     const width = Number(newDimensions.width);
     const height = Number(newDimensions.height);
-    const calculatedVolume = calculateRectangularSolidVolume(
-      length,
-      width,
-      height
-    );
+    const calculatedVolume = rectangularSolidVolume(length, width, height);
     setVolume(calculatedVolume);
     onVolumeChange(calculatedVolume);
   }

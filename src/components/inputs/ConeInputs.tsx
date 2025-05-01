@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { formatNumber } from "@/lib/utils";
-import { calculateConeVolume } from "@/utils/volume";
+import { coneVolume } from "@/utils/volume";
 import { allPresent, positiveOnly } from "@/lib/validation";
 
 interface ConeInputProps {
@@ -44,7 +44,7 @@ export function ConeInputs({ selectedUnits, onVolumeChange }: ConeInputProps) {
 
     const radius = Number(newDimensions.radius);
     const height = Number(newDimensions.height);
-    const calculatedVolume = calculateConeVolume(radius, height);
+    const calculatedVolume = coneVolume(radius, height);
     setVolume(calculatedVolume);
     onVolumeChange(calculatedVolume);
   }

@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { formatNumber } from "@/lib/utils";
-import { calculateCubeVolume } from "@/utils/volume";
+import { cubeVolume } from "@/utils/volume";
 import { allPresent, positiveOnly } from "@/lib/validation";
 
 interface CubeInputProps {
@@ -39,7 +39,7 @@ export function CubeInputs({ selectedUnits, onVolumeChange }: CubeInputProps) {
     }
 
     const sideLength = Number(value);
-    const calculatedVolume = calculateCubeVolume(sideLength);
+    const calculatedVolume = cubeVolume(sideLength);
     setVolume(calculatedVolume);
     onVolumeChange(calculatedVolume);
   }
