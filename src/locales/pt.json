@@ -24,7 +24,8 @@
     "radius2": "Raio 2",
     "outerDiameter": "Diâmetro Externo",
     "innerDiameter": "Diâmetro Interno",
-    "dimensionsError": "A dimensão deve ser maior que 0"
+    "dimensionsError": "A dimensão deve ser maior que 0",
+    "d2LessThanD1": "O diâmetro interno deve ser menor que o diâmetro externo"
   },
   "ResultsDisplay": {
     "keith": "Keith Simpson",

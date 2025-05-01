@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { formatNumber } from "@/lib/utils";
 import { calculateCubeVolume } from "@/utils/volume";
+import { allPresent, positiveOnly } from "@/lib/validation";
 
 interface CubeInputProps {
   selectedUnits: string;
@@ -19,23 +20,25 @@ export function CubeInputs({ selectedUnits, onVolumeChange }: CubeInputProps) {
   const [error, setError] = useState<string | null>(null);
 
   function handleDimensionChange(value: string) {
-    setDimensions({ sideLength: value });
+    const newDimensions = { sideLength: value };
+    setDimensions(newDimensions);
     setError(null);
 
-    if (!value) {
+    if (!allPresent(newDimensions)) {
+      onVolumeChange(0);
+      setVolume(0);
+      return;
+    }
+
+    const msg = positiveOnly(newDimensions);
+    if (msg) {
+      setError(t(msg));
       onVolumeChange(0);
       setVolume(0);
       return;
     }
 
     const sideLength = Number(value);
-    if (sideLength <= 0) {
-      setError("Side length must be greater than 0");
-      onVolumeChange(0);
-      setVolume(0);
-      return;
-    }
-
     const calculatedVolume = calculateCubeVolume(sideLength);
     setVolume(calculatedVolume);
     onVolumeChange(calculatedVolume);

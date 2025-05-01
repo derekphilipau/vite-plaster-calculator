@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { formatNumber } from "@/lib/utils";
 import { calculateFrustumVolume } from "@/utils/volume";
+import { allPresent, positiveOnly } from "@/lib/validation";
 
 interface ConicalFrustumInputProps {
   selectedUnits: string;
@@ -31,27 +32,23 @@ export function ConicalFrustumInputs({
     setDimensions(newDimensions);
     setError(null);
 
+    if (!allPresent(newDimensions)) {
+      onVolumeChange(0);
+      setVolume(0);
+      return;
+    }
+
+    const msg = positiveOnly(newDimensions);
+    if (msg) {
+      setError(t(msg));
+      onVolumeChange(0);
+      setVolume(0);
+      return;
+    }
+
     const radius1 = Number(newDimensions.radius1);
     const radius2 = Number(newDimensions.radius2);
     const height = Number(newDimensions.height);
-
-    if (
-      !newDimensions.radius1 ||
-      !newDimensions.radius2 ||
-      !newDimensions.height
-    ) {
-      onVolumeChange(0);
-      setVolume(0);
-      return;
-    }
-
-    if (radius1 <= 0 || radius2 <= 0 || height <= 0) {
-      setError(t("VolumeCalculator.dimensionsError"));
-      onVolumeChange(0);
-      setVolume(0);
-      return;
-    }
-
     const calculatedVolume = calculateFrustumVolume(radius1, radius2, height);
     setVolume(calculatedVolume);
     onVolumeChange(calculatedVolume);

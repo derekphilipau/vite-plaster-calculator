@@ -24,7 +24,8 @@
     "radius2": "Radius 2",
     "outerDiameter": "Außendurchmesser",
     "innerDiameter": "Innendurchmesser",
-    "dimensionsError": "Abmessung muss größer als 0 sein"
+    "dimensionsError": "Abmessung muss größer als 0 sein",
+    "d2LessThanD1": "Innendurchmesser muss kleiner als Außendurchmesser sein"
   },
   "ResultsDisplay": {
     "keith": "Keith Simpson",

@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { formatNumber } from "@/lib/utils";
 import { calculateRectangularSolidVolume } from "@/utils/volume";
+import { allPresent, positiveOnly } from "@/lib/validation";
 
 interface RectangularSolidInputProps {
   selectedUnits: string;
@@ -31,27 +32,23 @@ export function RectangularSolidInputs({
     setDimensions(newDimensions);
     setError(null);
 
+    if (!allPresent(newDimensions)) {
+      onVolumeChange(0);
+      setVolume(0);
+      return;
+    }
+
+    const msg = positiveOnly(newDimensions);
+    if (msg) {
+      setError(t(msg));
+      onVolumeChange(0);
+      setVolume(0);
+      return;
+    }
+
     const length = Number(newDimensions.length);
     const width = Number(newDimensions.width);
     const height = Number(newDimensions.height);
-
-    if (
-      !newDimensions.length ||
-      !newDimensions.width ||
-      !newDimensions.height
-    ) {
-      onVolumeChange(0);
-      setVolume(0);
-      return;
-    }
-
-    if (length <= 0 || width <= 0 || height <= 0) {
-      setError(t("VolumeCalculator.dimensionsError"));
-      onVolumeChange(0);
-      setVolume(0);
-      return;
-    }
-
     const calculatedVolume = calculateRectangularSolidVolume(
       length,
       width,

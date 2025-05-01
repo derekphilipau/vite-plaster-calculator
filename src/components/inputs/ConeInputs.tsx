@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { formatNumber } from "@/lib/utils";
 import { calculateConeVolume } from "@/utils/volume";
+import { allPresent, positiveOnly } from "@/lib/validation";
 
 interface ConeInputProps {
   selectedUnits: string;
@@ -27,22 +28,22 @@ export function ConeInputs({ selectedUnits, onVolumeChange }: ConeInputProps) {
     setDimensions(newDimensions);
     setError(null);
 
+    if (!allPresent(newDimensions)) {
+      onVolumeChange(0);
+      setVolume(0);
+      return;
+    }
+
+    const msg = positiveOnly(newDimensions);
+    if (msg) {
+      setError(t(msg));
+      onVolumeChange(0);
+      setVolume(0);
+      return;
+    }
+
     const radius = Number(newDimensions.radius);
     const height = Number(newDimensions.height);
-
-    if (!newDimensions.radius || !newDimensions.height) {
-      onVolumeChange(0);
-      setVolume(0);
-      return;
-    }
-
-    if (radius <= 0 || height <= 0) {
-      setError(t("VolumeCalculator.dimensionsError"));
-      onVolumeChange(0);
-      setVolume(0);
-      return;
-    }
-
     const calculatedVolume = calculateConeVolume(radius, height);
     setVolume(calculatedVolume);
     onVolumeChange(calculatedVolume);

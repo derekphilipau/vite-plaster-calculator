@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { formatNumber } from "@/lib/utils";
 import { calculateSphereVolume } from "@/utils/volume";
+import { allPresent, positiveOnly } from "@/lib/validation";
 
 interface SphereInputProps {
   selectedUnits: string;
@@ -22,23 +23,25 @@ export function SphereInputs({
   const [error, setError] = useState<string | null>(null);
 
   function handleDimensionChange(value: string) {
-    setDimensions({ radius: value });
+    const newDimensions = { radius: value };
+    setDimensions(newDimensions);
     setError(null);
 
-    if (!value) {
+    if (!allPresent(newDimensions)) {
       onVolumeChange(0);
       setVolume(0);
       return;
     }
 
-    const radius = Number(value);
-    if (radius <= 0) {
-      setError("Radius must be greater than 0");
+    const msg = positiveOnly(newDimensions);
+    if (msg) {
+      setError(t(msg));
       onVolumeChange(0);
       setVolume(0);
       return;
     }
 
+    const radius = Number(newDimensions.radius);
     const calculatedVolume = calculateSphereVolume(radius);
     setVolume(calculatedVolume);
     onVolumeChange(calculatedVolume);

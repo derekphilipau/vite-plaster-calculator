@@ -24,7 +24,8 @@
     "radius2": "Radius 2",
     "outerDiameter": "Outer Diameter",
     "innerDiameter": "Inner Diameter",
-    "dimensionsError": "Dimension must be greater than 0"
+    "dimensionsError": "Dimension must be greater than 0",
+    "d2LessThanD1": "Inner diameter must be smaller than outer diameter"
   },
   "ResultsDisplay": {
     "keith": "Keith Simpson",

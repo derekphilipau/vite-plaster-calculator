@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { formatNumber } from "@/lib/utils";
+import { allPresent, positiveOnly } from "@/lib/validation";
 import { calculateCylinderVolume } from "@/utils/volume";
 
 interface CylinderInputProps {
@@ -30,22 +31,22 @@ export function CylinderInputs({
     setDimensions(newDimensions);
     setError(null);
 
+    if (!allPresent(newDimensions)) {
+      onVolumeChange(0);
+      setVolume(0);
+      return;
+    }
+
+    const msg = positiveOnly(newDimensions);
+    if (msg) {
+      setError(t(msg));
+      onVolumeChange(0);
+      setVolume(0);
+      return;
+    }
+
     const radius = Number(newDimensions.radius);
     const height = Number(newDimensions.height);
-
-    if (!newDimensions.radius || !newDimensions.height) {
-      onVolumeChange(0);
-      setVolume(0);
-      return;
-    }
-
-    if (radius <= 0 || height <= 0) {
-      setError(t("VolumeCalculator.dimensionsError"));
-      onVolumeChange(0);
-      setVolume(0);
-      return;
-    }
-
     const calculatedVolume = calculateCylinderVolume(radius, height);
     setVolume(calculatedVolume);
     onVolumeChange(calculatedVolume);

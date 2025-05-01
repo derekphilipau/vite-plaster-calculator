@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { formatNumber } from "@/lib/utils";
 import { calculateTubeVolume } from "@/utils/volume";
+import { allPresent, positiveOnly, innerLessThanOuter } from "@/lib/validation";
 
 interface TubeInputProps {
   selectedUnits: string;
@@ -28,33 +29,34 @@ export function TubeInputs({ selectedUnits, onVolumeChange }: TubeInputProps) {
     setDimensions(newDimensions);
     setError(null);
 
+    if (!allPresent(newDimensions)) {
+      onVolumeChange(0);
+      setVolume(0);
+      return;
+    }
+
+    let msg = positiveOnly(newDimensions);
+    if (msg) {
+      setError(t(msg));
+      onVolumeChange(0);
+      setVolume(0);
+      return;
+    }
+
+    msg = innerLessThanOuter(
+      newDimensions.outerDiameter,
+      newDimensions.innerDiameter
+    );
+    if (msg) {
+      setError(t(msg));
+      onVolumeChange(0);
+      setVolume(0);
+      return;
+    }
+
     const outerDiameter = Number(newDimensions.outerDiameter);
     const innerDiameter = Number(newDimensions.innerDiameter);
     const height = Number(newDimensions.height);
-
-    if (
-      !newDimensions.outerDiameter ||
-      !newDimensions.innerDiameter ||
-      !newDimensions.height
-    ) {
-      onVolumeChange(0);
-      setVolume(0);
-      return;
-    }
-
-    if (outerDiameter <= 0 || innerDiameter <= 0 || height <= 0) {
-      setError(t("VolumeCalculator.dimensionsError"));
-      onVolumeChange(0);
-      setVolume(0);
-      return;
-    }
-
-    if (innerDiameter >= outerDiameter) {
-      setError("Inner diameter must be smaller than outer diameter");
-      onVolumeChange(0);
-      setVolume(0);
-      return;
-    }
 
     const calculatedVolume = calculateTubeVolume(
       outerDiameter,
