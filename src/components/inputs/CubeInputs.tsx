@@ -56,6 +56,7 @@ export function CubeInputs({ selectedUnits, onVolumeChange }: CubeInputProps) {
         <Input
           className="max-w-24"
           id="sideLength"
+          autoFocus
           type="number"
           value={dimensions.sideLength}
           onChange={(e) => handleDimensionChange(e.target.value)}

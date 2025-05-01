@@ -64,6 +64,7 @@ export function CylinderInputs({
         <Input
           className="max-w-24"
           id="radius"
+          autoFocus
           type="number"
           value={dimensions.radius ?? ""}
           onChange={(e) => handleDimensionChange("radius", e.target.value)}

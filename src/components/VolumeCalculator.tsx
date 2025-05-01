@@ -107,15 +107,15 @@ export function VolumeCalculator({
         })}
       </div>
 
+      <div>
+        <h3 className="text-xl">{t(`VolumeCalculator.${selectedShape}`)}</h3>
+      </div>
+
       <div className="w-full flex items-center justify-center">
         {(() => {
           const ShapeComponent = SHAPE_COMPONENTS[selectedShape];
           return <ShapeComponent className="h-32" />;
         })()}
-      </div>
-
-      <div>
-        <h3 className="text-xl">{t(`VolumeCalculator.${selectedShape}`)}</h3>
       </div>
 
       {renderShapeInputs()}

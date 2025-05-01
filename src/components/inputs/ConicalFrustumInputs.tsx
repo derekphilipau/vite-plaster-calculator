@@ -66,6 +66,7 @@ export function ConicalFrustumInputs({
         <Input
           className="max-w-24"
           id="radius1"
+          autoFocus
           type="number"
           value={dimensions.radius1 ?? ""}
           onChange={(e) => handleDimensionChange("radius1", e.target.value)}

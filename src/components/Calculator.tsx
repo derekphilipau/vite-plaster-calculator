@@ -64,7 +64,7 @@ export default function Calculator() {
         selectedUnits={selectedUnits}
         onVolumeChange={(v) => {
           setShapeVolume(v);
-          setManualVolume(v !== null ? v.toString() : "");
+          setManualVolume(v !== null ? Number(v).toFixed(2) : "");
         }}
       />
 

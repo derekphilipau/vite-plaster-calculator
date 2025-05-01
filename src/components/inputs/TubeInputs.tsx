@@ -78,6 +78,7 @@ export function TubeInputs({ selectedUnits, onVolumeChange }: TubeInputProps) {
         <Input
           className="max-w-24"
           id="outerDiameter"
+          autoFocus
           type="number"
           value={dimensions.outerDiameter ?? ""}
           onChange={(e) =>

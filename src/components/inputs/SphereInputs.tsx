@@ -62,6 +62,7 @@ export function SphereInputs({
         <Input
           className="max-w-24"
           id="radius"
+          autoFocus
           type="number"
           value={dimensions.radius}
           onChange={(e) => handleDimensionChange(e.target.value)}

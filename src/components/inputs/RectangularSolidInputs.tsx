@@ -69,6 +69,7 @@ export function RectangularSolidInputs({
         <Input
           className="max-w-24"
           id="length"
+          autoFocus
           type="number"
           value={dimensions.length}
           onChange={(e) => handleDimensionChange("length", e.target.value)}
