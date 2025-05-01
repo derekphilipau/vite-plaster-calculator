@@ -24,7 +24,7 @@
     "radius2": "Radius 2",
     "outerDiameter": "Außendurchmesser",
     "innerDiameter": "Innendurchmesser",
-    "dimensionsError": "Abmessung muss größer als 0 sein",
+    "dimensionsError": "Alle Abmessungen müssen größer als 0 sein",
     "d2LessThanD1": "Innendurchmesser muss kleiner als Außendurchmesser sein"
   },
   "ResultsDisplay": {
@@ -49,7 +49,7 @@
     "cubicFeet": "Kubikfuß",
     "poundsOfPlaster": "Pfund Gips",
     "poundsOfWater": "Pfund Wasser",
-    "quartsOfWater": "Quart Wasser",
+    "quartsOfWater": "Quarts Wasser",
     "volumeInCm3": "Volumen in Kubikzentimetern",
     "gramsOfPlaster": "Gramm Gips",
     "gramsOfWater": "Gramm Wasser",

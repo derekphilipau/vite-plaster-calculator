@@ -8,7 +8,7 @@
   },
   "VolumeCalculator": {
     "CUBE": "Cubo",
-    "RECTANGULAR_SOLID": "Solido rettangolare",
+    "RECTANGULAR_SOLID": "Parallelepipedo rettangolare",
     "CONE": "Cono",
     "CONICAL_FRUSTUM": "Tronco di cono",
     "CYLINDER": "Cilindro",
@@ -24,7 +24,7 @@
     "radius2": "Raggio 2",
     "outerDiameter": "Diametro Esterno",
     "innerDiameter": "Diametro Interno",
-    "dimensionsError": "La dimensione deve essere maggiore di 0",
+    "dimensionsError": "Ogni dimensione deve essere maggiore di 0",
     "d2LessThanD1": "Il diametro interno deve essere più piccolo del diametro esterno"
   },
   "ResultsDisplay": {
@@ -32,7 +32,7 @@
     "usg": "USG",
     "andrew": "Andrew Martin",
     "bivins": "Bivins / Campana",
-    "derek": "Derek Au (esp)",
+    "derek": "Derek Au (sperimentale)",
     "water": "Acqua",
     "plaster": "Gesso"
   },
@@ -49,7 +49,7 @@
     "cubicFeet": "piedi cubi",
     "poundsOfPlaster": "libbre di gesso",
     "poundsOfWater": "libbre d'acqua",
-    "quartsOfWater": "quarti di acqua",
+    "quartsOfWater": "quarti d'acqua",
     "volumeInCm3": "volume in centimetri cubi",
     "gramsOfPlaster": "grammi di gesso",
     "gramsOfWater": "grammi di acqua",

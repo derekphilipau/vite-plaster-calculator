@@ -19,12 +19,12 @@
     "width": "Breedte",
     "height": "Hoogte",
     "diameter": "Diameter",
-    "radius": "Radius",
-    "radius1": "Radius 1",
-    "radius2": "Radius 2",
+    "radius": "Straal",
+    "radius1": "Straal 1",
+    "radius2": "Straal 2",
     "outerDiameter": "Buitendiameter",
     "innerDiameter": "Binnendiameter",
-    "dimensionsError": "Afmeting moet groter zijn dan 0",
+    "dimensionsError": "Elke afmeting moet groter zijn dan 0",
     "d2LessThanD1": "Binnendiameter moet kleiner zijn dan buitendiameter"
   },
   "ResultsDisplay": {

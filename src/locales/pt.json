@@ -8,7 +8,7 @@
   },
   "VolumeCalculator": {
     "CUBE": "Cubo",
-    "RECTANGULAR_SOLID": "Sólido retangular",
+    "RECTANGULAR_SOLID": "Bloco retangular",
     "CONE": "Cone",
     "CONICAL_FRUSTUM": "Tronco de cone",
     "CYLINDER": "Cilindro",
@@ -24,7 +24,7 @@
     "radius2": "Raio 2",
     "outerDiameter": "Diâmetro Externo",
     "innerDiameter": "Diâmetro Interno",
-    "dimensionsError": "A dimensão deve ser maior que 0",
+    "dimensionsError": "Cada dimensão deve ser maior que 0",
     "d2LessThanD1": "O diâmetro interno deve ser menor que o diâmetro externo"
   },
   "ResultsDisplay": {

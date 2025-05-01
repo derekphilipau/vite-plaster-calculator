@@ -8,7 +8,7 @@
   },
   "VolumeCalculator": {
     "CUBE": "Cube",
-    "RECTANGULAR_SOLID": "Solide rectangulaire",
+    "RECTANGULAR_SOLID": "Parallélépipède rectangle",
     "CONE": "Cône",
     "CONICAL_FRUSTUM": "Tronc de cône",
     "CYLINDER": "Cylindre",
@@ -24,7 +24,7 @@
     "radius2": "Rayon 2",
     "outerDiameter": "Diamètre Extérieur",
     "innerDiameter": "Diamètre Intérieur",
-    "dimensionsError": "La dimension doit être supérieure à 0",
+    "dimensionsError": "Chaque dimension doit être supérieure à 0",
     "d2LessThanD1": "Le diamètre intérieur doit être inférieur au diamètre extérieur"
   },
   "ResultsDisplay": {
