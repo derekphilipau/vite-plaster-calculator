@@ -3,6 +3,9 @@ import {
   cm3ToIn3,
   in3ToCm3,
   in3ToFt3,
+  poundsToGrams,
+} from "@/utils/conversions";
+import {
   keithWaterGrams,
   keithPlasterGrams,
   usgRatio as usgRatioCalc,
@@ -14,8 +17,7 @@ import {
   campanaPlasterGrams,
   derekPlasterGrams,
   derekWaterGrams,
-  poundsToGrams,
-} from "@/utils/plaster";
+} from "@/utils/formula";
 import { formatNumber } from "@/lib/utils";
 
 interface NotesProps {

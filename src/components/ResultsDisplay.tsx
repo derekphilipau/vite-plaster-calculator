@@ -2,13 +2,23 @@
 import {
   poundsToGrams,
   quartsToGrams,
-  keithWaterGrams,
-  derekPlasterGrams,
-  usgRatio,
   in3ToCm3,
   cm3ToIn3,
   in3ToFt3,
-} from "@/utils/plaster";
+} from "@/utils/conversions";
+import {
+  andrewWaterQuarts,
+  andrewPlasterPounds,
+  campanaWaterGrams,
+  campanaPlasterGrams,
+  derekPlasterGrams,
+  derekWaterGrams,
+  keithWaterGrams,
+  keithPlasterGrams,
+  usgRatio,
+  usgPlasterPounds,
+  usgWaterPounds,
+} from "@/utils/formula";
 import { useTranslation } from "react-i18next";
 import { formatNumber } from "@/lib/utils";
 
@@ -26,20 +36,21 @@ export default function ResultsDisplay({ volume, units, consistency }: Props) {
   const volFt3 = in3ToFt3(volIn3);
 
   const keithWaterG = keithWaterGrams(volIn3);
-  const keithPlasterG = keithWaterG * (100 / consistency);
+  const keithPlasterG = keithPlasterGrams(keithWaterG, consistency);
 
-  const usgPlasterLb = usgRatio(consistency) * volFt3;
-  const usgWaterLb = (usgPlasterLb * consistency) / 100;
+  const ratio = usgRatio(consistency);
+  const usgPlasterLb = usgPlasterPounds(ratio, volFt3);
+  const usgWaterLb = usgWaterPounds(usgPlasterLb, consistency);
 
-  const andrewWaterQt = volIn3 / 80;
-  const andrewPlasterLb = andrewWaterQt * 3;
+  const andrewWaterQt = andrewWaterQuarts(volIn3);
+  const andrewPlasterLb = andrewPlasterPounds(andrewWaterQt);
 
-  const campanaWaterG = volCm3 * 0.6;
-  const campanaPlasterG = campanaWaterG * (100 / consistency);
+  const campanaWaterG = campanaWaterGrams(volCm3);
+  const campanaPlasterG = campanaPlasterGrams(campanaWaterG, consistency);
 
   // Derek Au (tested at 70 consistency)
   const derekPlasterG = derekPlasterGrams(volCm3);
-  const derekWaterG = (derekPlasterG * consistency) / 100;
+  const derekWaterG = derekWaterGrams(derekPlasterG, consistency);
 
   return (
     <section className="grid gap-6 w-full">

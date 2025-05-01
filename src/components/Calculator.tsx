@@ -8,7 +8,7 @@ import { VolumeCalculator } from "./VolumeCalculator";
 import ConsistencyCombobox from "@/components/ConsistencyCombobox";
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { in3ToCm3, cm3ToIn3, in3ToFt3 } from "@/utils/plaster";
+import { in3ToCm3, cm3ToIn3, in3ToFt3 } from "@/utils/conversions";
 import { formatNumber, parseNumber } from "@/lib/utils";
 
 export default function Calculator() {
