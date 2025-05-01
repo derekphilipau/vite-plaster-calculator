@@ -24,7 +24,10 @@ interface VolumeCalculatorProps {
   onUnitsChange?: (units: string) => void;
 }
 
-type ShapeComponentType = React.ComponentType<{ className?: string }>;
+type ShapeComponentType = React.ComponentType<{
+  className?: string;
+  isIcon?: boolean;
+}>;
 
 const SHAPE_COMPONENTS: Record<Shape, ShapeComponentType> = {
   [Shapes.CUBE]: CubeShape,
@@ -97,6 +100,7 @@ export function VolumeCalculator({
                     ? "text-highlight"
                     : "hover:text-highlight"
                 )}
+                isIcon={true}
               />
             </button>
           );
