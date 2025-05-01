@@ -3,19 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { formatNumber } from "@/lib/utils";
-
-function calculateFrustumVolume(
-  radius1: number,
-  radius2: number,
-  height: number
-): number {
-  return (
-    (1 / 3) *
-    Math.PI *
-    height *
-    (Math.pow(radius1, 2) + radius1 * radius2 + Math.pow(radius2, 2))
-  );
-}
+import { calculateFrustumVolume } from "@/utils/volume";
 
 interface ConicalFrustumInputProps {
   selectedUnits: string;

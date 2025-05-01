@@ -3,18 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { formatNumber } from "@/lib/utils";
-
-function calculateTubeVolume(
-  outerDiameter: number,
-  innerDiameter: number,
-  height: number
-): number {
-  const outerRadius = outerDiameter / 2;
-  const innerRadius = innerDiameter / 2;
-  return (
-    Math.PI * height * (Math.pow(outerRadius, 2) - Math.pow(innerRadius, 2))
-  );
-}
+import { calculateTubeVolume } from "@/utils/volume";
 
 interface TubeInputProps {
   selectedUnits: string;

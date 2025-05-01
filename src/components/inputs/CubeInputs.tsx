@@ -3,10 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { formatNumber } from "@/lib/utils";
-
-function calculateCubeVolume(sideLength: number): number {
-  return Math.pow(sideLength, 3);
-}
+import { calculateCubeVolume } from "@/utils/volume";
 
 interface CubeInputProps {
   selectedUnits: string;

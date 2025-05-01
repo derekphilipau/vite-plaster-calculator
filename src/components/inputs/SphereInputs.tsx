@@ -3,10 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { formatNumber } from "@/lib/utils";
-
-function calculateSphereVolume(radius: number): number {
-  return (4 / 3) * Math.PI * Math.pow(radius, 3);
-}
+import { calculateSphereVolume } from "@/utils/volume";
 
 interface SphereInputProps {
   selectedUnits: string;

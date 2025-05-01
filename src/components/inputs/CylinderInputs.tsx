@@ -3,10 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { formatNumber } from "@/lib/utils";
-
-function calculateCylinderVolume(radius: number, height: number): number {
-  return Math.PI * Math.pow(radius, 2) * height;
-}
+import { calculateCylinderVolume } from "@/utils/volume";
 
 interface CylinderInputProps {
   selectedUnits: string;
