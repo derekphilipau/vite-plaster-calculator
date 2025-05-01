@@ -23,7 +23,8 @@
     "radius1": "Radio 1",
     "radius2": "Radio 2",
     "outerDiameter": "Diámetro Exterior",
-    "innerDiameter": "Diámetro Interior"
+    "innerDiameter": "Diámetro Interior",
+    "dimensionsError": "La dimensión debe ser mayor que 0"
   },
   "ResultsDisplay": {
     "keith": "Keith Simpson",

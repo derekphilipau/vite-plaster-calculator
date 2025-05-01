@@ -23,7 +23,8 @@
     "radius1": "Raggio 1",
     "radius2": "Raggio 2",
     "outerDiameter": "Diametro Esterno",
-    "innerDiameter": "Diametro Interno"
+    "innerDiameter": "Diametro Interno",
+    "dimensionsError": "La dimensione deve essere maggiore di 0"
   },
   "ResultsDisplay": {
     "keith": "Keith Simpson",

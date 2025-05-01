@@ -23,7 +23,8 @@
     "radius1": "半径1",
     "radius2": "半径2",
     "outerDiameter": "外径",
-    "innerDiameter": "内径"
+    "innerDiameter": "内径",
+    "dimensionsError": "尺寸必须大于0"
   },
   "ResultsDisplay": {
     "keith": "Keith Simpson",

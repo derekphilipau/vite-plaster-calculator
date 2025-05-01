@@ -23,7 +23,8 @@
     "radius1": "Radius 1",
     "radius2": "Radius 2",
     "outerDiameter": "Buitendiameter",
-    "innerDiameter": "Binnendiameter"
+    "innerDiameter": "Binnendiameter",
+    "dimensionsError": "Afmeting moet groter zijn dan 0"
   },
   "ResultsDisplay": {
     "keith": "Keith Simpson",

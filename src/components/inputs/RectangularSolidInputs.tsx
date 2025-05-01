@@ -53,7 +53,7 @@ export function RectangularSolidInputs({
     }
 
     if (length <= 0 || width <= 0 || height <= 0) {
-      setError("Dimensions must be greater than 0");
+      setError(t("VolumeCalculator.dimensionsError"));
       onVolumeChange(0);
       setVolume(0);
       return;
