@@ -265,55 +265,55 @@ export default function Notes({
           <a href="https://www.usg.com/content/usgcom/en/products/industrial/tool-prototype-casting/hydroperm-metal-casting-plaster.html">
             Hydroperm® Metal Casting Plaster
           </a>
-          ,
+          ,{" "}
           <a href="https://www.usg.com/content/usgcom/en/products/industrial/tool-prototype-casting/hydroperm-metal-casting-plaster.html">
             USG Hydroperm®
           </a>
-          ,
+          ,{" "}
           <a href="https://www.usg.com/content/usgcom/en/products/industrial/art-statuary/no-1-moulding-plaster.html">
             USG #1 Moulding
           </a>
-          ,
+          ,{" "}
           <a href="https://www.usg.com/content/usgcom/en/products/industrial/art-statuary/no-1-casting-plaster.html">
             USG #1 Casting
           </a>
-          ,
+          ,{" "}
           <a href="https://www.usg.com/content/usgcom/en/products/industrial/ceramics/no-1-pottery-plaster.html">
             USG #1 Pottery, White Art®
           </a>
-          ,
+          ,{" "}
           <a href="https://www.usg.com/content/usgcom/en/products/industrial/ceramics/puritan-pottery-plaster.html">
             USG Puritan® Pottery
           </a>
-          ,
+          ,{" "}
           <a href="https://www.usg.com/content/usgcom/en/products/industrial/ceramics/duramold-pottery-plaster.html">
             Duramold™ Pottery
           </a>
-          ,
+          ,{" "}
           <a href="https://www.usg.com/content/usgcom/en/products/industrial/art-statuary/tuf-cal-casting-statuary-plaster.html">
             Tuf-Cal™
           </a>
-          ,
+          ,{" "}
           <a href="https://www.usg.com/content/dam/USG_Marketing_Communications/united_states/product_promotional_materials/finished_assets/usg-hydrocal-A-11-Gypsum-Cement-Submittal-en-IG1390.pdf">
             USG Hydrocal® A-11
           </a>
-          ,
+          ,{" "}
           <a href="https://www.usg.com/content/usgcom/en/products/industrial/tool-prototype-casting/hydrocal-b-11-gypsum-cement.html">
             USG Hydrocal® B-11
           </a>
-          ,
+          ,{" "}
           <a href="https://plaster.com/product/usg-ultracal-30/">
             USG Ultracal® 30
           </a>
-          ,
+          ,{" "}
           <a href="https://plaster.com/product/usg-drystone/">
             USG Ultimate Drystone™
           </a>
-          ,
+          ,{" "}
           <a href="https://plaster.com/product/usg-hydrostone/">
             USG Hydro-Stone®
           </a>
-          ,
+          ,{" "}
           <a href="https://plaster.com/product/usg-hydro-stone-super-x/">
             USG Hydro-Stone® Super X
           </a>
@@ -326,31 +326,25 @@ export default function Notes({
         </p>
         <h3>Saint-Gobain Formula Plasters</h3>
         <p>
-          <a href="https://www.saintgobainformula.com/product/crystacal-r">
+          <a href="/downloads/Crystacal+R_NK_PDS_EN_20250203.pdf">
             Crystacal R
           </a>
-          ,
-          <a href="https://www.saintgobainformula.com/product/keramicast">
-            Keramicast
-          </a>
-          ,
-          <a href="https://www.saintgobainformula.com/product/newcast-96">
-            Newcast 96
-          </a>
-          ,
-          <a href="https://www.saintgobainformula.com/product/pottery-plaster">
+          ,{" "}
+          <a href="/downloads/Keramicast_NK_PDS_EN_20250206.pdf">Keramicast</a>,{" "}
+          <a href="/downloads/Newcast+96_NK_PDS_EN_20240103.pdf">Newcast 96</a>,{" "}
+          <a href="/downloads/Pottery+plaster_NK_PDS_EN_20230105.pdf">
             Pottery Plaster
           </a>
-          ,
-          <a href="https://www.saintgobainformula.com/product/fine-casting-plaster">
+          ,{" "}
+          <a href="/downloads/Fine+Casting+Plaster_NK_PDS_EN_20250206.pdf">
             Fine Casting Plaster
           </a>
-          ,
-          <a href="https://www.saintgobainformula.com/product/casting-plaster">
+          ,{" "}
+          <a href="/downloads/Casting+plaster_BPI_PDS_EN_20230103.pdf">
             Casting Plaster
           </a>
-          ,
-          <a href="https://www.saintgobainformula.com/product/molda-3-normal">
+          ,{" "}
+          <a href="/downloads/Molda+3+Normal_CS_PDS_EN_20231005.pdf">
             Molda 3 Normal
           </a>
         </p>
