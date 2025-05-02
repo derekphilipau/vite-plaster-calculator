@@ -59,10 +59,10 @@ export function ConicalFrustumInputs({
       className="flex flex-col items-center gap-2"
       onSubmit={(e) => e.preventDefault()}
     >
-      <div className="flex items-center gap-4 w-full">
+      <div className="flex items-center gap-2 w-full">
         <Label
           htmlFor="radius1"
-          className="grow min-w-20 text-sm font-medium leading-none"
+          className="grow text-sm font-medium leading-none"
         >
           {t("VolumeCalculator.radius1")} (r₁)
         </Label>
@@ -77,15 +77,13 @@ export function ConicalFrustumInputs({
           step="any"
           aria-label={`Radius 1 in ${selectedUnits}`}
         />
-        <span className="min-w-12 text-sm text-muted-foreground">
-          {selectedUnits}
-        </span>
+        <span className="text-sm text-muted-foreground">{selectedUnits}</span>
       </div>
 
-      <div className="flex items-center gap-4 w-full">
+      <div className="flex items-center gap-2 w-full">
         <Label
           htmlFor="radius2"
-          className="grow min-w-20 text-sm font-medium leading-none"
+          className="grow text-sm font-medium leading-none"
         >
           {t("VolumeCalculator.radius2")} (r₂)
         </Label>
@@ -99,15 +97,13 @@ export function ConicalFrustumInputs({
           step="any"
           aria-label={`Radius 2 in ${selectedUnits}`}
         />
-        <span className="min-w-12 text-sm text-muted-foreground">
-          {selectedUnits}
-        </span>
+        <span className="text-sm text-muted-foreground">{selectedUnits}</span>
       </div>
 
-      <div className="flex items-center gap-4 w-full">
+      <div className="flex items-center gap-2 w-full">
         <Label
           htmlFor="height"
-          className="grow min-w-20 text-sm font-medium leading-none"
+          className="grow text-sm font-medium leading-none"
         >
           {t("VolumeCalculator.height")} (h)
         </Label>
@@ -121,9 +117,7 @@ export function ConicalFrustumInputs({
           step="any"
           aria-label={`Height in ${selectedUnits}`}
         />
-        <span className="min-w-12 text-sm text-muted-foreground">
-          {selectedUnits}
-        </span>
+        <span className="text-sm text-muted-foreground">{selectedUnits}</span>
       </div>
 
       {error && (

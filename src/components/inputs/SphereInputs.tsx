@@ -52,10 +52,10 @@ export function SphereInputs({
       className="flex flex-col items-center gap-2"
       onSubmit={(e) => e.preventDefault()}
     >
-      <div className="flex items-center gap-4 w-full">
+      <div className="flex items-center gap-2 w-full">
         <Label
           htmlFor="radius"
-          className="grow min-w-20 text-sm font-medium leading-none"
+          className="grow text-sm font-medium leading-none"
         >
           {t("VolumeCalculator.radius")} (r)
         </Label>
@@ -70,9 +70,7 @@ export function SphereInputs({
           step="any"
           aria-label={`Radius in ${selectedUnits}`}
         />
-        <span className="min-w-12 text-sm text-muted-foreground">
-          {selectedUnits}
-        </span>
+        <span className="text-sm text-muted-foreground">{selectedUnits}</span>
       </div>
 
       {error && (

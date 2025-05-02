@@ -68,10 +68,10 @@ export function TubeInputs({ selectedUnits, onVolumeChange }: TubeInputProps) {
       className="flex flex-col items-center gap-2"
       onSubmit={(e) => e.preventDefault()}
     >
-      <div className="flex items-center gap-4 w-full">
+      <div className="flex items-center gap-2 w-full">
         <Label
           htmlFor="outerDiameter"
-          className="grow min-w-20 text-sm font-medium leading-none"
+          className="grow text-sm font-medium leading-none"
         >
           {t("VolumeCalculator.outerDiameter")} (d₁)
         </Label>
@@ -88,15 +88,13 @@ export function TubeInputs({ selectedUnits, onVolumeChange }: TubeInputProps) {
           step="any"
           aria-label={`Outer diameter in ${selectedUnits}`}
         />
-        <span className="min-w-12 text-sm text-muted-foreground">
-          {selectedUnits}
-        </span>
+        <span className="text-sm text-muted-foreground">{selectedUnits}</span>
       </div>
 
-      <div className="flex items-center gap-4 w-full">
+      <div className="flex items-center gap-2 w-full">
         <Label
           htmlFor="innerDiameter"
-          className="grow min-w-20 text-sm font-medium leading-none"
+          className="grow text-sm font-medium leading-none"
         >
           {t("VolumeCalculator.innerDiameter")} (d₂)
         </Label>
@@ -112,15 +110,13 @@ export function TubeInputs({ selectedUnits, onVolumeChange }: TubeInputProps) {
           step="any"
           aria-label={`Inner diameter in ${selectedUnits}`}
         />
-        <span className="min-w-12 text-sm text-muted-foreground">
-          {selectedUnits}
-        </span>
+        <span className="text-sm text-muted-foreground">{selectedUnits}</span>
       </div>
 
-      <div className="flex items-center gap-4 w-full">
+      <div className="flex items-center gap-2 w-full">
         <Label
           htmlFor="height"
-          className="grow min-w-20 text-sm font-medium leading-none"
+          className="grow text-sm font-medium leading-none"
         >
           {t("VolumeCalculator.height")} (h)
         </Label>
@@ -134,9 +130,7 @@ export function TubeInputs({ selectedUnits, onVolumeChange }: TubeInputProps) {
           step="any"
           aria-label={`Height in ${selectedUnits}`}
         />
-        <span className="min-w-12 text-sm text-muted-foreground">
-          {selectedUnits}
-        </span>
+        <span className="text-sm text-muted-foreground">{selectedUnits}</span>
       </div>
 
       {error && (

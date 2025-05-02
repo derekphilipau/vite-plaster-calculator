@@ -49,10 +49,10 @@ export function CubeInputs({ selectedUnits, onVolumeChange }: CubeInputProps) {
       className="flex flex-col items-center gap-2"
       onSubmit={(e) => e.preventDefault()}
     >
-      <div className="flex items-center gap-4 w-full">
+      <div className="flex items-center gap-2 w-full">
         <Label
           htmlFor="sideLength"
-          className="grow min-w-20 text-sm font-medium leading-none"
+          className="grow text-sm font-medium leading-none"
         >
           {t("VolumeCalculator.sideLength")} (a)
         </Label>
@@ -67,9 +67,7 @@ export function CubeInputs({ selectedUnits, onVolumeChange }: CubeInputProps) {
           step="any"
           aria-label={`Side length in ${selectedUnits}`}
         />
-        <span className="min-w-12 text-sm text-muted-foreground">
-          {selectedUnits}
-        </span>
+        <span className="text-sm text-muted-foreground">{selectedUnits}</span>
       </div>
 
       {error && (
