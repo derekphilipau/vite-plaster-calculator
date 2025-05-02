@@ -1,4 +1,7 @@
 {
+  "App": {
+    "title": "Calcolatore di Gesso"
+  },
   "Calculator": {
     "in": "Pollici",
     "cm": "Centimetri",

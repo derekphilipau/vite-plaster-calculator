@@ -1,4 +1,7 @@
 {
+  "App": {
+    "title": "Gips-Rechner"
+  },
   "Calculator": {
     "in": "Zoll",
     "cm": "Zentimeter",

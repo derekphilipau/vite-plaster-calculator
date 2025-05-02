@@ -59,7 +59,7 @@ export default function ResultsDisplay({
   const derekWaterG = derekWaterGrams(derekPlasterG, consistency);
 
   return (
-    <section className="grid gap-6 w-full">
+    <section className="grid gap-4 md:gap-6 w-full">
       <Card title={t("ResultsDisplay.keith")}>
         <Row label={t("ResultsDisplay.water")}>
           {formatNumber(keithWaterG, 0)} g

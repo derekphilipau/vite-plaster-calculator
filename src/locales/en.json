@@ -1,4 +1,7 @@
 {
+  "App": {
+    "title": "Plaster Calculator"
+  },
   "Calculator": {
     "in": "Inches",
     "cm": "Centimeters",

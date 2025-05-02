@@ -1,4 +1,7 @@
 {
+  "App": {
+    "title": "Calculadora de Yeso"
+  },
   "Calculator": {
     "in": "Pulgadas",
     "cm": "Centímetros",

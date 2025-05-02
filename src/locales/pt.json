@@ -1,4 +1,7 @@
 {
+  "App": {
+    "title": "Calculadora de Gesso"
+  },
   "Calculator": {
     "in": "Polegadas",
     "cm": "Centímetros",

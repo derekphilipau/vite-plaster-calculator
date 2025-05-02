@@ -1,4 +1,7 @@
 {
+  "App": {
+    "title": "Calculateur de Plâtre"
+  },
   "Calculator": {
     "in": "Pouces",
     "cm": "Centimètres",

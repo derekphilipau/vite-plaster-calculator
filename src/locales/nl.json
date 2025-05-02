@@ -1,4 +1,7 @@
 {
+  "App": {
+    "title": "Gipsberekening"
+  },
   "Calculator": {
     "in": "Inches",
     "cm": "Centimeters",
