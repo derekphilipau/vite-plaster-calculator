@@ -22,7 +22,7 @@ import { cn } from "@/lib/utils";
 import { CONSISTENCIES } from "@/data/consistencies";
 
 interface Props {
-  value: number; // current consistency
+  value: number;
   onChange: (v: number) => void;
   className?: string;
 }
@@ -34,20 +34,11 @@ export default function ConsistencyCombobox({
 }: Props) {
   const [open, setOpen] = React.useState(false);
 
-  // Find the USG #1 Pottery option to use as default
-  const defaultOption =
-    CONSISTENCIES.find((opt) => opt.id === "usg-1-pottery") || null;
-
-  const [selected, setSelect] = React.useState<
-    (typeof CONSISTENCIES)[number] | null
-  >(defaultOption);
-
-  // Call onChange with default value when component mounts
-  React.useEffect(() => {
-    if (defaultOption) {
-      onChange?.(defaultOption.value);
-    }
-  }, []);
+  /** Derive the currently selected option from `value` (controlled). */
+  const selected = React.useMemo(
+    () => CONSISTENCIES.find((opt) => opt.value === value) ?? null,
+    [value]
+  );
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -87,8 +78,7 @@ export default function ConsistencyCombobox({
                   // searchable by label *or* numeric value
                   value={`${opt.label.toLowerCase()} ${opt.value}`}
                   onSelect={() => {
-                    setSelect(opt); // remember whole option (includes id)
-                    onChange?.(opt.value); // still emit the numeric part
+                    onChange(opt.value);
                     setOpen(false);
                   }}
                   className="w-full"
