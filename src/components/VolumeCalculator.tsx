@@ -79,7 +79,7 @@ export function VolumeCalculator({
 
   return (
     <div className="flex flex-col gap-2 items-center w-full">
-      <div className="flex flex-wrap justify-center gap-3 w-full">
+      <div className="flex flex-wrap justify-center gap-2 w-full">
         {Object.entries(Shapes).map(([, shape]) => {
           const ShapeComponent = SHAPE_COMPONENTS[shape];
           return (
@@ -87,7 +87,7 @@ export function VolumeCalculator({
               key={shape}
               onClick={() => setSelectedShape(shape)}
               type="button"
-              className="h-14 md:size-20 bg-transparent border-none outline-none cursor-pointer"
+              className="size-14 md:size-20 p-1 bg-transparent border-none outline-none cursor-pointer"
             >
               <ShapeComponent
                 className={cn(
@@ -110,7 +110,7 @@ export function VolumeCalculator({
       <div className="w-full flex items-center justify-center">
         {(() => {
           const ShapeComponent = SHAPE_COMPONENTS[selectedShape];
-          return <ShapeComponent className="h-32" />;
+          return <ShapeComponent className="h-30" />;
         })()}
       </div>
 
