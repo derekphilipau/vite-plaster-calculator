@@ -5,7 +5,7 @@
   "Calculator": {
     "in": "Pulgadas",
     "cm": "Centímetros",
-    "volume": "Volumen calculado",
+    "volume": "Volumen",
     "manualConsistency": "Consistencia",
     "consistencyError": "La consistencia debe ser mayor que 0"
   },

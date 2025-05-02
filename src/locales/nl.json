@@ -5,7 +5,7 @@
   "Calculator": {
     "in": "Inches",
     "cm": "Centimeters",
-    "volume": "Berekend volume",
+    "volume": "Volume",
     "manualConsistency": "Consistentie",
     "consistencyError": "Consistentie moet groter zijn dan 0"
   },

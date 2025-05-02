@@ -90,19 +90,22 @@ export default function Calculator() {
 
       <div className="flex flex-col items-center gap-y-2 w-full">
         <div>
-          <div className="flex items-center gap-4 w-full">
-            <Label htmlFor="vol" className="text-sm font-medium leading-none">
+          <div className="flex items-center gap-2 w-full">
+            <Label
+              htmlFor="vol"
+              className="grow text-sm font-medium leading-none"
+            >
               {t("Calculator.volume")}
             </Label>
             <Input
               id="vol"
               type="number"
-              className="w-32"
+              className="w-30"
               value={manualVolume}
               onChange={(e) => setManualVolume(e.target.value)}
               aria-label={`Volume in ${selectedUnits}³`}
             />
-            <span className="text-sm">
+            <span className="text-sm text-muted-foreground">
               {selectedUnits}
               <sup>3</sup>
             </span>

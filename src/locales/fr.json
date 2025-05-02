@@ -5,7 +5,7 @@
   "Calculator": {
     "in": "Pouces",
     "cm": "Centimètres",
-    "volume": "Volume calculé",
+    "volume": "Volume",
     "manualConsistency": "Consistance",
     "consistencyError": "La consistance doit être supérieure à 0"
   },

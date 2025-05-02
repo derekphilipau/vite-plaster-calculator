@@ -5,7 +5,7 @@
   "Calculator": {
     "in": "英寸",
     "cm": "厘米",
-    "volume": "计算体积",
+    "volume": "体积",
     "manualConsistency": "稠度",
     "consistencyError": "稠度必须大于0"
   },
