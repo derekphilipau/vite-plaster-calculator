@@ -53,60 +53,60 @@ export function CylinderInputs({
   }
 
   return (
-    <form
-      className="flex flex-col items-center gap-2"
-      onSubmit={(e) => e.preventDefault()}
-    >
-      <div className="flex items-center gap-2 w-full">
-        <Label
-          htmlFor="radius"
-          className="grow text-sm font-medium leading-none"
-        >
-          {t("VolumeCalculator.radius")} (r)
-        </Label>
-        <Input
-          className="max-w-24"
-          id="radius"
-          autoFocus
-          type="number"
-          value={dimensions.radius ?? ""}
-          onChange={(e) => handleDimensionChange("radius", e.target.value)}
-          min="0"
-          step="any"
-          aria-label={`Radius in ${selectedUnits}`}
-        />
-        <span className="text-muted-foreground text-sm">{selectedUnits}</span>
-      </div>
+    <>
+      <form
+        className="flex flex-col items-center gap-2"
+        onSubmit={(e) => e.preventDefault()}
+      >
+        <div className="flex items-center gap-2 w-full">
+          <Label
+            htmlFor="radius"
+            className="grow text-sm font-medium leading-none"
+          >
+            {t("VolumeCalculator.radius")} (r)
+          </Label>
+          <Input
+            className="max-w-24"
+            id="radius"
+            autoFocus
+            type="number"
+            value={dimensions.radius ?? ""}
+            onChange={(e) => handleDimensionChange("radius", e.target.value)}
+            min="0"
+            step="any"
+            aria-label={`Radius in ${selectedUnits}`}
+          />
+          <span className="text-muted-foreground text-sm">{selectedUnits}</span>
+        </div>
 
-      <div className="flex items-center gap-2 w-full">
-        <Label
-          htmlFor="height"
-          className="grow text-sm font-medium leading-none"
-        >
-          {t("VolumeCalculator.height")} (h)
-        </Label>
-        <Input
-          className="max-w-24"
-          id="height"
-          type="number"
-          value={dimensions.height ?? ""}
-          onChange={(e) => handleDimensionChange("height", e.target.value)}
-          min="0"
-          step="any"
-          aria-label={`Height in ${selectedUnits}`}
-        />
-        <span className="text-sm text-muted-foreground">{selectedUnits}</span>
-      </div>
-
+        <div className="flex items-center gap-2 w-full">
+          <Label
+            htmlFor="height"
+            className="grow text-sm font-medium leading-none"
+          >
+            {t("VolumeCalculator.height")} (h)
+          </Label>
+          <Input
+            className="max-w-24"
+            id="height"
+            type="number"
+            value={dimensions.height ?? ""}
+            onChange={(e) => handleDimensionChange("height", e.target.value)}
+            min="0"
+            step="any"
+            aria-label={`Height in ${selectedUnits}`}
+          />
+          <span className="text-sm text-muted-foreground">{selectedUnits}</span>
+        </div>
+      </form>
       {error && (
-        <p className="text-sm text-destructive" role="alert">
+        <p className="w-full text-sm text-destructive text-center" role="alert">
           {error}
         </p>
       )}
-
       {!error && volume !== null && volume > 0 && (
         <div
-          className="text-sm text-muted-foreground"
+          className="w-full text-xs text-muted-foreground text-center"
           role="status"
           aria-live="polite"
           aria-label={`Volume equals pi times radius squared times height. With values: pi times ${dimensions.radius} squared times ${dimensions.height}, which equals ${formatNumber(volume)}`}
@@ -118,6 +118,6 @@ export function CylinderInputs({
           = <strong>{formatNumber(volume)}</strong>
         </div>
       )}
-    </form>
+    </>
   );
 }

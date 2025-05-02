@@ -108,11 +108,7 @@ export default function Calculator() {
             </span>
           </div>
         </div>
-        {echo && (
-          <div>
-            <small className="text-muted-foreground -mt-2">{echo}</small>
-          </div>
-        )}
+        {echo && <div className="text-xs text-muted-foreground">{echo}</div>}
       </div>
 
       <div className="">
@@ -157,7 +153,10 @@ export default function Calculator() {
           />
         </div>
         {consistencyError && (
-          <p className="text-sm text-destructive mt-1" role="alert">
+          <p
+            className="w-full text-sm text-destructive text-center mt-1"
+            role="alert"
+          >
             {consistencyError}
           </p>
         )}

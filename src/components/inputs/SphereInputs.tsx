@@ -48,40 +48,40 @@ export function SphereInputs({
   }
 
   return (
-    <form
-      className="flex flex-col items-center gap-2"
-      onSubmit={(e) => e.preventDefault()}
-    >
-      <div className="flex items-center gap-2 w-full">
-        <Label
-          htmlFor="radius"
-          className="grow text-sm font-medium leading-none"
-        >
-          {t("VolumeCalculator.radius")} (r)
-        </Label>
-        <Input
-          className="max-w-24"
-          id="radius"
-          autoFocus
-          type="number"
-          value={dimensions.radius}
-          onChange={(e) => handleDimensionChange(e.target.value)}
-          min="0"
-          step="any"
-          aria-label={`Radius in ${selectedUnits}`}
-        />
-        <span className="text-sm text-muted-foreground">{selectedUnits}</span>
-      </div>
-
+    <>
+      <form
+        className="flex flex-col items-center gap-2"
+        onSubmit={(e) => e.preventDefault()}
+      >
+        <div className="flex items-center gap-2 w-full">
+          <Label
+            htmlFor="radius"
+            className="grow text-sm font-medium leading-none"
+          >
+            {t("VolumeCalculator.radius")} (r)
+          </Label>
+          <Input
+            className="max-w-24"
+            id="radius"
+            autoFocus
+            type="number"
+            value={dimensions.radius}
+            onChange={(e) => handleDimensionChange(e.target.value)}
+            min="0"
+            step="any"
+            aria-label={`Radius in ${selectedUnits}`}
+          />
+          <span className="text-sm text-muted-foreground">{selectedUnits}</span>
+        </div>
+      </form>
       {error && (
-        <p className="text-sm text-destructive" role="alert">
+        <p className="w-full text-sm text-destructive text-center" role="alert">
           {error}
         </p>
       )}
-
       {!error && volume !== null && volume > 0 && (
         <div
-          className="text-sm text-muted-foreground"
+          className="w-full text-xs text-muted-foreground text-center"
           role="status"
           aria-live="polite"
           aria-label={`Volume equals four thirds pi times radius cubed. With value: four thirds pi times ${dimensions.radius} cubed, which equals ${formatNumber(volume)}`}
@@ -91,6 +91,6 @@ export function SphereInputs({
           <strong>{formatNumber(volume)}</strong>
         </div>
       )}
-    </form>
+    </>
   );
 }
