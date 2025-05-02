@@ -26,10 +26,16 @@ interface Props {
   volume: number;
   units: "in" | "cm";
   consistency: number;
+  canCalculate: boolean;
 }
-export default function ResultsDisplay({ volume, units, consistency }: Props) {
+export default function ResultsDisplay({
+  volume,
+  units,
+  consistency,
+  canCalculate,
+}: Props) {
   const { t } = useTranslation();
-  if (!volume) return null;
+  if (!canCalculate) return null;
 
   const volIn3 = units === "in" ? volume : cm3ToIn3(volume);
   const volCm3 = units === "cm" ? volume : in3ToCm3(volume);
@@ -115,7 +121,7 @@ function Card({
 }) {
   return (
     <div className="border p-4 rounded-md flex flex-col gap-2 items-center">
-      <h3 className="font-semibold text-highlight mb-2">{title}</h3>
+      <h3 className="font-semibold text-highlight text-center">{title}</h3>
       {children}
     </div>
   );

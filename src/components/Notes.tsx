@@ -24,12 +24,14 @@ interface NotesProps {
   volume: number;
   units: "in" | "cm";
   consistency: number;
+  canCalculate: boolean;
 }
 
 export default function Notes({
   volume,
   units,
   consistency: selectedConsistency,
+  canCalculate,
 }: NotesProps) {
   const { t } = useTranslation();
 
@@ -101,7 +103,7 @@ export default function Notes({
         <p>
           <Trans i18nKey="Notes.keithFormula" components={transComponents} />
         </p>
-        {volume > 0 && (
+        {canCalculate && (
           <p>
             {formatNumber(volumeCubicInches)} in<sup>3</sup> × 11 ={" "}
             <strong>{formatNumber(keithSimpsonGramsOfWater, 0)}</strong> g{" "}
@@ -146,7 +148,7 @@ export default function Notes({
           <em>{t("Notes.consistency")}</em> / 100 ={" "}
           <em>{t("Notes.poundsOfWater")}</em>
         </p>
-        {volume > 0 && (
+        {canCalculate && (
           <p>
             {t("Notes.ratio")} = (-0.00004 ×{" "}
             <strong>
@@ -180,7 +182,7 @@ export default function Notes({
         <p>
           <Trans i18nKey="Notes.andrewFormula" components={transComponents} />
         </p>
-        {volume > 0 && (
+        {canCalculate && (
           <p>
             {formatNumber(volumeCubicInches)} in<sup>3</sup> / 80 ={" "}
             <strong>{formatNumber(andrewMartinQuartsOfWater)}</strong>{" "}
@@ -204,7 +206,7 @@ export default function Notes({
         <p>
           <Trans i18nKey="Notes.campanaFormula" components={transComponents} />
         </p>
-        {volume > 0 && (
+        {canCalculate && (
           <p>
             {formatNumber(volumeCubicCentimeters)} cm<sup>3</sup> × 0.6 ={" "}
             <strong>{formatNumber(campanaGramsOfWater)}</strong> g{" "}
@@ -232,7 +234,7 @@ export default function Notes({
         <p>
           <Trans i18nKey="Notes.derekNotes" components={transComponents} />
         </p>
-        {volume > 0 && (
+        {canCalculate && (
           <p>
             <em>{t("Notes.volumeInCm3")}</em> × 15000 / 15860 ={" "}
             <strong>{formatNumber(derekGramsOfPlaster)}</strong>{" "}

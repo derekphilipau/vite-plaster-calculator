@@ -19,7 +19,7 @@ export default function Calculator() {
   const [selectedUnits, setSelectedUnits] = useState<"in" | "cm">(
     localeDefault
   );
-  const [consistency, setConsistency] = useState<number>(70);
+  const [consistency, setConsistency] = useState<string>("70");
   const [shapeVolume, setShapeVolume] = useState<number>(0);
   const [manualVolume, setManualVolume] = useState<string>("");
   const [consistencyError, setConsistencyError] = useState<string | null>(null);
@@ -32,9 +32,10 @@ export default function Calculator() {
   const volume =
     manualVolume.trim() !== "" ? parseNumber(manualVolume) : shapeVolume;
 
-  const handleConsistencyChange = (value: number) => {
-    setConsistency(value);
-    validateConsistency(value);
+  const handleConsistencyChange = (value: string | number) => {
+    const stringValue = typeof value === "number" ? String(value) : value;
+    setConsistency(stringValue);
+    validateConsistency(stringValue === "" ? 0 : Number(stringValue));
   };
 
   const validateConsistency = (value: number) => {
@@ -46,6 +47,13 @@ export default function Calculator() {
     } else {
       setConsistencyError(null);
     }
+  };
+
+  const canCalculate = (volume: number, consistency: number | string): boolean => {
+    const consistencyNum = typeof consistency === 'string' ?
+      (consistency === '' ? 0 : Number(consistency)) :
+      consistency;
+    return volume > 0 && consistencyNum > 0;
   };
 
   const echo = (() => {
@@ -113,8 +121,8 @@ export default function Calculator() {
       </div>
 
       <ConsistencyCombobox
-        value={consistency}
-        onChange={handleConsistencyChange}
+        value={consistency === "" ? 0 : Number(consistency)}
+        onChange={(v) => handleConsistencyChange(v)}
       />
 
       <div>
@@ -131,8 +139,8 @@ export default function Calculator() {
             className="w-24"
             min="1"
             step="any"
-            value={consistency.toString()}
-            onChange={(e) => handleConsistencyChange(Number(e.target.value))}
+            value={consistency}
+            onChange={(e) => handleConsistencyChange(e.target.value)}
             aria-invalid={!!consistencyError}
           />
         </div>
@@ -146,10 +154,16 @@ export default function Calculator() {
       <ResultsDisplay
         volume={volume}
         units={selectedUnits}
-        consistency={consistency}
+        consistency={consistency === "" ? 0 : Number(consistency)}
+        canCalculate={canCalculate(volume, consistency)}
       />
 
-      <Notes volume={volume} units={selectedUnits} consistency={consistency} />
+      <Notes
+        volume={volume}
+        units={selectedUnits}
+        consistency={consistency === "" ? 0 : Number(consistency)}
+        canCalculate={canCalculate(volume, consistency)}
+      />
     </div>
   );
 }
