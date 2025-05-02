@@ -4,10 +4,17 @@ export function allPresent(obj: Record<string, string>): boolean {
 
 export function positiveOnly(obj: Record<string, string>): string | null {
   for (const v of Object.values(obj)) {
-    if (!v) continue; // blank handled by allPresent
-    if (Number(v) <= 0) return "VolumeCalculator.dimensionsError";
+    if (!v) continue;
+    const n = Number(v);
+    if (!Number.isFinite(n) || n <= 0) {
+      return "VolumeCalculator.dimensionsError";
+    }
   }
   return null;
+}
+
+export function isPositive(n: unknown): n is number {
+  return typeof n === "number" && Number.isFinite(n) && n > 0;
 }
 
 export function innerLessThanOuter(

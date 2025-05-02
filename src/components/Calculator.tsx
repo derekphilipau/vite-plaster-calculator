@@ -10,6 +10,7 @@ import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { in3ToCm3, cm3ToIn3, in3ToFt3 } from "@/utils/conversions";
 import { formatNumber, parseNumber } from "@/lib/utils";
+import { isPositive } from "@/lib/validation";
 
 export default function Calculator() {
   const { t, i18n } = useTranslation();
@@ -29,8 +30,13 @@ export default function Calculator() {
     setSelectedUnits(/^en\b/i.test(i18n.language) ? "in" : "cm");
   }, [i18n.language]);
 
-  const volume =
-    manualVolume.trim() !== "" ? parseNumber(manualVolume) : shapeVolume;
+  const volume: number | null = (() => {
+    if (manualVolume.trim() !== "") {
+      const p = parseNumber(manualVolume);
+      return isPositive(p) ? p : null;
+    }
+    return shapeVolume ?? null;
+  })();
 
   const handleConsistencyChange = (value: string | number) => {
     const stringValue = typeof value === "number" ? String(value) : value;
@@ -39,7 +45,7 @@ export default function Calculator() {
   };
 
   const validateConsistency = (value: number) => {
-    if (value <= 0) {
+    if (!isPositive(value)) {
       setConsistencyError(
         t("Calculator.consistencyError") ||
           "Consistency must be greater than zero"
@@ -49,15 +55,21 @@ export default function Calculator() {
     }
   };
 
-  const canCalculate = (volume: number, consistency: number | string): boolean => {
-    const consistencyNum = typeof consistency === 'string' ?
-      (consistency === '' ? 0 : Number(consistency)) :
-      consistency;
-    return volume > 0 && consistencyNum > 0;
+  const canCalculate = (
+    volume: number | null,
+    consistency: number | string
+  ): boolean => {
+    const consistencyNum =
+      typeof consistency === "string"
+        ? consistency === ""
+          ? NaN
+          : Number(consistency)
+        : consistency;
+    return isPositive(volume) && isPositive(consistencyNum);
   };
 
   const echo = (() => {
-    if (!volume || Number.isNaN(volume)) return null;
+    if (!isPositive(volume)) return null;
     const in3 = selectedUnits === "in" ? volume : cm3ToIn3(volume);
     const cm3 = selectedUnits === "cm" ? volume : in3ToCm3(volume);
     const ft3 = in3ToFt3(in3);
@@ -152,14 +164,14 @@ export default function Calculator() {
       </div>
 
       <ResultsDisplay
-        volume={volume}
+        volume={volume ?? 0}
         units={selectedUnits}
         consistency={consistency === "" ? 0 : Number(consistency)}
         canCalculate={canCalculate(volume, consistency)}
       />
 
       <Notes
-        volume={volume}
+        volume={volume ?? 0}
         units={selectedUnits}
         consistency={consistency === "" ? 0 : Number(consistency)}
         canCalculate={canCalculate(volume, consistency)}
