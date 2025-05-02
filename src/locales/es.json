@@ -64,5 +64,9 @@
     "derekDisclaimer": "Experimental. ¡Necesita más datos!",
     "derekExplanation": "Este método se basa en lotes de prueba con cantidades conocidas de yeso y agua y mediciones precisas del volumen de yeso resultante. Actualmente solo se ha realizado una prueba con Pottery Plaster #1 a una consistencia de 70.",
     "derekNotes": "Notas: Con un lote de 15 kg de Pottery Plaster #1 fresco y 10,5 kg de agua (consistencia 70), el yeso se tamizó en el agua y luego se dejó reposar durante 1 minuto, después se mezcló con un taladro y un accesorio mezclador Jiffy durante 5 minutos, se mezcló a mano hasta que el yeso comenzó a fraguar, luego se vertió suavemente sobre una superficie plana y nivelada bordeada por guías formando un espacio rectangular de 45,7 cm × 82,63 cm, la losa de yeso resultante midió 45,7 cm × 82,63 cm × 4,2 cm, o <em>15860 cm<sup>3</sup></em>"
+  },
+  "Footer": {
+    "useful": "¿Le resulta útil?",
+    "support": "Apoye a Derek en Patreon"
   }
 }

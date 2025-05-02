@@ -64,5 +64,9 @@
     "derekDisclaimer": "Expérimental. Nécessite plus de données !",
     "derekExplanation": "Cette méthode est basée sur des lots d'essai avec des quantités connues de plâtre et d'eau et des mesures précises du volume de plâtre résultant. Actuellement, un seul test a été effectué avec du Pottery Plaster #1 à une consistance de 70.",
     "derekNotes": "Notes : Avec un lot de 15 kg de Pottery Plaster #1 frais et 10,5 kg d'eau (consistance 70), le plâtre a été tamisé dans l'eau puis trempé pendant 1 minute, puis mélangé avec une perceuse et un accessoire mélangeur Jiffy pendant 5 minutes, mélangé à la main jusqu'à ce que le plâtre commence à prendre, puis versé délicatement sur une surface plane et nivelée bordée de codilles formant un espace rectangulaire de 45,7 cm × 82,63 cm, la dalle de plâtre résultante mesurait 45,7 cm × 82,63 cm × 4,2 cm, soit <em>15860 cm<sup>3</sup></em>"
+  },
+  "Footer": {
+    "useful": "Vous trouvez cela utile ?",
+    "support": "Soutenez Derek sur Patreon"
   }
 }

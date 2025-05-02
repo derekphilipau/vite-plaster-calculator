@@ -85,7 +85,7 @@ export default function Notes({
   );
 
   return (
-    <section className="prose">
+    <section className="prose prose-neutral max-w-none">
       <div>
         <h2>{t("Notes.title")}</h2>
 
