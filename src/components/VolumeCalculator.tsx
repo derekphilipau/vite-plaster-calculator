@@ -18,12 +18,6 @@ import { ConicalFrustumInputs } from "./inputs/ConicalFrustumInputs";
 import { TubeInputs } from "./inputs/TubeInputs";
 import { cn } from "@/lib/utils";
 
-interface VolumeCalculatorProps {
-  selectedUnits?: string;
-  onVolumeChange?: (volume: number) => void;
-  onUnitsChange?: (units: string) => void;
-}
-
 type ShapeComponentType = React.ComponentType<{
   className?: string;
   isIcon?: boolean;
@@ -39,19 +33,21 @@ const SHAPE_COMPONENTS: Record<Shape, ShapeComponentType> = {
   [Shapes.SPHERE]: SphereShape,
 };
 
+interface VolumeCalculatorProps {
+  selectedUnits?: string;
+  onVolumeChange?: (volume: number) => void;
+}
+
 export function VolumeCalculator({
   selectedUnits = "in",
   onVolumeChange,
-  onUnitsChange,
 }: VolumeCalculatorProps) {
   const { t } = useTranslation();
-  const [volume, setVolume] = useState<number | null>(null);
   const [selectedShape, setSelectedShape] = useState<Shape>(
     Shapes.RECTANGULAR_SOLID
   );
 
   const handleVolumeChange = (newVolume: number | null) => {
-    setVolume(newVolume);
     if (newVolume !== null && onVolumeChange) {
       onVolumeChange(newVolume);
     }
@@ -84,7 +80,7 @@ export function VolumeCalculator({
   return (
     <div className="flex flex-col gap-2 items-center w-full">
       <div className="flex flex-wrap justify-center gap-2 w-full">
-        {Object.entries(Shapes).map(([key, shape]) => {
+        {Object.entries(Shapes).map(([, shape]) => {
           const ShapeComponent = SHAPE_COMPONENTS[shape];
           return (
             <button
