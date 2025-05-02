@@ -61,9 +61,9 @@
   --secondary: #e8e4d9; /* aged paper */
   --secondary-foreground: #3a3025;
   --muted: #e8e4d9;
-  --muted-foreground: #6b5f4e; /* lighter sepia */
-  --accent: #8b4513; /* saddle brown */
-  --accent-foreground: #f5f5dc;
+  --muted-foreground: #7d7160; /* lighter sepia for better readability */
+  --accent: #fbfbf0; /* much lighter brown */
+  --accent-foreground: #3a3025;
   --destructive: oklch(0.577 0.245 27.325);
   --border: #d3cbba; /* paper border */
   --input: #d3cbba;

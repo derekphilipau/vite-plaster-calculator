@@ -11,6 +11,7 @@ import { useTranslation } from "react-i18next";
 import { in3ToCm3, cm3ToIn3, in3ToFt3 } from "@/utils/conversions";
 import { formatNumber, parseNumber } from "@/lib/utils";
 import { isPositive } from "@/lib/validation";
+import { CONSISTENCIES } from "@/data/consistencies";
 
 export default function Calculator() {
   const { t, i18n } = useTranslation();
@@ -21,11 +22,13 @@ export default function Calculator() {
     localeDefault
   );
   const [consistency, setConsistency] = useState<string>("70");
+  const [selectedPlasterId, setSelectedPlasterId] = useState<string | null>(
+    () => CONSISTENCIES.find((opt) => opt.value === 70)?.id ?? null
+  );
   const [shapeVolume, setShapeVolume] = useState<number>(0);
   const [manualVolume, setManualVolume] = useState<string>("");
   const [consistencyError, setConsistencyError] = useState<string | null>(null);
 
-  // when the user changes language at runtime, update the unit radio
   useEffect(() => {
     setSelectedUnits(/^en\b/i.test(i18n.language) ? "in" : "cm");
   }, [i18n.language]);
@@ -38,10 +41,27 @@ export default function Calculator() {
     return shapeVolume ?? null;
   })();
 
-  const handleConsistencyChange = (value: string | number) => {
-    const stringValue = typeof value === "number" ? String(value) : value;
+  const handleConsistencyChange = (
+    newValue: string | number,
+    source: "combobox" | "manual" = "manual",
+    newId: string | null = null
+  ) => {
+    const stringValue =
+      typeof newValue === "number" ? String(newValue) : newValue;
+    const numericValue = stringValue === "" ? NaN : Number(stringValue);
+
     setConsistency(stringValue);
-    validateConsistency(stringValue === "" ? 0 : Number(stringValue));
+
+    if (source === "combobox") {
+      setSelectedPlasterId(newId);
+    } else {
+      const firstMatch = CONSISTENCIES.find(
+        (opt) => opt.value === numericValue
+      );
+      setSelectedPlasterId(firstMatch ? firstMatch.id : null);
+    }
+
+    validateConsistency(numericValue);
   };
 
   const validateConsistency = (value: number) => {
@@ -132,8 +152,11 @@ export default function Calculator() {
       </div>
 
       <ConsistencyCombobox
-        value={consistency === "" ? 0 : Number(consistency)}
-        onChange={(v) => handleConsistencyChange(v)}
+        selectedId={selectedPlasterId} // Pass the ID
+        onChange={(id, value) => {
+          // Receive ID and Value
+          handleConsistencyChange(value, "combobox", id); // Update state, indicate source
+        }}
       />
 
       <div>
@@ -151,7 +174,7 @@ export default function Calculator() {
             min="1"
             step="any"
             value={consistency}
-            onChange={(e) => handleConsistencyChange(e.target.value)}
+            onChange={(e) => handleConsistencyChange(e.target.value, "manual")}
             aria-invalid={!!consistencyError}
           />
         </div>

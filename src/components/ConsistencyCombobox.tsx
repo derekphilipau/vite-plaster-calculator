@@ -19,26 +19,27 @@ import {
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-import { CONSISTENCIES } from "@/data/consistencies";
+import { CONSISTENCIES, ConsistencyOption } from "@/data/consistencies";
 
 interface Props {
-  value: number;
-  onChange: (v: number) => void;
+  selectedId: string | null;
+  onChange: (id: string | null, value: number) => void;
   className?: string;
 }
 
 export default function ConsistencyCombobox({
-  value,
+  selectedId,
   onChange,
   className,
 }: Props) {
   const [open, setOpen] = React.useState(false);
 
-  /** Derive the currently selected option from `value` (controlled). */
   const selected = React.useMemo(
-    () => CONSISTENCIES.find((opt) => opt.value === value) ?? null,
-    [value]
+    () => CONSISTENCIES.find((opt) => opt.id === selectedId) ?? null,
+    [selectedId]
   );
+
+  const displayOption: ConsistencyOption | null = selected;
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -48,26 +49,26 @@ export default function ConsistencyCombobox({
           role="combobox"
           aria-expanded={open}
           className={cn(
-            "justify-between min-w-[280px] max-w-[380px]",
+            "bg-white text-base justify-between min-w-[280px] max-w-[380px]",
             className
           )}
         >
-          {selected ? (
+          {displayOption ? ( // Use displayOption
             <>
-              {selected.label}
+              {displayOption.label}
               <span className="ml-auto text-xs text-muted-foreground">
-                ({selected.consistency})
+                ({displayOption.consistency})
               </span>
             </>
           ) : (
-            "Choose a plaster type…"
+            "Choose a plaster type…" // Default text
           )}
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
 
       <PopoverContent className="w-full p-0">
-        <Command>
+        <Command className="bg-white">
           <CommandInput placeholder="Search plaster…" />
           <CommandList>
             <CommandEmpty>No match.</CommandEmpty>
@@ -76,23 +77,25 @@ export default function ConsistencyCombobox({
                 <CommandItem
                   key={opt.id}
                   // searchable by label *or* numeric value
-                  value={`${opt.label.toLowerCase()} ${opt.value}`}
+                  value={`${opt.label.toLowerCase()} ${opt.value}`} // Keep search value the same
                   onSelect={() => {
-                    onChange(opt.value);
+                    onChange(opt.id, opt.value); // Pass id and value back
                     setOpen(false);
                   }}
-                  className="w-full"
+                  className="w-full flex gap-2 items-center"
                 >
                   <Check
                     className={cn(
                       "mr-2 h-4 w-4",
-                      selected?.id === opt.id ? "opacity-100" : "opacity-0"
+                      selected?.id === opt.id ? "opacity-100" : "opacity-0" // Check against selected?.id
                     )}
                   />
-                  {opt.label}
-                  <span className="ml-auto text-xs text-muted-foreground">
-                    {opt.consistency}
-                  </span>
+                  <div className="flex flex-col">
+                    <div>{opt.label}</div>
+                    <div className="text-xs text-muted-foreground">
+                      Recommended consistency: {opt.consistency}
+                    </div>
+                  </div>
                 </CommandItem>
               ))}
             </CommandGroup>

@@ -1,4 +1,11 @@
-export const CONSISTENCIES = [
+export interface ConsistencyOption {
+  id: string;
+  value: number;
+  label: string;
+  consistency: string;
+}
+
+export const CONSISTENCIES: ConsistencyOption[] = [
   {
     id: "usg-metal-casting",
     value: 145,
@@ -171,7 +178,7 @@ export const CONSISTENCIES = [
   },
   {
     id: "saint-gobain-casting-plaster",
-    value: 70,
+    value: 68,
     label: "Saint-Gobain Casting Plaster",
     consistency: "68",
   },
