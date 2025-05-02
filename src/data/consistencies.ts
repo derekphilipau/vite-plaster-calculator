@@ -12,15 +12,15 @@ export const CONSISTENCIES = [
     consistency: "100",
   },
   {
-    id: "usg-1-moulding",
-    value: 70,
-    label: "USG #1 Moulding",
-    consistency: "70",
-  },
-  {
     id: "usg-1-pottery",
     value: 70,
     label: "USG #1 Pottery, White Art®",
+    consistency: "70",
+  },
+  {
+    id: "usg-1-moulding",
+    value: 70,
+    label: "USG #1 Moulding",
     consistency: "70",
   },
   {
