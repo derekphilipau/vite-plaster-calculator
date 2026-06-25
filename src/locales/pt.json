@@ -49,9 +49,9 @@
   },
   "Notes": {
     "title": "Notas",
-    "intro": "Usando o volume de um sólido, a Calculadora de Gesso permite estimar quanta gesso e água são necessários.",
+    "intro": "Usando o volume de um sólido, a Calculadora de Gesso permite estimar quanto gesso e água são necessários.",
     "consistencyNotes": "<em>A consistência do gesso</em> é a proporção de água para gesso expressa em partes de água por 100 partes de gesso. Uma consistência de 70 significa que você precisará de 70 partes de água para 100 partes de gesso. A consistência afeta a dureza do gesso. Consistências mais altas têm mais água e são mais macias, consistências mais baixas têm menos água e são mais duras.",
-    "disclaimer": "Cada marca de gesso tem um uso e consistência recomendados. Gessos comuns para cerâmica para moldes de colagem e prensagem, batedores e mesas de modelagem têm consistências médias de 67-70. (Isso inclui o Gesso para Cerâmica GP K60 e USG #1 Pottery.)",
+    "disclaimer": "Cada marca de gesso tem um uso e consistência recomendados. Gessos comuns para cerâmica para moldes de colagem e prensagem, placas e mesas de modelagem têm consistências médias de 67-70. (Isso inclui o Gesso para Cerâmica GP K60 e USG #1 Pottery.)",
     "links": "Links",
     "water": "água",
     "plaster": "gesso",
