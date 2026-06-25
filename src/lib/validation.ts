@@ -1,3 +1,5 @@
+import { parseNumber } from "@/lib/utils";
+
 export function allPresent(obj: Record<string, string>): boolean {
   return Object.values(obj).every((v) => v.trim() !== "");
 }
@@ -5,7 +7,7 @@ export function allPresent(obj: Record<string, string>): boolean {
 export function positiveOnly(obj: Record<string, string>): string | null {
   for (const v of Object.values(obj)) {
     if (!v) continue;
-    const n = Number(v);
+    const n = parseNumber(v);
     if (!Number.isFinite(n) || n <= 0) {
       return "VolumeCalculator.dimensionsError";
     }
@@ -22,5 +24,7 @@ export function innerLessThanOuter(
   inner: string
 ): string | null {
   if (!outer || !inner) return null;
-  return Number(inner) < Number(outer) ? null : "VolumeCalculator.d2LessThanD1";
+  return parseNumber(inner) < parseNumber(outer)
+    ? null
+    : "VolumeCalculator.d2LessThanD1";
 }

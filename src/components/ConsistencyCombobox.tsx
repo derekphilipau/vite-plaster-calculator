@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/command";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useTranslation } from "react-i18next";
 
 import { CONSISTENCIES, ConsistencyOption } from "@/data/consistencies";
 
@@ -32,6 +33,7 @@ export default function ConsistencyCombobox({
   onChange,
   className,
 }: Props) {
+  const { t } = useTranslation();
   const [open, setOpen] = React.useState(false);
 
   const selected = React.useMemo(
@@ -53,7 +55,7 @@ export default function ConsistencyCombobox({
             className
           )}
         >
-          {displayOption ? ( // Use displayOption
+          {displayOption ? (
             <>
               {displayOption.label}
               <span className="ml-auto text-xs text-muted-foreground">
@@ -61,7 +63,7 @@ export default function ConsistencyCombobox({
               </span>
             </>
           ) : (
-            "Choose a plaster type…" // Default text
+            t("Calculator.choosePlaster")
           )}
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
@@ -69,17 +71,16 @@ export default function ConsistencyCombobox({
 
       <PopoverContent className="w-full p-0">
         <Command className="bg-white">
-          <CommandInput placeholder="Search plaster…" />
+          <CommandInput placeholder={t("Calculator.searchPlaster")} />
           <CommandList>
-            <CommandEmpty>No match.</CommandEmpty>
+            <CommandEmpty>{t("Calculator.noPlasterMatch")}</CommandEmpty>
             <CommandGroup>
               {CONSISTENCIES.map((opt) => (
                 <CommandItem
                   key={opt.id}
-                  // searchable by label *or* numeric value
-                  value={`${opt.label.toLowerCase()} ${opt.value}`} // Keep search value the same
+                  value={`${opt.label.toLowerCase()} ${opt.value}`}
                   onSelect={() => {
-                    onChange(opt.id, opt.value); // Pass id and value back
+                    onChange(opt.id, opt.value);
                     setOpen(false);
                   }}
                   className="w-full flex gap-2 items-center"
@@ -93,7 +94,8 @@ export default function ConsistencyCombobox({
                   <div className="flex flex-col">
                     <div>{opt.label}</div>
                     <div className="text-xs text-muted-foreground">
-                      Recommended consistency: {opt.consistency}
+                      {t("Calculator.recommendedConsistency")}:{" "}
+                      {opt.consistency}
                     </div>
                   </div>
                 </CommandItem>

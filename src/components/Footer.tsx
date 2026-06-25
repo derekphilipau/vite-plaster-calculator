@@ -29,12 +29,10 @@ export default function Footer() {
         <a href="https://derekau.net">Derek Au</a>
       </p>
       <p>
-        <p>
-          {t("Footer.useful")}{" "}
-          <a href="https://www.patreon.com/join/derekau">
-            {t("Footer.support")}
-          </a>
-        </p>
+        {t("Footer.useful")}{" "}
+        <a href="https://www.patreon.com/join/derekau">
+          {t("Footer.support")}
+        </a>
       </p>
       <div className="mt-2 flex flex-wrap justify-center gap-x-3 gap-y-1">
         {LANGS.map((l) => (

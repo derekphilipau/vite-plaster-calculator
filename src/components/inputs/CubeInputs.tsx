@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { formatNumber } from "@/lib/utils";
+import { formatNumber, parseNumber } from "@/lib/utils";
 import { cubeVolume } from "@/utils/volume";
 import { allPresent, positiveOnly } from "@/lib/validation";
 
@@ -38,7 +38,7 @@ export function CubeInputs({ selectedUnits, onVolumeChange }: CubeInputProps) {
       return;
     }
 
-    const sideLength = Number(value);
+    const sideLength = parseNumber(value);
     const calculatedVolume = cubeVolume(sideLength);
     setVolume(calculatedVolume);
     onVolumeChange(calculatedVolume);
@@ -61,11 +61,10 @@ export function CubeInputs({ selectedUnits, onVolumeChange }: CubeInputProps) {
             className="max-w-24"
             id="sideLength"
             autoFocus
-            type="number"
+            type="text"
+            inputMode="decimal"
             value={dimensions.sideLength}
             onChange={(e) => handleDimensionChange(e.target.value)}
-            min="0"
-            step="any"
             aria-label={`Side length in ${selectedUnits}`}
           />
           <span className="text-sm text-muted-foreground">{selectedUnits}</span>

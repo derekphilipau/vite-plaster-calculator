@@ -7,7 +7,14 @@
     "cm": "Centimètres",
     "volume": "Volume",
     "manualConsistency": "Consistance",
-    "consistencyError": "La consistance doit être supérieure à 0"
+    "consistencyError": "La consistance doit être supérieure à 0",
+    "choosePlaster": "Choisir un type de plâtre...",
+    "searchPlaster": "Rechercher un plâtre...",
+    "noPlasterMatch": "Aucun résultat.",
+    "recommendedConsistency": "Consistance recommandée"
+  },
+  "LocaleSwitcher": {
+    "changeLanguage": "Changer de langue"
   },
   "VolumeCalculator": {
     "CUBE": "Cube",

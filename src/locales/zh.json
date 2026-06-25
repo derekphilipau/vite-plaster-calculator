@@ -7,7 +7,14 @@
     "cm": "厘米",
     "volume": "体积",
     "manualConsistency": "稠度",
-    "consistencyError": "稠度必须大于0"
+    "consistencyError": "稠度必须大于0",
+    "choosePlaster": "选择石膏类型...",
+    "searchPlaster": "搜索石膏...",
+    "noPlasterMatch": "没有匹配项。",
+    "recommendedConsistency": "推荐稠度"
+  },
+  "LocaleSwitcher": {
+    "changeLanguage": "更改语言"
   },
   "VolumeCalculator": {
     "CUBE": "立方体",

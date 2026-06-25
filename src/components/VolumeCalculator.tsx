@@ -35,7 +35,7 @@ const SHAPE_COMPONENTS: Record<Shape, ShapeComponentType> = {
 
 interface VolumeCalculatorProps {
   selectedUnits?: string;
-  onVolumeChange?: (volume: number) => void;
+  onVolumeChange?: (volume: number | null) => void;
 }
 
 export function VolumeCalculator({
@@ -48,12 +48,13 @@ export function VolumeCalculator({
   );
 
   const handleVolumeChange = (newVolume: number | null) => {
-    if (newVolume !== null && onVolumeChange) {
+    if (onVolumeChange) {
       onVolumeChange(newVolume);
     }
   };
 
   const renderShapeInputs = () => {
+    const inputKey = `${selectedUnits}:${selectedShape}`;
     const commonProps = {
       selectedUnits,
       onVolumeChange: handleVolumeChange,
@@ -61,19 +62,19 @@ export function VolumeCalculator({
 
     switch (selectedShape) {
       case Shapes.CONE:
-        return <ConeInputs {...commonProps} />;
+        return <ConeInputs key={inputKey} {...commonProps} />;
       case Shapes.CONICAL_FRUSTUM:
-        return <ConicalFrustumInputs {...commonProps} />;
+        return <ConicalFrustumInputs key={inputKey} {...commonProps} />;
       case Shapes.CUBE:
-        return <CubeInputs {...commonProps} />;
+        return <CubeInputs key={inputKey} {...commonProps} />;
       case Shapes.CYLINDER:
-        return <CylinderInputs {...commonProps} />;
+        return <CylinderInputs key={inputKey} {...commonProps} />;
       case Shapes.RECTANGULAR_SOLID:
-        return <RectangularSolidInputs {...commonProps} />;
+        return <RectangularSolidInputs key={inputKey} {...commonProps} />;
       case Shapes.SPHERE:
-        return <SphereInputs {...commonProps} />;
+        return <SphereInputs key={inputKey} {...commonProps} />;
       case Shapes.TUBE:
-        return <TubeInputs {...commonProps} />;
+        return <TubeInputs key={inputKey} {...commonProps} />;
     }
   };
 
@@ -85,7 +86,12 @@ export function VolumeCalculator({
           return (
             <button
               key={shape}
-              onClick={() => setSelectedShape(shape)}
+              onClick={() => {
+                if (shape === selectedShape) return;
+
+                setSelectedShape(shape);
+                handleVolumeChange(null);
+              }}
               type="button"
               className="size-14 md:size-20 p-1 bg-transparent border-none outline-none cursor-pointer"
             >

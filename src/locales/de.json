@@ -7,7 +7,14 @@
     "cm": "Zentimeter",
     "volume": "Volumen",
     "manualConsistency": "Konsistenz",
-    "consistencyError": "Konsistenz muss größer als 0 sein"
+    "consistencyError": "Konsistenz muss größer als 0 sein",
+    "choosePlaster": "Gipsart auswählen...",
+    "searchPlaster": "Gips suchen...",
+    "noPlasterMatch": "Keine Übereinstimmung.",
+    "recommendedConsistency": "Empfohlene Konsistenz"
+  },
+  "LocaleSwitcher": {
+    "changeLanguage": "Sprache ändern"
   },
   "VolumeCalculator": {
     "CUBE": "Würfel",

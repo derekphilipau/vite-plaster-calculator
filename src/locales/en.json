@@ -7,7 +7,14 @@
     "cm": "Centimeters",
     "volume": "Volume",
     "manualConsistency": "Consistency",
-    "consistencyError": "Consistency must be greater than 0"
+    "consistencyError": "Consistency must be greater than 0",
+    "choosePlaster": "Choose a plaster type...",
+    "searchPlaster": "Search plaster...",
+    "noPlasterMatch": "No match.",
+    "recommendedConsistency": "Recommended consistency"
+  },
+  "LocaleSwitcher": {
+    "changeLanguage": "Change language"
   },
   "VolumeCalculator": {
     "CUBE": "Cube",

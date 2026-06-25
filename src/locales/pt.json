@@ -7,7 +7,14 @@
     "cm": "Centímetros",
     "volume": "Volume",
     "manualConsistency": "Consistência",
-    "consistencyError": "A consistência deve ser maior que 0"
+    "consistencyError": "A consistência deve ser maior que 0",
+    "choosePlaster": "Escolha um tipo de gesso...",
+    "searchPlaster": "Buscar gesso...",
+    "noPlasterMatch": "Nenhuma correspondência.",
+    "recommendedConsistency": "Consistência recomendada"
+  },
+  "LocaleSwitcher": {
+    "changeLanguage": "Alterar idioma"
   },
   "VolumeCalculator": {
     "CUBE": "Cubo",

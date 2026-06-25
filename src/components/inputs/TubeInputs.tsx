@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { formatNumber } from "@/lib/utils";
+import { formatNumber, parseNumber } from "@/lib/utils";
 import { tubeVolume } from "@/utils/volume";
 import { allPresent, positiveOnly, innerLessThanOuter } from "@/lib/validation";
 
@@ -54,9 +54,9 @@ export function TubeInputs({ selectedUnits, onVolumeChange }: TubeInputProps) {
       return;
     }
 
-    const outerDiameter = Number(newDimensions.outerDiameter);
-    const innerDiameter = Number(newDimensions.innerDiameter);
-    const height = Number(newDimensions.height);
+    const outerDiameter = parseNumber(newDimensions.outerDiameter);
+    const innerDiameter = parseNumber(newDimensions.innerDiameter);
+    const height = parseNumber(newDimensions.height);
 
     const calculatedVolume = tubeVolume(outerDiameter, innerDiameter, height);
     setVolume(calculatedVolume);
@@ -80,13 +80,12 @@ export function TubeInputs({ selectedUnits, onVolumeChange }: TubeInputProps) {
             className="max-w-24"
             id="outerDiameter"
             autoFocus
-            type="number"
+            type="text"
+            inputMode="decimal"
             value={dimensions.outerDiameter ?? ""}
             onChange={(e) =>
               handleDimensionChange("outerDiameter", e.target.value)
             }
-            min="0"
-            step="any"
             aria-label={`Outer diameter in ${selectedUnits}`}
           />
           <span className="text-sm text-muted-foreground">{selectedUnits}</span>
@@ -102,13 +101,12 @@ export function TubeInputs({ selectedUnits, onVolumeChange }: TubeInputProps) {
           <Input
             className="max-w-24"
             id="innerDiameter"
-            type="number"
+            type="text"
+            inputMode="decimal"
             value={dimensions.innerDiameter ?? ""}
             onChange={(e) =>
               handleDimensionChange("innerDiameter", e.target.value)
             }
-            min="0"
-            step="any"
             aria-label={`Inner diameter in ${selectedUnits}`}
           />
           <span className="text-sm text-muted-foreground">{selectedUnits}</span>
@@ -124,11 +122,10 @@ export function TubeInputs({ selectedUnits, onVolumeChange }: TubeInputProps) {
           <Input
             className="max-w-24"
             id="height"
-            type="number"
+            type="text"
+            inputMode="decimal"
             value={dimensions.height ?? ""}
             onChange={(e) => handleDimensionChange("height", e.target.value)}
-            min="0"
-            step="any"
             aria-label={`Height in ${selectedUnits}`}
           />
           <span className="text-sm text-muted-foreground">{selectedUnits}</span>

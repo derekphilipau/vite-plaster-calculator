@@ -22,7 +22,7 @@ const LANGS = [
 ];
 
 export default function LocaleSwitcher({ className }: { className?: string }) {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [open, setOpen] = useState(false);
   const current = i18n.language.split("-")[0];
 
@@ -31,7 +31,7 @@ export default function LocaleSwitcher({ className }: { className?: string }) {
       <PopoverTrigger asChild>
         <Button variant="ghost" size="icon" className={className}>
           <Languages className="size-6" />
-          <span className="sr-only">Change language</span>
+          <span className="sr-only">{t("LocaleSwitcher.changeLanguage")}</span>
         </Button>
       </PopoverTrigger>
 

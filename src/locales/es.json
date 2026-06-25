@@ -7,7 +7,14 @@
     "cm": "Centímetros",
     "volume": "Volumen",
     "manualConsistency": "Consistencia",
-    "consistencyError": "La consistencia debe ser mayor que 0"
+    "consistencyError": "La consistencia debe ser mayor que 0",
+    "choosePlaster": "Elige un tipo de yeso...",
+    "searchPlaster": "Buscar yeso...",
+    "noPlasterMatch": "Sin coincidencias.",
+    "recommendedConsistency": "Consistencia recomendada"
+  },
+  "LocaleSwitcher": {
+    "changeLanguage": "Cambiar idioma"
   },
   "VolumeCalculator": {
     "CUBE": "Cubo",

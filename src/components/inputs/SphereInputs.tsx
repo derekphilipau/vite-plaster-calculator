@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { formatNumber } from "@/lib/utils";
+import { formatNumber, parseNumber } from "@/lib/utils";
 import { sphereVolume } from "@/utils/volume";
 import { allPresent, positiveOnly } from "@/lib/validation";
 
@@ -41,7 +41,7 @@ export function SphereInputs({
       return;
     }
 
-    const radius = Number(newDimensions.radius);
+    const radius = parseNumber(newDimensions.radius);
     const calculatedVolume = sphereVolume(radius);
     setVolume(calculatedVolume);
     onVolumeChange(calculatedVolume);
@@ -64,11 +64,10 @@ export function SphereInputs({
             className="max-w-24"
             id="radius"
             autoFocus
-            type="number"
+            type="text"
+            inputMode="decimal"
             value={dimensions.radius}
             onChange={(e) => handleDimensionChange(e.target.value)}
-            min="0"
-            step="any"
             aria-label={`Radius in ${selectedUnits}`}
           />
           <span className="text-sm text-muted-foreground">{selectedUnits}</span>

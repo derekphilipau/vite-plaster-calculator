@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { formatNumber } from "@/lib/utils";
+import { formatNumber, parseNumber } from "@/lib/utils";
 import { rectangularSolidVolume } from "@/utils/volume";
 import { allPresent, positiveOnly } from "@/lib/validation";
 
@@ -46,9 +46,9 @@ export function RectangularSolidInputs({
       return;
     }
 
-    const length = Number(newDimensions.length);
-    const width = Number(newDimensions.width);
-    const height = Number(newDimensions.height);
+    const length = parseNumber(newDimensions.length);
+    const width = parseNumber(newDimensions.width);
+    const height = parseNumber(newDimensions.height);
     const calculatedVolume = rectangularSolidVolume(length, width, height);
     setVolume(calculatedVolume);
     onVolumeChange(calculatedVolume);
@@ -71,11 +71,10 @@ export function RectangularSolidInputs({
             className="max-w-24"
             id="length"
             autoFocus
-            type="number"
+            type="text"
+            inputMode="decimal"
             value={dimensions.length}
             onChange={(e) => handleDimensionChange("length", e.target.value)}
-            min="0"
-            step="any"
             aria-label={`Length in ${selectedUnits}`}
           />
           <span className="text-sm text-muted-foreground">{selectedUnits}</span>
@@ -91,11 +90,10 @@ export function RectangularSolidInputs({
           <Input
             className="max-w-24"
             id="width"
-            type="number"
+            type="text"
+            inputMode="decimal"
             value={dimensions.width ?? ""}
             onChange={(e) => handleDimensionChange("width", e.target.value)}
-            min="0"
-            step="any"
             aria-label={`Width in ${selectedUnits}`}
           />
           <span className="text-sm text-muted-foreground">{selectedUnits}</span>
@@ -111,11 +109,10 @@ export function RectangularSolidInputs({
           <Input
             className="max-w-24"
             id="height"
-            type="number"
+            type="text"
+            inputMode="decimal"
             value={dimensions.height ?? ""}
             onChange={(e) => handleDimensionChange("height", e.target.value)}
-            min="0"
-            step="any"
             aria-label={`Height in ${selectedUnits}`}
           />
           <span className="text-sm text-muted-foreground">{selectedUnits}</span>

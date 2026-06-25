@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { formatNumber } from "@/lib/utils";
+import { formatNumber, parseNumber } from "@/lib/utils";
 import { frustumVolume } from "@/utils/volume";
 import { allPresent, positiveOnly } from "@/lib/validation";
 
@@ -46,9 +46,9 @@ export function ConicalFrustumInputs({
       return;
     }
 
-    const radius1 = Number(newDimensions.radius1);
-    const radius2 = Number(newDimensions.radius2);
-    const height = Number(newDimensions.height);
+    const radius1 = parseNumber(newDimensions.radius1);
+    const radius2 = parseNumber(newDimensions.radius2);
+    const height = parseNumber(newDimensions.height);
     const calculatedVolume = frustumVolume(radius1, radius2, height);
     setVolume(calculatedVolume);
     onVolumeChange(calculatedVolume);
@@ -71,11 +71,10 @@ export function ConicalFrustumInputs({
             className="max-w-24"
             id="radius1"
             autoFocus
-            type="number"
+            type="text"
+            inputMode="decimal"
             value={dimensions.radius1 ?? ""}
             onChange={(e) => handleDimensionChange("radius1", e.target.value)}
-            min="0"
-            step="any"
             aria-label={`Radius 1 in ${selectedUnits}`}
           />
           <span className="text-sm text-muted-foreground">{selectedUnits}</span>
@@ -91,11 +90,10 @@ export function ConicalFrustumInputs({
           <Input
             className="max-w-24"
             id="radius2"
-            type="number"
+            type="text"
+            inputMode="decimal"
             value={dimensions.radius2 ?? ""}
             onChange={(e) => handleDimensionChange("radius2", e.target.value)}
-            min="0"
-            step="any"
             aria-label={`Radius 2 in ${selectedUnits}`}
           />
           <span className="text-sm text-muted-foreground">{selectedUnits}</span>
@@ -111,11 +109,10 @@ export function ConicalFrustumInputs({
           <Input
             className="max-w-24"
             id="height"
-            type="number"
+            type="text"
+            inputMode="decimal"
             value={dimensions.height ?? ""}
             onChange={(e) => handleDimensionChange("height", e.target.value)}
-            min="0"
-            step="any"
             aria-label={`Height in ${selectedUnits}`}
           />
           <span className="text-sm text-muted-foreground">{selectedUnits}</span>

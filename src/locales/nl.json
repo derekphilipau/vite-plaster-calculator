@@ -7,7 +7,14 @@
     "cm": "Centimeters",
     "volume": "Volume",
     "manualConsistency": "Consistentie",
-    "consistencyError": "Consistentie moet groter zijn dan 0"
+    "consistencyError": "Consistentie moet groter zijn dan 0",
+    "choosePlaster": "Kies een gipstype...",
+    "searchPlaster": "Gips zoeken...",
+    "noPlasterMatch": "Geen match.",
+    "recommendedConsistency": "Aanbevolen consistentie"
+  },
+  "LocaleSwitcher": {
+    "changeLanguage": "Taal wijzigen"
   },
   "VolumeCalculator": {
     "CUBE": "Kubus",

@@ -26,7 +26,6 @@ export default function Calculator() {
   const [selectedPlasterId, setSelectedPlasterId] = useState<string | null>(
     () => CONSISTENCIES.find((opt) => opt.value === 70)?.id ?? null
   );
-  const [shapeVolume, setShapeVolume] = useState<number>(0);
   const [manualVolume, setManualVolume] = useState<string>("");
   const [consistencyError, setConsistencyError] = useState<string | null>(null);
 
@@ -35,8 +34,16 @@ export default function Calculator() {
       const p = parseNumber(manualVolume);
       return isPositive(p) ? p : null;
     }
-    return shapeVolume ?? null;
+    return null;
   })();
+
+  const handleUnitChange = (value: string) => {
+    const nextUnits = value as "in" | "cm";
+    if (nextUnits === selectedUnits) return;
+
+    setUnitPreference(nextUnits);
+    setManualVolume("");
+  };
 
   const handleConsistencyChange = (
     newValue: string | number,
@@ -45,7 +52,7 @@ export default function Calculator() {
   ) => {
     const stringValue =
       typeof newValue === "number" ? String(newValue) : newValue;
-    const numericValue = stringValue === "" ? NaN : Number(stringValue);
+    const numericValue = parseNumber(stringValue);
 
     setConsistency(stringValue);
 
@@ -80,7 +87,7 @@ export default function Calculator() {
       typeof consistency === "string"
         ? consistency === ""
           ? NaN
-          : Number(consistency)
+          : parseNumber(consistency)
         : consistency;
     return isPositive(volume) && isPositive(consistencyNum);
   };
@@ -100,8 +107,7 @@ export default function Calculator() {
       <VolumeCalculator
         selectedUnits={selectedUnits}
         onVolumeChange={(v) => {
-          setShapeVolume(v);
-          setManualVolume(v !== null ? Number(v).toFixed(2) : "");
+          setManualVolume(v !== null && v > 0 ? Number(v).toFixed(2) : "");
         }}
       />
 
@@ -116,7 +122,8 @@ export default function Calculator() {
             </Label>
             <Input
               id="vol"
-              type="number"
+              type="text"
+              inputMode="decimal"
               className="w-30"
               value={manualVolume}
               onChange={(e) => setManualVolume(e.target.value)}
@@ -134,7 +141,7 @@ export default function Calculator() {
       <div className="">
         <RadioGroup
           value={selectedUnits}
-          onValueChange={(value) => setUnitPreference(value as "in" | "cm")}
+          onValueChange={handleUnitChange}
           className="flex gap-4"
         >
           <div className="flex items-center space-x-2">
@@ -166,10 +173,9 @@ export default function Calculator() {
           </Label>
           <Input
             id="consistencyManual"
-            type="number"
+            type="text"
+            inputMode="decimal"
             className="w-24"
-            min="1"
-            step="any"
             value={consistency}
             onChange={(e) => handleConsistencyChange(e.target.value, "manual")}
             aria-invalid={!!consistencyError}
@@ -188,14 +194,14 @@ export default function Calculator() {
       <ResultsDisplay
         volume={volume ?? 0}
         units={selectedUnits}
-        consistency={consistency === "" ? 0 : Number(consistency)}
+        consistency={consistency === "" ? 0 : parseNumber(consistency)}
         canCalculate={canCalculate(volume, consistency)}
       />
 
       <Notes
         volume={volume ?? 0}
         units={selectedUnits}
-        consistency={consistency === "" ? 0 : Number(consistency)}
+        consistency={consistency === "" ? 0 : parseNumber(consistency)}
         canCalculate={canCalculate(volume, consistency)}
       />
     </div>
