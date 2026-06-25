@@ -202,9 +202,9 @@ export const CONSISTENCIES: ConsistencyOption[] = [
   },
   {
     id: "saint-gobain-formula-keramicast",
-    value: 36,
+    value: 56,
     label: "Saint-Gobain Formula Keramicast",
-    consistency: "36",
+    consistency: "56",
   },
   {
     id: "saint-gobain-formula-crystacal-r",

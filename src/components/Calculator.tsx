@@ -6,7 +6,7 @@ import ResultsDisplay from "./ResultsDisplay";
 import Notes from "./Notes";
 import { VolumeCalculator } from "./VolumeCalculator";
 import ConsistencyCombobox from "@/components/ConsistencyCombobox";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { in3ToCm3, cm3ToIn3, in3ToFt3 } from "@/utils/conversions";
 import { formatNumber, parseNumber } from "@/lib/utils";
@@ -18,9 +18,10 @@ export default function Calculator() {
 
   // pick default by locale: English = inches, everywhere else = centimetres
   const localeDefault: "in" | "cm" = /^en\b/i.test(i18n.language) ? "in" : "cm";
-  const [selectedUnits, setSelectedUnits] = useState<"in" | "cm">(
-    localeDefault
+  const [unitPreference, setUnitPreference] = useState<"in" | "cm" | null>(
+    null
   );
+  const selectedUnits = unitPreference ?? localeDefault;
   const [consistency, setConsistency] = useState<string>("70");
   const [selectedPlasterId, setSelectedPlasterId] = useState<string | null>(
     () => CONSISTENCIES.find((opt) => opt.value === 70)?.id ?? null
@@ -28,10 +29,6 @@ export default function Calculator() {
   const [shapeVolume, setShapeVolume] = useState<number>(0);
   const [manualVolume, setManualVolume] = useState<string>("");
   const [consistencyError, setConsistencyError] = useState<string | null>(null);
-
-  useEffect(() => {
-    setSelectedUnits(/^en\b/i.test(i18n.language) ? "in" : "cm");
-  }, [i18n.language]);
 
   const volume: number | null = (() => {
     if (manualVolume.trim() !== "") {
@@ -137,7 +134,7 @@ export default function Calculator() {
       <div className="">
         <RadioGroup
           value={selectedUnits}
-          onValueChange={(value) => setSelectedUnits(value as "in" | "cm")}
+          onValueChange={(value) => setUnitPreference(value as "in" | "cm")}
           className="flex gap-4"
         >
           <div className="flex items-center space-x-2">
